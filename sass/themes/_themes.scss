@@ -1,0 +1,12 @@
+@use '../abstracts/colors';
+
+$themes: (
+  light: (background-color: map-get(colors.$colors, colors.$white),
+    foreground: map-get(colors.$colors, colors.$primary),
+    primary: map-get(colors.$colors, colors.$primary),
+  ),
+  dark: (background: map-get(colors.$colors, colors.$black),
+    foreground: map-get(colors.$colors, colors.$white),
+    primary: map-get(colors.$colors, colors.$primary),
+  ),
+);

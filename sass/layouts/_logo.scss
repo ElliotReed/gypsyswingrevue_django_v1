@@ -1,0 +1,104 @@
+@use '../abstracts';
+
+.logo {
+  $ease: ease-in-out;
+  position: relative;
+  display: inline-flex;
+  gap: .4em;
+  z-index: 100;
+
+  img {
+    display: block;
+    width: 6em;
+    height: 3em;
+    filter: drop-shadow(0 3px 3px transparentize(abstracts.color(min), .47));
+  }
+
+  .gypsy {
+    opacity: 0;
+    transform: translate(-150%, 0);
+    animation: gypsy 1s 100ms $ease forwards, glow 1s 2s $ease alternate infinite;
+  }
+
+  .swing {
+    position: relative;
+    top: .4rem;
+    transform: translate(-10vh, -10vh);
+    transform-origin: 50%;
+    opacity: 0;
+    animation: swing 3s 400ms $ease forwards,
+      glow 1s 2333ms $ease alternate infinite;
+  }
+
+  .revue {
+    position: relative;
+    top: .3rem;
+    opacity: 0;
+    transform: translate(150%, 0);
+    animation: revue 1s 800ms $ease forwards, glow 1s 2666ms $ease alternate infinite;
+  }
+}
+
+@keyframes glow {
+  from {
+    opacity: 1;
+    transform: scale(1, 1)
+  }
+
+  to {
+    opacity: 0.9;
+    transform: scale(1, .98)
+  }
+}
+
+@keyframes gypsy {
+  from {
+    transform: translate(-150%, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: translate(-10vh, -10vh) rotate(90deg);
+  }
+
+  20% {
+    transform: translate(0vh, 0vh) rotate(-10deg);
+    opacity: 1;
+  }
+
+  40% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(-5deg);
+  }
+
+  80% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes revue {
+  from {
+    transform: translate(150%, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,6 @@
+@use "../abstracts";
+
+.container {
+  max-width: min(100% - abstracts.$spacer-md * 2, abstracts.$max-width);
+  margin-inline: auto;
+}

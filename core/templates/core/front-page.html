@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Gypsy Swing Revue | Colorado's Premier Gypsy Jazz Swing Band! | Weddings and Events in the Denver and Boulder Area
+{% endblock title %}
+
+{% block script %}
+<script defer src="{% static 'js/frontPage.js' %}"></script>
+{% endblock script %}
+
+{% block content %}
+
+<!-- <div class="curtain">
+  <div class="curtain__panel curtain__panel--left">
+    <div class="curtain__fold"></div>
+  </div>
+  <div class="curtain__panel curtain__panel--right">
+    <div class="curtain__fold"></div>
+  </div>
+</div> -->
+
+<div class="container">
+  <section class="panel feature">
+    <h1 class="heading">Colorado's Premier Gypsy Jazz Band</h1>
+
+    <div class="feature__inner">
+      <section data-viewer class="viewer">
+        {% include 'core/partials/viewer.html' with image_prefixes=image_prefixes %}
+      </section>
+      <section data-testimonial>
+        {% include 'core/partials/testimonials.html' with testimonials=testimonials %}
+      </section>
+    </div>
+  </section>
+</div>
+
+<!--SCHEDULE-->
+<ul class="accordion" data-accordion></ul>
+<!--false call to make accordion work-->
+<div id="schedule"></div>
+<!--schedule place holder-->
+<!-- <script>
+  $(function schedule() {
+    $("#schedule").html("<i class='fa fa-spinner fa-pulse'></i>").show();
+    var type = "2weeks";
+    var url = 'php/schedule-handler.php';
+    $.post(url, {
+      contentVar: type
+    }, function (data) {
+      $("#schedule").html(data).show();
+    });
+  });
+</script> -->
+<!--END SCHEDULE-->
+
+<!--MAIL LIST-->
+<div class="container">
+  <div class="panel subscribe">
+    <h2 class="heading">Join Our Mail List!</h4>
+      <p>We'll keep you up to date on special shows!</p>
+      <a href='/subscribe' class='link-as-button'>Subscribe</a>
+  </div>
+</div>
+</div>
+<!--END MAIL LIST-->
+
+<!--CONTACT-->
+<div class="container">
+  <div class="panel contact">
+    <h2 class="heading">Contact Us!</h4>
+      <div class="">
+        <subheader>303.745.7944</subheader>
+      </div>
+      <a href="/contact" class="link-as-button">Contact Us</a>
+  </div>
+</div>
+<!--END CONTACT-->
+
+{% endblock content %}

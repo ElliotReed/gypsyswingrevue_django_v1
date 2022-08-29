@@ -1,0 +1,7 @@
+@use '../abstracts';
+
+.heading {
+  font-size: abstracts.size(700);
+  font-weight: abstracts.$fw-lg;
+  color: abstracts.color(red, 500);
+}

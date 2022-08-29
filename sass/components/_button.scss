@@ -1,0 +1,133 @@
+@use '../abstracts';
+
+$button-background-color-default: abstracts.color(green, 500);
+$button-text-color-default: abstracts.color(brown, 100);
+
+@mixin button-link-common($size, $text-color, $bg-color, $shape) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  @if $size ==sm {
+    $wd-ht: 42px;
+    min-width: $wd-ht;
+    min-height: $wd-ht;
+  }
+
+  @if $size ==md {
+    $wd-ht: 60px;
+    min-width: $wd-ht;
+    min-height: $wd-ht;
+  }
+
+  @if $size ==lg {
+    $wd-ht: 72px;
+    min-width: $wd-ht;
+    min-height: $wd-ht;
+  }
+
+  font-weight: abstracts.$fw-md;
+  color: $text-color;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: abstracts.$border-radius;
+  background-color: $bg-color;
+  @include abstracts.padding-box;
+  // cursor: if($enable-button-pointers, pointer, null);
+  user-select: none;
+
+  transition: all abstracts.$duration-md ease-in-out;
+  cursor: pointer;
+  @include abstracts.shadow(1);
+
+  // @include border(shade($bg-color, 12%));
+
+  // background-image: linear-gradient(180deg, $bg-color 0%, tint($bg-color, 47%) 18%, $bg-color 100%);
+  // box-shadow: inset 0 0 3px rgba(shade($bg-color, 18%), 18%);
+  // cursor: if($enable-button-pointers, pointer, null);
+  // font-size: 1rem;
+  // line-height: 1.618;
+  // margin: $margin;
+  // margin: var(--margin) 0;
+  // text-decoration: if($link-decoration == none, null, none);
+  // line-height: 1.618;
+  // vertical-align: middle;
+  &:hover,
+  &:focus {
+    background: darken($bg-color, 8%);
+    @include abstracts.shadow(2);
+  }
+
+  &:focus {
+    @include abstracts.focus;
+  }
+
+  &:active {
+    background: darken($bg-color, 25%);
+    // @include boxShadow(get-color(base, dark));
+    transform: scale(1.012);
+  }
+
+  @if $shape ==pill {
+    @include pill;
+  }
+
+  @if $shape ==leaf {
+    @include leaf;
+  }
+}
+
+@mixin link-as-button($size: md, $bg-color: $button-background-color-default, $text-color: $button-text-color-default, $shape: default) {
+  @include button-link-common($size, $text-color, $bg-color, $shape);
+
+  &:hover {
+    text-decoration: underline;
+
+    i {
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin button($size: md, $bg-color: $button-background-color-default, $text-color: $button-text-color-default, $shape: "default") {
+  @include button-link-common($size, $text-color, $bg-color, $shape);
+
+  touch-action: manipulation;
+
+  &:hover:disabled {
+    letter-spacing: normal;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    // $disabledColor: rgba($neutral, 0.47);
+    // color: $disabledColor;
+  }
+}
+
+@mixin pill {
+  border-radius: 100vw;
+}
+
+@mixin leaf {
+  border-radius: 76% 12% / 200%;
+}
+
+
+@mixin btnPill($bg-color: get-color("neutral"), $text-color: $text_light) {
+  flex-grow: 0.25;
+  // background-color: get-color("neutral");
+  // @include boxShadow(get-color(base, dark));
+  border-radius: 100px;
+  // @include paddingBox;
+  // margin: $margin;
+  text-align: center;
+  // transition: all $duration ease-in-out;
+
+  &:hover {
+    // box-shadow: 0 3px 5px rgba(get-color(base, dark), 0.29);
+    transform: scaleX(1.03);
+    // background: get-color(main, dark);
+  }
+}

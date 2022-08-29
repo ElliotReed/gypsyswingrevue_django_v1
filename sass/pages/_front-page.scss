@@ -1,0 +1,42 @@
+@use "../abstracts";
+@use "../utilities";
+
+.feature {
+  display: block;
+  @include abstracts.flow;
+}
+
+.feature__inner {
+  position: relative;
+  display: grid;
+  gap: abstracts.$spacer-md;
+  grid-template-columns: 1fr;
+
+  @include abstracts.respondTo(tablet) {
+    grid-template-columns: 1fr 1.618fr;
+
+    :last-child {
+      grid-column: 1;
+      grid-row: 1
+    }
+  }
+}
+
+.subscribe,
+.contact {
+  @include abstracts.flow;
+
+  &>.heading {
+    font-size: abstracts.size(600);
+  }
+}
+
+.flex-video {
+  display: flex;
+  position: relative;
+  padding-top: 1.5625rem;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}

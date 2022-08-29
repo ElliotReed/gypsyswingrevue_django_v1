@@ -1,0 +1,83 @@
+@use '../abstracts';
+
+.curtain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+
+  &__panel {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    background: abstracts.color(red, 500);
+    border: 2px solid abstracts.color(red, 900);
+    width: 50vw;
+    height: 100%;
+    z-index: 3;
+    overflow: hidden;
+
+    .curtain__fold {
+      width: 100%;
+      background: repeating-linear-gradient(to left,
+          abstracts.color(red, 800) 0%,
+          abstracts.color(red, 200) 8%,
+          abstracts.color(red, 800) 15%);
+      z-index: 3;
+      opacity: .5;
+      box-shadow: -1em 0 1em hsla(50, 15%, 20%, .5);
+
+      @include abstracts.respondTo(tablet) {
+        background: repeating-linear-gradient(to left,
+            abstracts.color(red, 800) 0%,
+            abstracts.color(red, 200) 4%,
+            abstracts.color(red, 800) 10%);
+      }
+
+      @include abstracts.respondTo(desktop) {
+        background: repeating-linear-gradient(to left,
+            abstracts.color(red, 800) 0%,
+            abstracts.color(red, 200) 3%,
+            abstracts.color(red, 800) 7.5%);
+      }
+    }
+
+    $animation-parameters: 2s 2s ease forwards;
+
+    &--left {
+      animation: liftLeftCurtain $animation-parameters;
+    }
+
+    &--right {
+      animation: liftRightCurtain $animation-parameters;
+
+      .curtain__fold {
+        transform: scaleX(-1); // to reflect fold gradient
+      }
+    }
+  }
+}
+
+@keyframes liftLeftCurtain {
+  from {
+    border-radius: 0;
+    transform: translate(0, 0);
+  }
+
+  to {
+    border-radius: 0 0 500px 0;
+    transform: translate(-100%, -100%);
+  }
+}
+
+@keyframes liftRightCurtain {
+  from {
+    border-radius: 0;
+    transform: translate(0, 0);
+  }
+
+  to {
+    border-radius: 0 0 0 500px;
+    transform: translate(100%, -100%);
+  }
+}

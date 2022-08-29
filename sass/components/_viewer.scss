@@ -1,0 +1,49 @@
+@use "../abstracts";
+
+[data-viewer] {
+  position: relative;
+  border: 8px solid abstracts.color(max);
+  @include abstracts.shadow(2);
+
+  :last-child {
+    position: relative;
+  }
+
+  :first-child {
+    opacity: 1;
+  }
+
+  &>* {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+.show {
+  animation: bring-forward 2s forwards;
+}
+
+.hide {
+  animation: send-back 2s forwards;
+}
+
+@keyframes bring-forward {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes send-back {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

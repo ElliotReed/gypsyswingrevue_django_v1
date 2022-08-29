@@ -1,0 +1,290 @@
+@use "../base/typography";
+@use "variables";
+@use "colors";
+@use 'functions';
+
+// mixins
+@mixin appFixedContainer {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: 100vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+
+  // add to the scrollable content container
+  >.scrollabel-content {
+    overflow-y: auto;
+    @include scrollbar;
+    padding-bottom: variables.$spacer-md;
+  }
+}
+
+@mixin backgroundImage($size: 100%, $left: 0, $bottom: 0) {
+  &::before {
+    z-index: -1;
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    background: url(/components/common/Background/tree_2c.svg) no-repeat fixed;
+    background-size: $size;
+    // background-size: cover;
+    // background-clip: padding-box;
+    background-position: left $left bottom $bottom;
+    background-blend-mode: color-dodge;
+    // filter: blur(0.12rem);
+  }
+}
+
+@mixin borderRadius() {
+  border-radius: 1rem * $goldenRatioDecrease * $goldenRatioDecrease * $goldenRatioDecrease;
+}
+
+@mixin border($color: transparent, $width: 1px, $style: solid) {
+  border-width: $width;
+  border-color: $color;
+  border-style: $style;
+  @include borderRadius();
+}
+
+@mixin borderTest() {
+  border: 1px solid $errorColor;
+}
+
+@mixin flow {
+  &>*+* {
+    margin-top: variables.$spacer-md;
+  }
+}
+
+@mixin focus($color: colors.color(brown, 100)) {
+  outline: thin dotted $color;
+  outline-offset: 0.12em;
+}
+
+@mixin gradient($color) {
+  background-image: linear-gradient(173deg,
+      scale-color($color, $lightness: 10%) 0%,
+      scale-color($color, $lightness: 15%) 10%,
+      $color 62%,
+      scale-color($color, $lightness: -15%) 90%,
+      scale-color($color, $lightness: -10%) 100%);
+}
+
+@mixin input {
+  padding: get-size(300) * 1em get-size(400) * 1em;
+  margin: 0 0 $margin 0;
+  @include border($color: $primary);
+}
+
+@mixin padding-box($size: md) {
+  $padding-box-sm: .47em .76em;
+  $padding-box-md: .76em 1em;
+  $padding-box-lg: 1em 1.47em;
+
+  @if $size ==sm {
+    padding: $padding-box-sm;
+  }
+
+  @if $size ==md {
+    padding: $padding-box-md;
+  }
+
+  @if $size ==lg {
+    padding: $padding-box-lg;
+  }
+}
+
+@mixin triangle($direction, $size: 6px, $color: #222) {
+  /*
+  * @include triangle within a pseudo element and add positioning properties (ie. top, left)
+  * $direction: up, down, left, right
+  */
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+
+  @if ($direction =="up") {
+    border-bottom: $size solid $color;
+    border-left: 1/2 * $size solid transparent;
+    border-right: 1/2 * $size solid transparent;
+  }
+
+  @else if ($direction =="down") {
+    border-top: $size solid $color;
+    border-left: 1/2 * $size solid transparent;
+    border-right: 1/2 * $size solid transparent;
+  }
+
+  @else if ($direction =="left") {
+    border-top: 1/2 * $size solid transparent;
+    border-bottom: 1/2 * $size solid transparent;
+    border-right: $size solid $color;
+  }
+
+  @else if ($direction =="right") {
+    border-top: 1/2 * $size solid transparent;
+    border-bottom: 1/2 * $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+
+@mixin respondTo($media) {
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
+
+  // Breakpoints for each query
+  $smartphone: functions.px-to-rem(767px);
+  $tablet: functions.px-to-rem(768px);
+  $tabletLandscape: functions.px-to-rem(767px);
+  $tablet: functions.px-to-rem(900px);
+  $desktop: functions.px-to-rem(1080px);
+  $largeScreen: functions.px-to-rem(1800px);
+
+  @if $media ==smartphone {
+    @media (max-width: $smartphone) {
+      @content;
+    }
+  }
+
+  @else if $media ==tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  }
+
+  @else if $media ==tabletLandscape {
+    @media (min-width: $tabletLandscape) {
+      @content;
+    }
+  }
+
+  @else if $media ==desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+
+  @else if $media ==largeScreen {
+    @media (min-width: $largeScreen) {
+      @content;
+    }
+  }
+}
+
+@mixin enterAnimation() {
+  animation: softIn variables.$duration-md ease-out;
+
+  @keyframes softIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin scrollbar {
+  @include respondTo(tablet) {
+    &::-webkit-scrollbar {
+      width: variables.size(200);
+      // width: .47rem;
+      /* Mostly for vertical scrollbars */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: variables.$border-radius;
+      background: variables.$scrollbar-thumb-background;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      border: variables.$border;
+      background: variables.$scrollbar-thumb-background-hover;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: $box-shadow-inset;
+      background: variables.$scrollbar-track-background;
+    }
+  }
+}
+
+
+
+// region box-shadow ==========
+$box-shadow-inset: inset 0 0 functions.px-to-rem(8px) transparentize(black, .76);
+
+/**
+ * Computes a top-shadow
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+@function top-shadow($depth) {
+  $primary-offset: nth(1.5 3 10 14 19, $depth) * 1px;
+  $blur: nth(1.5 3 10 14 19, $depth) * 4px;
+  $color: rgba(black, nth(.12 .16 .19 .25 .30, $depth));
+
+  @return 0 $primary-offset $blur $color;
+}
+
+/**
+ * Computes a bottom-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+@function bottom-shadow($depth) {
+  $primary-offset: nth(1.5 3 6 10 15, $depth) * 1px;
+  $blur: nth(1 3 3 5 6, $depth) * 4px;
+  $color: rgba(black, nth(.24 .23 .23 .22 .22, $depth));
+
+  @return 0 $primary-offset $blur $color;
+}
+
+/**
+ * Gives a card depth effect.
+ *
+ * @param {Number} $depth - depth level (between 1 and 5)
+ *
+ * @link https://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+ *
+ * @requires {function} top-shadow
+ * @requires {function} bottom-shadow
+ */
+@mixin shadow($depth) {
+  @if $depth < 1 {
+    box-shadow: none;
+  }
+
+  @else if $depth >5 {
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+  }
+
+  @else {
+    box-shadow: bottom-shadow($depth), top-shadow($depth);
+  }
+}
+
+// endregion box-shadow ==========

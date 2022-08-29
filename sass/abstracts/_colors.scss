@@ -1,0 +1,136 @@
+/* colors, sass */
+// original colors
+$primary: #225522;
+$secondary: #887354;
+$tertiary: #552222;
+
+$min: #000;
+$max: #fff;
+$black: #222222;
+$white: invert($black);
+$base: mix($black, $white, 29%);
+
+
+$brown: hsl(50, 15%, 30%);
+$green: hsl(110, 15%, 30%);
+$gold: hsl(45, 89%, 82%);
+$red: hsl(0, 15%, 30%);
+
+
+// This variable must be outside of the colors map so the properties can reference it.
+@function tint($color, $percentage) {
+  $tintWhite: scale-color($color, $lightness: 76%);
+  @return mix($tintWhite, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  $tintBlack: scale-color($color, $lightness: -76%);
+  @return mix($tintBlack, $color, $percentage);
+}
+
+
+
+$brown-100: tint($brown, 76%);
+$brown-200: tint($brown, 47%);
+$brown-300: tint($brown, 29%);
+$brown-400: tint($brown, 18%);
+$brown-500: $brown;
+$brown-600: shade($brown, 18%);
+$brown-700: shade($brown, 29%);
+$brown-800: shade($brown, 47%);
+$brown-900: shade($brown, 76%);
+
+$green-100: tint($green, 76%);
+$green-200: tint($green, 47%);
+$green-300: tint($green, 29%);
+$green-400: tint($green, 18%);
+$green-500: $green;
+$green-600: shade($green, 18%);
+$green-700: shade($green, 29%);
+$green-800: shade($green, 47%);
+$green-900: shade($green, 76%);
+
+$gold-100: tint($gold, 76%);
+$gold-200: tint($gold, 47%);
+$gold-300: tint($gold, 29%);
+$gold-400: tint($gold, 18%);
+$gold-500: $gold;
+$gold-600: shade($gold, 18%);
+$gold-700: shade($gold, 29%);
+$gold-800: shade($gold, 47%);
+$gold-900: shade($gold, 76%);
+
+$red-100: tint($red, 76%);
+$red-200: tint($red, 47%);
+$red-300: tint($red, 29%);
+$red-400: tint($red, 18%);
+$red-500: $red;
+$red-600: shade($red, 18%);
+$red-700: shade($red, 29%);
+$red-800: shade($red, 47%);
+$red-900: shade($red, 76%);
+
+$colors: (
+  max: $max,
+  min: $min,
+  white: (100: $white, ),
+  black: (900: $black),
+  brown: (100: $brown-100,
+    200: $brown-200,
+    300: $brown-300,
+    400: $brown-400,
+    500: $brown-500,
+    600: $brown-600,
+    700: $brown-700,
+    800: $brown-800,
+    900: $brown-900,
+  ),
+  green: (100: $green-100,
+    200: $green-200,
+    300: $green-300,
+    400: $green-400,
+    500: $green-500,
+    600: $green-600,
+    700: $green-700,
+    800: $green-800,
+    900: $green-900,
+  ),
+  gold: (100: $gold-100,
+    200: $gold-200,
+    300: $gold-300,
+    400: $gold-400,
+    500: $gold-500,
+    600: $gold-600,
+    700: $gold-700,
+    800: $gold-800,
+    900: $gold-900,
+  ),
+  red: (100: $red-100,
+    200: $red-200,
+    300: $red-300,
+    400: $red-400,
+    500: $red-500,
+    600: $red-600,
+    700: $red-700,
+    800: $red-800,
+    900: $red-900,
+  ),
+
+  state: (info: #e9f1f9,
+    error: #884455,
+    warning: #888800,
+    success: #448855,
+  ),
+);
+
+
+
+@function color($keys...) {
+  $value: $colors;
+
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+
+  @return $value;
+}

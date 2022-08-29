@@ -1,0 +1,55 @@
+@use '../abstracts';
+
+[data-testimonial] {
+  position: relative;
+  min-height: 8em;
+  overflow: hidden;
+
+  :last-child {
+    position: relative;
+  }
+
+  :first-child {
+    transform: translateY(0);
+  }
+
+  &>* {
+    position: absolute;
+    min-height: 100%;
+    margin: 0;
+    font-weight: abstracts.$fw-md;
+    transform: translateY(-100%);
+
+
+
+    &.show {
+      animation: bring-in 2s forwards;
+    }
+
+    &.hide {
+      animation: send-out 1s forwards;
+    }
+  }
+}
+
+
+
+@keyframes bring-in {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes send-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}

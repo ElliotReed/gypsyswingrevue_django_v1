@@ -1,0 +1,19 @@
+.site-background {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/static/images/background-portrait-gtr-640-960.jpg');
+
+  @media screen and (orientation: portrait) and (min-width:768px) {
+    background-image: url('/static/images/background-portrait-gtr-768-1024.jpg');
+  }
+
+  @media screen and (orientation: landscape) {
+    background-image: url('/static/images/background-landscape-960-640.jpg');
+  }
+
+  @media screen and (orientation: landscape) and (min-width:768px) {
+    background-image: url('/static/images/background-landscape-1024-768.jpg');
+  }
+}

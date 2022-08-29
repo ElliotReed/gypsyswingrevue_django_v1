@@ -1,0 +1,9 @@
+{% load static %}
+
+{% for prefix in image_prefixes %}
+<picture>
+  <source media="(min-width: 1024px)" srcSet="{% static '' %}images/viewer/{{prefix}}_1024.jpg" />
+  <source media="(min-width: 768px)" srcSet="{% static '' %}images/viewer/{{prefix}}_768.jpg" />
+  <img src="{% static '' %}images/viewer/{{prefix}}_375.jpg" alt="Gypsy Swing Revue performing" />
+</picture>
+{% endfor %}

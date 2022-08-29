@@ -1,0 +1,15 @@
+{% for testimonial in testimonials %}
+<div>
+  <figure class="blockquote">
+    <blockquote>
+      {{testimonial.quote}}
+    </blockquote>
+    <figcaption>
+      <cite title="{{testimonial.title}}">
+        {{testimonial.cite}}
+      </cite>
+    </figcaption>
+  </figure>
+</div>
+
+{% endfor %}

@@ -1,0 +1,94 @@
+@use "../abstracts";
+@use "../themes";
+@use "typography";
+
+html {
+  box-sizing: border-box;
+  font-size: calc(.9375rem + 0.390625vw);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  min-block-size: 100vh;
+  font-family: typography.$fontStackSans;
+  line-height: abstracts.size(600);
+  color: abstracts.color(brown, 900);
+  background-color: black;
+  @include abstracts.appFixedContainer;
+  // @include abstracts.scrollbar;
+}
+
+a {
+  color: inherit;
+}
+
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+cite {
+  font-size: 0.76em;
+}
+
+// newline ideas to test
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+blockquote,
+figcaption {
+  max-width: 60ch;
+}
+
+:focus {
+  @include abstracts.focus;
+}

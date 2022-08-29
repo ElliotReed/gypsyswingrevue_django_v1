@@ -1,0 +1,24 @@
+@use '../abstracts';
+@use '../components/button';
+
+footer {
+  position: relative;
+  // margin-top: calc(abstracts.$spacer-md * -2);
+  background: transparentize(abstracts.color(min), .12);
+  z-index: 1;
+}
+
+.footer__nav {
+  display: flex;
+  @include abstracts.padding-box(sm);
+  justify-content: space-evenly;
+
+  a {
+    @include button.link-as-button(md, $bg-color: transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: abstracts.$fs-sm;
+  }
+}
