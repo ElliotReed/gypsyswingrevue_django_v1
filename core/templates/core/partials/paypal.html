@@ -1,0 +1,70 @@
+<div class="PayPal">
+  <p>{{album.price}}
+    <span class="small">includes shipping, </span>
+    <span class="safe small">(actual physical disk!)</span>
+    <br />
+    <span class="danger small"><b>Only available in the United States.</b></span>
+    <br />
+    <span class="safe small">
+      Purchases use secure, encrypted PayPal or credit card!
+    </span>
+  </p>
+
+  <div class="paypal__form-wrapper">
+    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="hosted_button_id" value={{album.paypalAddToCart}} />
+      <button type="submit" name="submit" class="paypal__btn" alt="PayPal - The safer, easier way to pay online!">
+        <span><i class="fas fa-shopping-cart"></i>&nbsp; Add to Cart</span>
+      </button>
+    </form>
+
+    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIG1QYJKoZIhvcNAQcEoIIGxjCCBsICAQEx
+          ggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFA
+          YDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA
+          1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0
+          BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYAbkDwUGDQ3D
+          LswUaLT90Jq1H4QKNm/BK36lKrQADfAM0NPrCXwwytSUAZTf0GKrytxezxMX5Q
+          NNN8BbC3sy6L5aEx9iONN3OMWslSb5GZf6+KMnvkRSput6Ael708mA4rhYMwHb
+          AAjqqqbVBhaZWG+TbH7YGXVUakWk9sqtVkPATELMAkGBSsOAwIaBQAwUwYJKoZ
+          IhvcNAQcBMBQGCCqGSIb3DQMHBAiz5uwPJ5br04AwWgBVCvRTJn5945HZFY3Aw
+          t2HzJJMt0giZ0KhCTnfgz2A0Gj+4uSBnNSoYiW+4bm5oIIDhzCCA4MwggLsoAM
+          CAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIE
+          wJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEl
+          uYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwG
+          gYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM
+          1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA
+          1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgN
+          VBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNA
+          QkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD
+          BR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0
+          uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSX
+          gbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrM
+          B0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSW
+          n3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBg
+          NVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQ
+          YWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcG
+          kxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB
+          /zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3Y
+          CDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw
+          /XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6
+          VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UE
+          CBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbC
+          BJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEc
+          MBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGA
+          YJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTYxMTIx
+          MjEwOTE0WjAjBgkqhkiG9w0BCQQxFgQU0LXBFyo0qhQqCKCTXPJvVRN8U/0wDQ
+          YJKoZIhvcNAQEBBQAEgYB8nkVVvLrzqOL+0dxxq8RpZs6S/fyw67BLY7eyul+t
+          7rLCbYYAv9A2U5jhVdmd6yNScXuHs06fsuv052XoqIyZBqawb+buhWP68plV3R
+          7T/bZ/XiQGGZo9i9SSdUItvEOEiTkgiZHOXrqwC+Haf415LAtbqf3EKZp1wPTK
+          Mxf1Mw==-----END PKCS7-----" />
+      <button type="submit" name="submit" class="paypal__btn" alt="PayPal - The safer, easier way to pay online!">
+        <span>
+          <i class="fas fa-shopping-cart"></i>&nbsp; View Cart
+        </span>
+      </button>
+    </form>
+  </div>
+</div>

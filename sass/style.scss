@@ -6,7 +6,7 @@
 @use "utilities";
 @use "layouts";
 
-button {
+.button {
   @include components.button;
 }
 

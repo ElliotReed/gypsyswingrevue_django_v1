@@ -204,27 +204,25 @@
 }
 
 @mixin scrollbar {
-  @include respondTo(tablet) {
-    &::-webkit-scrollbar {
-      width: variables.size(200);
-      // width: .47rem;
-      /* Mostly for vertical scrollbars */
-    }
+  &::-webkit-scrollbar {
+    width: variables.size(400);
+    // width: .47rem;
+    /* Mostly for vertical scrollbars */
+  }
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: variables.$border-radius;
-      background: variables.$scrollbar-thumb-background;
-    }
+  &::-webkit-scrollbar-thumb {
+    border-radius: variables.$border-radius;
+    background: variables.$scrollbar-thumb-background;
+  }
 
-    &::-webkit-scrollbar-thumb:hover {
-      border: variables.$border;
-      background: variables.$scrollbar-thumb-background-hover;
-    }
+  &::-webkit-scrollbar-thumb:hover {
+    border: variables.$border;
+    background: variables.$scrollbar-thumb-background-hover;
+  }
 
-    &::-webkit-scrollbar-track {
-      box-shadow: $box-shadow-inset;
-      background: variables.$scrollbar-track-background;
-    }
+  &::-webkit-scrollbar-track {
+    box-shadow: $box-shadow-inset;
+    background: variables.$scrollbar-track-background;
   }
 }
 

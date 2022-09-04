@@ -5,6 +5,10 @@
 Gypsy Swing Revue | Store
 {% endblock title %}
 
+{% block script %}
+<script defer src="{% static 'js/store.js' %}"></script>
+{% endblock script %}
+
 {% block content %}
 
 <div class="container">
@@ -24,149 +28,37 @@ Gypsy Swing Revue | Store
   </div>
 </div>
 
-<!--I Love Paris-->
+{% for album in albums %}
 <div class="container">
-  <div class="medium-12 columns">
-    <div class="panel mypanel">
-      <h5>I Love Paris</h5>
-
-      <div class="row">
-        <div class="medium-4 columns">
-          <img src="{% static '/images' %}/CD-ILoveParis.jpg" width="100%" height="100%" alt="" />
-        </div>
-
-        <div class="medium-4 columns">
-          <ol class="albumlist">
-            <li><a href="/store/ILoveParis/I Love Paris.mp3">I Love Paris</li>
-            <li>Cheek To Cheek</li>
-            <li>Beyond The Sea</li>
-            <li>Under Paris Skies</li>
-            <li><a href="/store/ILoveParis/Les Étoiles.mp3">Les Étoiles</li>
-            <li>Joseph! Joseph!</li>
-            <li>C'est Si Bon</li>
-            <li>Softly, As In A Morning Sunrise</li>
-            <li><a href="/store/ILoveParis/Happy Feet.mp3">Happy Feet</li>
-            <li><a href="/store/ILoveParis/C'est Magnifique.mp3">C'est Magnifique</li>
-            <li>La Vie En Rose</li>
-            <li>Exactly Like You</li>
-            <li>Digga Digga Doo</li>
-          </ol>
-        </div>
-
-        <div class="medium-4 columns">
-          <p>
-            I Love Paris<br>
-            $15.00<br>
-            includes shipping in the United States<br>
-          </p>
-          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="LT4ZSCYCFQGQ6">
-            <button type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Add to Cart</button>
-          </form>
-
-        </div>
-      </div>
+  <div class="AlbumSale panel">
+    <div class="album-sale__heading">
+      <h2 class="heading">{{album.title}}</h2>
     </div>
+    <div class="album-sale__cover">
+      <picture>
+        <img src="{% static 'images' %}/{{album.cover.mobile}}" alt="" />
+      </picture>
+    </div>
+    <ol class="track__list">
+      {% for track in album.songs %}
+      <li data-album="{{album.identifier}}">
+        <button data-title class="track__title"><span>{{track.title}}</span>
+          {% if track.source|length > 0 %}
+          <i class="fa-solid fa-play"></i>
+          {% endif %}
+        </button>
+        {% if track.source|length > 0 %}
+        <div data-track="{{track.track}}" class="track__player">
+          <audio controls src="{% static 'audio' %}/{{track.source}}">
+          </audio>
+        </div>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    {% include 'core/partials/paypal.html' with album=album %}
   </div>
 </div>
-<!--END I Love Paris-->
+{% endfor %}
 
-<!--Puttin' On The Ritz-->
-<div class="container">
-  <div class="medium-12 columns">
-    <div class="panel mypanel">
-      <h5>Puttin' On The Ritz</h5>
-      <div class="row">
-
-        <div class="medium-4 columns">
-          <img src="{% static '/images' %}/CD-PuttinOnTheRitz.jpg" width="100%" height="100%" alt="" />
-        </div>
-
-        <div class="medium-4 columns">
-          <ol class="albumlist">
-            <li>Coquette</li>
-            <li><a href="/store/PuttinOnTheRitz/ThereWillNeverBeAnotherYou.mp3">There Will Never Be Another You</li>
-            <li>Troublant Bolero</li>
-            <li><a href="/store/PuttinOnTheRitz/JoJoSwing.mp3">Jojo Swing</li>
-            <li><a href="/store/PuttinOnTheRitz/VipersDream.mp3">Viper's Dream</li>
-            <li>Zapala</li>
-            <li><a href="/store/PuttinOnTheRitz/Farewell.mp3">Farewell</li>
-            <li>Swing Gitan</li>
-            <li><a href="/store/PuttinOnTheRitz/NumberOne.mp3">Number One</li>
-            <li>Puttin' On the Ritz</li>
-            <li><a href="/store/PuttinOnTheRitz/UnfortunateRendezvous.mp3">Unfortunate Rendezvous</li>
-          </ol>
-
-        </div>
-
-        <div class="medium-4 columns">
-          <p>
-            Puttin' On The Ritz<br>
-            $15.00<br>
-            includes shipping in the United States<br>
-          </p>
-          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="CUTSUUYBYSZMG">
-            <button type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Add to Cart</button>
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--END Puttin' On The Ritz-->
-
-<!--Some Of These Days-->
-<div class="container">
-  <div class="medium-12 columns">
-    <div class="panel mypanel">
-      <h5>Some Of These Days</h5>
-
-      <div class="row">
-        <div class="medium-4 columns">
-          <img src="{% static '/images' %}/CD-SomeOfTheseDays.jpg" width="100%" height="100%" alt="" />
-        </div>
-
-        <div class="medium-4 columns">
-          <ol class="albumlist">
-            <li>Minor Swing</li>
-            <li><a href="/store/SomeOfTheseDays/SomeOfTheseDays.mp3">Some Of These Days</li>
-            <li><a href="/store/SomeOfTheseDays/ValseDeQuatroColinas.mp3">Vals De Cuatro Colinas</li>
-            <li><a href="/store/SomeOfTheseDays/BossaDorado.mp3">Bossa Dorado</li>
-            <li><a href="/store/SomeOfTheseDays/Jattendrai.mp3">J'attendrai</li>
-            <li>Dark Eyes</li>
-            <li>Melodie Au Crepuscule</li>
-            <li>Without That Gal</li>
-            <li>Melancholia</li>
-            <li>Avalon</li>
-            <li>Desperate</li>
-            <li><a href="/store/SomeOfTheseDays/StompinAtDecca.mp3">Stompin' At Decca</li>
-            <li>Russian Lullaby</li>
-            <li><a href="/store/SomeOfTheseDays/IveFoundANewBaby.mp3">I've Found A New Baby</li>
-          </ol>
-        </div>
-
-        <div class="medium-4 columns">
-          <p>
-            Some Of These Days<br>
-            $15.00<br>
-            includes shipping in the United States<br>
-          </p>
-          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="4S7C74RE6JH94">
-            <button type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Add to Cart</button>
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--END Some Of These Days-->
-
-</div>
 {% endblock content %}

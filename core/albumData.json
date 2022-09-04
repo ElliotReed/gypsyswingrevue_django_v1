@@ -1,0 +1,318 @@
+[
+  {
+    "title": "I Love Paris",
+    "artist": "Gypsy Swing Revue ft. Kristi Stice",
+    "cover": {
+      "mobile": "CD-ILoveParis-170-170.jpg",
+      "tablet": "CD-ILoveParis-270-270.jpg",
+      "desktop": "CD-ILoveParis.jpg"
+    },
+    "price": "$15.00",
+    "paypalAddToCart": "LT4ZSCYCFQGQ6",
+    "identifier": "i_love_paris",
+    "songs": [
+      {
+        "track": 1,
+        "title": "I Love Paris",
+        "source": "i_love_paris/i_love_paris.mp3"
+      },
+      {
+        "track": 2,
+        "title": "Cheek To Cheek",
+        "source": "i_love_paris/cheek_to_cheek.mp3"
+      },
+      {
+        "track": 3,
+        "title": "Beyond The Sea",
+        "source": "i_love_paris/beyond_the_sea.mp3"
+      },
+      {
+        "track": 4,
+        "title": "Under Paris Skies",
+        "source": "i_love_paris/under_paris_skies.mp3"
+      },
+      {
+        "track": 5,
+        "title": "Les Étoiles",
+        "source": "i_love_paris/les_etoiles.mp3"
+      },
+      {
+        "track": 6,
+        "title": "Joseph Joseph",
+        "source": "i_love_paris/joseph_joseph.mp3"
+      },
+      {
+        "track": 7,
+        "title": "C'est Si Bon",
+        "source": "i_love_paris/cest_si_bon.mp3"
+      },
+      {
+        "track": 8,
+        "title": "Softly, As In A Morning Sunrise",
+        "source": "i_love_paris/softly_as_in_a_morning_sunrise.mp3"
+      },
+      {
+        "track": 9,
+        "title": "Happy Feet",
+        "source": "i_love_paris/happy_feet.mp3"
+      },
+      {
+        "track": 10,
+        "title": "C'est Magnifique",
+        "source": "i_love_paris/cest_magnifique.mp3"
+      },
+      {
+        "track": 11,
+        "title": "La Vie En Rose",
+        "source": "i_love_paris/la_vie_en_rose.mp3"
+      },
+      {
+        "track": 12,
+        "title": "Exactly Like You",
+        "source": "i_love_paris/exactly_like_you.mp3"
+      },
+      {
+        "track": 13,
+        "title": "Digga Digga Doo",
+        "source": "i_love_paris/digga_digga_doo.mp3"
+      }
+    ]
+  },
+  {
+    "title": "Puttin' On The Ritz",
+    "artist": "Gypsy Swing Revue",
+    "cover": {
+      "mobile": "CD-PuttinOnTheRitz.jpg",
+      "tablet": "CD-PuttinOnTheRitz.jpg",
+      "desktop": "CD-PuttinOnTheRitz.jpg"
+    },
+    "price": "$15.00",
+    "paypalAddToCart": "CUTSUUYBYSZMG",
+    "identifier": "puttin_on_the_ritz",
+    "songs": [
+      {
+        "track": 1,
+        "title": "Coquette",
+        "source": ""
+      },
+      {
+        "track": 2,
+        "title": "There Will Never Be Another You",
+        "source": "puttin_on_the_ritz/ThereWillNeverBeAnotherYou.mp3"
+      },
+      {
+        "track": 3,
+        "title": "Troublant Bolero",
+        "source": ""
+      },
+      {
+        "track": 4,
+        "title": "Jojo Swing",
+        "source": "puttin_on_the_ritz/JojoSwing.mp3"
+      },
+      {
+        "track": 5,
+        "title": "Viper's Dream",
+        "source": "puttin_on_the_ritz/VipersDream.mp3"
+      },
+      {
+        "track": 6,
+        "title": "Zapala",
+        "source": ""
+      },
+      {
+        "track": 7,
+        "title": "Farewell",
+        "source": "puttin_on_the_ritz/Farewell.mp3"
+      },
+      {
+        "track": 8,
+        "title": "Swing Gitane",
+        "source": ""
+      },
+      {
+        "track": 9,
+        "title": "Number One",
+        "source": "puttin_on_the_ritz/NumberOne.mp3"
+      },
+      {
+        "track": 10,
+        "title": "Puttin' On The Ritz",
+        "source": ""
+      },
+      {
+        "track": 11,
+        "title": "Unfortunate Rendezvous",
+        "source": "puttin_on_the_ritz/UnfortunateRendezvous.mp3"
+      }
+    ]
+  },
+  {
+    "title": "Some Of These Days",
+    "artist": "Gypsy Swing Revue",
+    "cover": {
+      "mobile": "CD-SomeOfTheseDays.jpg",
+      "tablet": "CD-SomeOfTheseDays.jpg",
+      "desktop": "CD-SomeOfTheseDays.jpg"
+    },
+    "price": "$15.00",
+    "paypalAddToCart": "4S7C74RE6JH94",
+    "identifier": "some_of_these_days",
+    "songs": [
+      {
+        "track": 1,
+        "title": "Minor Swing",
+        "source": ""
+      },
+      {
+        "track": 2,
+        "title": "Some Of These Days",
+        "source": "some_of_these_days/SomeOfTheseDays.mp3"
+      },
+      {
+        "track": 3,
+        "title": "Vals De Cuatro Colinas",
+        "source": "some_of_these_days/ValsDeCuatroColinas.mp3"
+      },
+      {
+        "track": 4,
+        "title": "Bossa Dorado",
+        "source": "some_of_these_days/BossaDorado.mp3"
+      },
+      {
+        "track": 5,
+        "title": "J'attendrai",
+        "source": "some_of_these_days/Jattendrai.mp3"
+      },
+      {
+        "track": 6,
+        "title": "Dark Eyes",
+        "source": ""
+      },
+      {
+        "track": 7,
+        "title": "Melodie Au Crepuscule",
+        "source": ""
+      },
+      {
+        "track": 8,
+        "title": "Without That Gal",
+        "source": ""
+      },
+      {
+        "track": 9,
+        "title": "Melancholia",
+        "source": ""
+      },
+      {
+        "track": 10,
+        "title": "Avalon",
+        "source": ""
+      },
+      {
+        "track": 11,
+        "title": "Desperate",
+        "source": ""
+      },
+      {
+        "track": 12,
+        "title": "Stompin' At Decca",
+        "source": "some_of_these_days/StompinAtDecca.mp3"
+      },
+      {
+        "track": 13,
+        "title": "Russian Lullaby",
+        "source": ""
+      },
+      {
+        "track": 14,
+        "title": "I've Found A New Baby",
+        "source": "some_of_these_days/IveFoundANewBaby.mp3"
+      }
+    ]
+  },
+  {
+    "title": "Under Paris Skies",
+    "artist": "Lannie Garrett with Gypsy Swing Revue",
+    "cover": {
+      "mobile": "CD-ILoveParis-170-170.jpg",
+      "tablet": "CD-ILoveParis-270-270.jpg",
+      "desktop": "CD-ILoveParis.jpg"
+    },
+    "price": "Out of print.",
+    "paypalAddToCart": "",
+    "identifier": "under_paris_skies",
+    "songs": [
+      {
+        "track": 1,
+        "title": "What A Night",
+        "source": ""
+      },
+      {
+        "track": 2,
+        "title": "Just You, Just Me",
+        "source": ""
+      },
+      {
+        "track": 3,
+        "title": "C'est Si Bon",
+        "source": ""
+      },
+      {
+        "track": 4,
+        "title": "Bei Mir Bist Du Schoen",
+        "source": ""
+      },
+      {
+        "track": 5,
+        "title": "Under Paris Skies",
+        "source": ""
+      },
+      {
+        "track": 6,
+        "title": "Ain'tcha Got Music",
+        "source": ""
+      },
+      {
+        "track": 7,
+        "title": "La Mer",
+        "source": ""
+      },
+      {
+        "track": 8,
+        "title": "La Vie En Rose",
+        "source": ""
+      },
+      {
+        "track": 9,
+        "title": "Who",
+        "source": ""
+      },
+      {
+        "track": 10,
+        "title": "Nature Boy",
+        "source": ""
+      },
+      {
+        "track": 11,
+        "title": "When I Grow Too Old To Dream",
+        "source": ""
+      },
+      {
+        "track": 12,
+        "title": "Plenty Of Money And You",
+        "source": ""
+      },
+      {
+        "track": 13,
+        "title": "Moonglow",
+        "source": ""
+      },
+      {
+        "track": 14,
+        "title": "I Hope Gabriel Likes My Music",
+        "source": ""
+      }
+    ]
+  }
+]

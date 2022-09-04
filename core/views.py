@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from django.views import View
+import json
 
 
 class StoreView(View):
-    template_name = "core\store.html"
+    template_name = "core/store.html"
+    album_file = open("core/albumData.json", "r", encoding="utf-8")
+    albums = json.loads(album_file.read())
+    context = {"albums": albums}
 
     def get(self, request):
-        return render(request, self.template_name)
+        return render(request, self.template_name, self.context)
 
 
 def index(request):

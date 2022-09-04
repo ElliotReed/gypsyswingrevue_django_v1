@@ -1,0 +1,110 @@
+@use '../abstracts';
+@use '../components';
+
+
+.AlbumSale {
+  display: grid;
+  grid-template-columns: 1fr 1.68fr;
+}
+
+.album-sale__heading {
+  grid-column: 1 / 3;
+}
+
+.PayPal {
+  grid-column: 1 / 3;
+  display: flex;
+}
+
+.PayPal p {
+  max-width: 50%;
+}
+
+.paypal__form-wrapper {
+  display: block;
+}
+
+.paypal__btn {
+  display: flex;
+  margin: abstracts.$spacer-md;
+  @include abstracts.padding-box(md);
+  justify-content: center;
+  font-size: abstracts.$fs-sm;
+  width: 100%;
+  /* min-width: 7em; */
+  border: 1px solid transparent;
+  border-radius: abstracts.$border-radius;
+  color: abstracts.color(white, 100);
+  background: abstracts.color(green, 500);
+}
+
+.paypal__btn:hover {
+  cursor: pointer;
+  border: 1px solid abstracts.color(green, 600);
+  background: abstracts.color(green, 600);
+  @include abstracts.shadow(1);
+
+}
+
+.album__cover--container {
+  perspective: 100em;
+  margin: 2em;
+  transform-style: preserve-3d;
+}
+
+.album-sale__cover {
+  grid-column: 1;
+  transition: all .5s ease;
+  transform: rotateX(0deg);
+  transform-origin: bottom;
+}
+
+.album-sale__cover:hover {
+  transform: rotateX(-5deg);
+}
+
+.albumlist {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.albumlist li:hover {
+  color: abstracts.color(brown, 900);
+}
+
+.albumlist li {
+  color: abstracts.color(brown, 900);
+}
+
+.track__list {
+  $transition-properties: .12s ease-in-out;
+
+  .track__title {
+    @include components.button($bg-color: transparent, $text-color: abstracts.color(brown, 900));
+    box-shadow: none;
+
+    span,
+    i {
+      pointer-events: none;
+    }
+
+    span {
+      padding-right: abstracts.$spacer-md;
+    }
+
+    i {
+      transition: transform $transition-properties;
+    }
+  }
+
+  .track__player {
+    height: 0;
+    overflow: hidden;
+    transition: height $transition-properties;
+  }
+
+  .show-player {
+    height: 60px;
+  }
+}
