@@ -5,6 +5,7 @@ const titleButtons = document.querySelectorAll('[data-title]');
 const audioPlayers = document.querySelectorAll('[data-track]');
 
 const iconTransform = 'rotate(90deg)';
+const SHOW_CLASS = 'show-player';
 
 titleButtons.forEach(
   titleButton=> titleButton.addEventListener('click', toggleAudioPlayer)
@@ -28,7 +29,7 @@ function toggleAudioPlayer(e) {
 
 function hideAllPLayers() {
   audioPlayers.forEach(audioPlayer => {
-    if (audioPlayer.classList.contains('show-player')) {
+    if (audioPlayer.classList.contains(SHOW_CLASS) ){
       audioPlayer.classList.remove('show-player');
     }
   });
