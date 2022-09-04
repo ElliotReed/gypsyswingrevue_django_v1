@@ -1,11 +1,9 @@
+const ICON_TRANSFORM = 'rotate(90deg)';
+const SHOW_PLAYER_CLASS = 'show-player';
+
 const audioTrackList = document.querySelectorAll('[data-album]');
-
 const titleButtons = document.querySelectorAll('[data-title]');
-
 const audioPlayers = document.querySelectorAll('[data-track]');
-
-const iconTransform = 'rotate(90deg)';
-const SHOW_CLASS = 'show-player';
 
 titleButtons.forEach(
   titleButton=> titleButton.addEventListener('click', toggleAudioPlayer)
@@ -15,22 +13,22 @@ function toggleAudioPlayer(e) {
   const titleButton = e.target;
   const icon = titleButton.querySelector('i');
   const audioPlayer = e.target.nextElementSibling;
-  const isCurrentPlayer = audioPlayer?.classList.contains('show-player');
+  const isCurrentPlayer = audioPlayer?.classList.contains(SHOW_PLAYER_CLASS);
   hideAllPLayers();
   resetAllIconsPosition();
 
-  if (isCurrentPlayer) return;
+  if (isCurrentPlayer) return; // has been reset, we're done!
 
   if (audioPlayer) {
-      icon.style.transform = iconTransform;
-      audioPlayer.classList.add('show-player');
+      icon.style.transform = ICON_TRANSFORM;
+      audioPlayer.classList.add(SHOW_PLAYER_CLASS);
   }
 }
 
 function hideAllPLayers() {
   audioPlayers.forEach(audioPlayer => {
-    if (audioPlayer.classList.contains(SHOW_CLASS) ){
-      audioPlayer.classList.remove('show-player');
+    if (audioPlayer.classList.contains(SHOW_PLAYER_CLASS)) {
+      audioPlayer.classList.remove(SHOW_PLAYER_CLASS);
     }
   });
 }
@@ -38,7 +36,7 @@ function hideAllPLayers() {
 function resetAllIconsPosition() {
   titleButtons.forEach(titleButton => {
   const icon = titleButton.querySelector('i');
-    if (icon && icon.style.transform == iconTransform) {
+    if (icon && icon.style.transform == ICON_TRANSFORM) {
       icon.style.transform = 'rotate(0deg)';
     }
   })
