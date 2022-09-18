@@ -11,9 +11,16 @@ $margin: 1rem;
 $padding: 1em;
 $maxWidth: functions.px-to-rem(960px);
 
-$fs-sm: .76em;
-$fs-md: 1em;
-$fs-lg: 1.29em;
+$fs-xsm-em: em-scale(400);
+$fs-sm-em: em-scale(400);
+$fs-md-em: em-scale(500);
+$fs-lg-em: 1.29em;
+$fs-xlg-em: em-scale(700);
+/* font weights */
+$fw-sm: 400;
+$fw-md: 500;
+$fw-lg: 700;
+
 /* sizes react*/
 $margin: .618rem;
 $padding: .618rem;
@@ -24,19 +31,13 @@ $duration: 0.3s;
 $duration-sm: 160ms;
 $duration-md: 320ms;
 
-
-/* font weights */
-$fw-sm: 400;
-$fw-md: 500;
-$fw-lg: 700;
+$ease: ease-in-out;
 
 /* box model */
 $border: 1px solid colors.color(brown, 900);
 $border-radius: 5px;
 $fontStackSans: 'Open Sans', sans-serif;
 $fontStackSerif: 'Georgia', serif;
-
-$ease: ease-in-out;
 
 $max-width: 70ch;
 
@@ -48,8 +49,6 @@ $spacer-lg: calc($spacer-md * 1.618);
 $btn-spacing-sm-btn: functions.px-to-rem(36px); // 36-48
 $btn-spacing-md-btn: functions.px-to-rem(24px); // 24-36
 $btn-spacing-lg-btn: functions.px-to-rem(12px); // 12-24
-
-
 
 /* animations */
 $softIn: softIn .33s ease-in;
@@ -76,30 +75,6 @@ $grp9: 75.999%;
 $grp10: 122.966%;
 $grp11: 198.959%;
 
-$sizes: (
-  000: 0.12em,
-  100: 0.18em,
-  200: 0.29em,
-  300: 0.47em,
-  400: 0.76em,
-  500: 1em,
-  600: 1.382em,
-  700: 1.618em,
-  800: 4.236em,
-  900: 6.854em,
-  1000: 11.089em,
-);
-
-@function size($keys...) {
-  $value: $sizes;
-
-  @each $key in $keys {
-    $value: map-get($value, $key);
-  }
-
-  @return $value;
-}
-
 $fib: 1;
 $fib: 2;
 $fib: 3;
@@ -111,27 +86,3 @@ $fib: 34;
 $fib: 55;
 $fib: 89;
 $fib: 144;
-
-$fibonacci: (
-  step0: 1,
-  step1: 2,
-  step2: 3,
-  step3: 5,
-  step4: 8,
-  step5: 13,
-  step6: 21,
-  step7: 34,
-  step8: 55,
-  step9: 89,
-  step10: 144,
-);
-
-@function fibonacci($keys...) {
-  $value: $fibonacci;
-
-  @each $key in $keys {
-    $value: map-get($value, $key);
-  }
-
-  @return $value;
-}

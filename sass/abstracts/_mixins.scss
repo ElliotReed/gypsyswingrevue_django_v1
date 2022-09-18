@@ -58,7 +58,7 @@
 
 @mixin flow {
   &>*+* {
-    margin-top: variables.$spacer-md;
+    margin-block-start: variables.$spacer-md;
   }
 }
 
@@ -205,7 +205,7 @@
 
 @mixin scrollbar {
   &::-webkit-scrollbar {
-    width: variables.size(400);
+    width: functions.size(400);
     // width: .47rem;
     /* Mostly for vertical scrollbars */
   }

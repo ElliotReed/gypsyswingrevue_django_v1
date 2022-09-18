@@ -19,7 +19,7 @@ body {
   min-height: 100%;
   min-block-size: 100vh;
   font-family: typography.$fontStackSans;
-  line-height: abstracts.size(600);
+  line-height: 1.47;
   color: abstracts.color(brown, 900);
   background-color: black;
   @include abstracts.appFixedContainer;
@@ -91,4 +91,35 @@ figcaption {
 
 :focus {
   @include abstracts.focus;
+}
+
+/* Blockquotes */
+.blockquote {
+  border-left: 3px solid abstracts.color(brown, 300);
+
+  blockquote {
+    padding-left: abstracts.$spacer-md;
+
+    &::before {
+      content: '\201C';
+    }
+
+    &::after {
+      content: '\201D';
+    }
+  }
+
+  cite {
+    display: block;
+    font-size: abstracts.size(400);
+    font-style: italic;
+    line-height: abstracts.size(600);
+    color: abstracts.color(brown, 500);
+    margin-top: abstracts.size(400);
+    padding-left: abstracts.$spacer-md;
+
+    &:before {
+      content: "\2014 \0020";
+    }
+  }
 }

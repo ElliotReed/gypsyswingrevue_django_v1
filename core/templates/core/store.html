@@ -29,12 +29,14 @@ Gypsy Swing Revue | Store
 </div>
 
 {% for album in albums %}
+
 <div class="container">
   <div class="AlbumSale panel">
     <div class="album-sale__heading">
-      <h2 class="heading">{{album.title}}</h2>
+      <h2 class="heading-2">{{album.title}}</h2>
     </div>
     <div class="album-sale__cover">
+      <a href="https://open.spotify.com/album/1dCYboJr34Mst3dp383NWL?si=XW6Aq_DbTb-J5xRdU--Lnw">Spotify</a>
       <picture>
         <img src="{% static 'images' %}/{{album.cover.mobile}}" alt="" />
       </picture>

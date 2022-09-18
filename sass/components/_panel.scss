@@ -4,28 +4,13 @@
   border: abstracts.$border;
   border-radius: abstracts.$border-radius;
   padding: abstracts.$padding;
+  background: transparentize(abstracts.color(max), .04);
   background-blend-mode: color-dodge;
-  background: transparentize(abstracts.color(max), .29);
-  backdrop-filter: blur(18px);
-  // @include abstracts.enterAnimation;
+  backdrop-filter: blur(6px);
   @include abstracts.shadow(3);
 
   &:hover {
-    background: transparentize(abstracts.color(max), .18);
+    // background: transparentize(abstracts.color(max), .18);
     @include abstracts.shadow(3);
   }
 }
-
-
-// .mydarkpanel {
-//   background: rgba(9, 9, 9, 0.93);
-//   border-color: #000000;
-
-// }
-
-// .fixedbottom {
-//   width: 100%;
-//   position: fixed;
-//   bottom: 0;
-//   z-index: 99;
-// }

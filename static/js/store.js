@@ -11,8 +11,7 @@ titleButtons.forEach(
 
 function toggleAudioPlayer(e) {
   const titleButton = e.target;
-  const icon = titleButton.querySelector('i');
-  const audioPlayer = e.target.nextElementSibling;
+  const audioPlayer = titleButton.nextElementSibling;
   const isCurrentPlayer = audioPlayer?.classList.contains(SHOW_PLAYER_CLASS);
   hideAllPLayers();
   resetAllIconsPosition();
@@ -20,6 +19,7 @@ function toggleAudioPlayer(e) {
   if (isCurrentPlayer) return; // has been reset, we're done!
 
   if (audioPlayer) {
+      const icon = titleButton.querySelector('i');
       icon.style.transform = ICON_TRANSFORM;
       audioPlayer.classList.add(SHOW_PLAYER_CLASS);
   }
@@ -36,7 +36,7 @@ function hideAllPLayers() {
 function resetAllIconsPosition() {
   titleButtons.forEach(titleButton => {
   const icon = titleButton.querySelector('i');
-    if (icon && icon.style.transform == ICON_TRANSFORM) {
+    if (icon?.style.transform == ICON_TRANSFORM) {
       icon.style.transform = 'rotate(0deg)';
     }
   })

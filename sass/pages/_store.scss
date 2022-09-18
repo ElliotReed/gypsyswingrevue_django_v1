@@ -29,7 +29,7 @@
   margin: abstracts.$spacer-md;
   @include abstracts.padding-box(md);
   justify-content: center;
-  font-size: abstracts.$fs-sm;
+  font-size: abstracts.$fs-sm-rem;
   width: 100%;
   /* min-width: 7em; */
   border: 1px solid transparent;

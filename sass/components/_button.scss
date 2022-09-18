@@ -131,3 +131,11 @@ $button-text-color-default: abstracts.color(brown, 100);
     // background: get-color(main, dark);
   }
 }
+
+.button {
+  @include button;
+}
+
+.link-as-button {
+  @include link-as-button;
+}

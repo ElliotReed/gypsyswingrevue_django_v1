@@ -1,5 +1,29 @@
 @use '../abstracts';
 
+$font-size: 800;
+$margin-size: 300;
+$line-height-size: 000;
+$letter-spacing: 000;
+
+$dif: 100;
+
+@for $i from 1 through 6 {
+  .heading-#{$i} {
+    border: 1px solid #ccc;
+    font-size: abstracts.em-scale($font-size);
+    line-height: 1 + abstracts.size($line-height-size);
+    // letter-spacing: abstracts.size($margin-size) * -.1;
+    margin-block-start: abstracts.size($margin-size);
+    margin-block-end: abstracts.size($margin-size);
+    font-weight: abstracts.$fw-lg;
+    color: abstracts.color(red, 500);
+  }
+
+  $font-size: $font-size - $dif;
+  $margin-size: $margin-size + $dif;
+  $line-height-size: $line-height-size + $dif;
+}
+
 .heading {
   font-size: abstracts.size(700);
   font-weight: abstracts.$fw-lg;
