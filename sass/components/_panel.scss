@@ -3,7 +3,7 @@
 .panel {
   border: abstracts.$border;
   border-radius: abstracts.$border-radius;
-  padding: abstracts.$padding;
+  padding: 0 abstracts.$padding abstracts.$padding;
   background: transparentize(abstracts.color(max), .04);
   background-blend-mode: color-dodge;
   backdrop-filter: blur(6px);

@@ -11,11 +11,17 @@ $margin: 1rem;
 $padding: 1em;
 $maxWidth: functions.px-to-rem(960px);
 
-$fs-xsm-em: em-scale(400);
-$fs-sm-em: em-scale(400);
-$fs-md-em: em-scale(500);
+$fs-xsm-em: functions.em-scale(400);
+$fs-sm-em: functions.em-scale(400);
+$fs-md-em: functions.em-scale(500);
 $fs-lg-em: 1.29em;
-$fs-xlg-em: em-scale(700);
+$fs-xlg-em: functions.em-scale(700);
+
+$fs-xsm-rem: functions.rem-scale(400);
+$fs-sm-rem: functions.rem-scale(400);
+$fs-md-rem: functions.rem-scale(500);
+$fs-lg-rem: 1.29em;
+$fs-xlg-erm: functions.rem-scale(700);
 /* font weights */
 $fw-sm: 400;
 $fw-md: 500;

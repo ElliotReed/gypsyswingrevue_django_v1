@@ -1,31 +1,36 @@
 @use '../abstracts';
+@use 'sass:list';
+
+$size-difference: 100;
 
 $font-size: 800;
 $margin-size: 300;
-$line-height-size: 000;
-$letter-spacing: 000;
+$line-height-size: 000; // 1.35 1.7 ~1.5
 
-$dif: 100;
+$letter-spacing-list: (
+  -.06rem,
+  -.04rem,
+  -.02rem,
+  0,
+  .12rem,
+  .18rem
+);
 
 @for $i from 1 through 6 {
+
+  h#{$i},
   .heading-#{$i} {
-    border: 1px solid #ccc;
-    font-size: abstracts.em-scale($font-size);
-    line-height: 1 + abstracts.size($line-height-size);
-    // letter-spacing: abstracts.size($margin-size) * -.1;
-    margin-block-start: abstracts.size($margin-size);
-    margin-block-end: abstracts.size($margin-size);
-    font-weight: abstracts.$fw-lg;
     color: abstracts.color(red, 500);
+    font-size: abstracts.rem-scale($font-size);
+    font-weight: abstracts.$fw-lg;
+    line-height: (1 + abstracts.scale($line-height-size));
+    letter-spacing: list.nth($letter-spacing-list, $i);
+
+    margin-block-start: abstracts.rem-scale($margin-size);
+    margin-block-end: abstracts.rem-scale($margin-size);
   }
 
-  $font-size: $font-size - $dif;
-  $margin-size: $margin-size + $dif;
-  $line-height-size: $line-height-size + $dif;
-}
-
-.heading {
-  font-size: abstracts.size(700);
-  font-weight: abstracts.$fw-lg;
-  color: abstracts.color(red, 500);
+  $font-size: $font-size - $size-difference;
+  $margin-size: $margin-size + $size-difference;
+  $line-height-size: $line-height-size + $size-difference;
 }
