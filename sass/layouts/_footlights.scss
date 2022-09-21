@@ -11,6 +11,10 @@
   isolation: isolate;
   mix-blend-mode: darken;
 
+  @include abstracts.respondTo(tablet) {
+    bottom: -1rem;
+  }
+
   &__stage {
     display: flex;
     margin-top: 1rem;

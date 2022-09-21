@@ -3,6 +3,12 @@
 .site-header {
   position: relative;
   padding: abstracts.$spacer-md abstracts.$spacer-md;
+
+  @include abstracts.respondTo(tablet) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+  }
 }
 
 

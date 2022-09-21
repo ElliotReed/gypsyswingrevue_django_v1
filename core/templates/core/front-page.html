@@ -13,10 +13,10 @@ Gypsy Swing Revue | Colorado's Premier Gypsy Jazz Swing Band! | Weddings and Eve
 {% block content %}
 
 <!-- <div class="curtain">
-  <div class="curtain__panel curtain__panel--left">
+  <div class="curtain__panel curtain__panel-left">
     <div class="curtain__fold"></div>
   </div>
-  <div class="curtain__panel curtain__panel--right">
+  <div class="curtain__panel curtain__panel-right">
     <div class="curtain__fold"></div>
   </div>
 </div> -->
@@ -26,12 +26,12 @@ Gypsy Swing Revue | Colorado's Premier Gypsy Jazz Swing Band! | Weddings and Eve
     <h1 class="heading-1">Colorado's Premier Gypsy Jazz Band</h1>
 
     <div class="feature__inner">
-      <section data-viewer class="viewer">
+      <div data-viewer class="viewer">
         {% include 'core/partials/viewer.html' with image_prefixes=image_prefixes %}
-      </section>
-      <section data-testimonial>
+      </div>
+      <div data-testimonial>
         {% include 'core/partials/testimonials.html' with testimonials=testimonials %}
-      </section>
+      </div>
     </div>
   </section>
 </div>
@@ -70,9 +70,7 @@ Gypsy Swing Revue | Colorado's Premier Gypsy Jazz Swing Band! | Weddings and Eve
 <div class="container">
   <div class="panel contact">
     <h2 class="heading-2">Contact Us!</h4>
-      <div class="">
-        <subheader>303.745.7944</subheader>
-      </div>
+      <p>303.745.7944</p>
       <a href="/contact" class="link-as-button">Contact Us</a>
   </div>
 </div>

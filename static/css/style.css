@@ -297,15 +297,15 @@ meter {
     background: repeating-linear-gradient(to left, #392a2a 0%, #968383 3%, #392a2a 7.5%);
   }
 }
-.curtain__panel--left {
+.curtain__panel-left {
   -webkit-animation: liftLeftCurtain 2s 2s ease forwards;
           animation: liftLeftCurtain 2s 2s ease forwards;
 }
-.curtain__panel--right {
+.curtain__panel-right {
   -webkit-animation: liftRightCurtain 2s 2s ease forwards;
           animation: liftRightCurtain 2s 2s ease forwards;
 }
-.curtain__panel--right .curtain__fold {
+.curtain__panel-right .curtain__fold {
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
 }
@@ -608,28 +608,45 @@ body {
   background-color: black;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   width: 100vw;
   min-height: 100vh;
   max-height: 100vh;
   overflow: hidden;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
 }
-body > .scrollabel-content {
+@media (min-width: 56.25rem) {
+  body {
+    grid-template-columns: 1fr 1.618fr;
+  }
+}
+body .scrollabel-content {
   overflow-y: auto;
   padding-bottom: 1em;
 }
-body > .scrollabel-content::-webkit-scrollbar {
+body .scrollabel-content::-webkit-scrollbar {
   width: 0.76em;
   /* Mostly for vertical scrollbars */
 }
-body > .scrollabel-content::-webkit-scrollbar-thumb {
+body .scrollabel-content::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: hsl(0deg, 15%, 30%);
 }
-body > .scrollabel-content::-webkit-scrollbar-thumb:hover {
+body .scrollabel-content::-webkit-scrollbar-thumb:hover {
   border: 1px solid #25231c;
   background: #4c3838;
 }
-body > .scrollabel-content::-webkit-scrollbar-track {
+body .scrollabel-content::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.24);
           box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.24);
   background: #7e6a6a;
@@ -1024,6 +1041,23 @@ footer {
   position: relative;
   background: rgba(0, 0, 0, 0.88);
   z-index: 1;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
+}
+@media (min-width: 56.25rem) {
+  footer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
 .footer__nav {
@@ -1034,6 +1068,17 @@ footer {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
 }
 .footer__nav a {
   display: -webkit-inline-box;
@@ -1095,6 +1140,11 @@ footer {
 .footer__nav a:hover i {
   text-decoration: none;
 }
+@media (min-width: 56.25rem) {
+  .footer__nav {
+    display: none;
+  }
+}
 
 /* css for footlight values inverted!!! */
 .footlights {
@@ -1105,6 +1155,22 @@ footer {
   z-index: -1;
   isolation: isolate;
   mix-blend-mode: darken;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
+}
+@media (min-width: 56.25rem) {
+  .footlights {
+    bottom: -1rem;
+  }
 }
 .footlights__stage {
   display: -webkit-box;
@@ -1215,6 +1281,23 @@ footer {
 .site-header {
   position: relative;
   padding: 1em 1em;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
+}
+@media (min-width: 56.25rem) {
+  .site-header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
 .logo {
@@ -1389,6 +1472,59 @@ footer {
     opacity: 1;
   }
 }
+.page-menu {
+  display: none;
+  padding: 0 0 1em 1em;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
+}
+@media (min-width: 56.25rem) {
+  .page-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+}
+
+.page-menu__container {
+  width: max(0.18em * 100, 76%);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 1em;
+  background: #1d251c;
+  overflow: hidden;
+}
+
+.menu__container-ul a {
+  display: block;
+  color: #dddddd;
+}
+.menu__container-ul h5 {
+  color: #bcb8ac;
+  font-size: 0.8rem;
+  font-weight: 900;
+  margin-top: 1.618em;
+  margin-bottom: 0.76em;
+  border-bottom: 1px solid #bcb8ac;
+  padding: 1.618em 0 0.76em 0;
+}
+
 /* css for footlight values inverted!!! */
 .spotlight {
   position: absolute;

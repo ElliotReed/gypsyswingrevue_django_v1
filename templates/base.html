@@ -10,10 +10,8 @@
   <!-- <link rel="shortcut icon" href="{% static 'images/icons/icon-512x512.png' %}"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- <link rel="stylesheet" href="{% static 'css/reset.css' %}"> -->
   <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
   <title>{% block title %}{% endblock %}</title>
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
   <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <script defer src="{% static 'js/app.js' %}"></script>
   {% block script %}{% endblock script %}
@@ -22,6 +20,9 @@
 <body class="site-background">
 
   {% include 'header.html' %}
+
+  {% include 'partials/page_menu.html' %}
+
   <main class="main scrollabel-content">
     {% block content %}
     {% endblock content %}

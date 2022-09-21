@@ -7,13 +7,19 @@
 @mixin appFixedContainer {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   width: 100vw;
   min-height: 100vh;
   max-height: 100vh;
   overflow: hidden;
 
+  @include respondTo(tablet) {
+    grid-template-columns: 1fr 1.618fr;
+  }
+
+
   // add to the scrollable content container
-  >.scrollabel-content {
+  .scrollabel-content {
     overflow-y: auto;
     @include scrollbar;
     padding-bottom: variables.$spacer-md;

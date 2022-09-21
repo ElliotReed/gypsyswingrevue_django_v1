@@ -6,6 +6,11 @@ footer {
   // margin-top: calc(abstracts.$spacer-md * -2);
   background: transparentize(abstracts.color(min), .12);
   z-index: 1;
+
+  @include abstracts.respondTo(tablet) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
 .footer__nav {
@@ -20,5 +25,9 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: abstracts.$fs-sm-rem;
+  }
+
+  @include abstracts.respondTo(tablet) {
+    display: none;
   }
 }

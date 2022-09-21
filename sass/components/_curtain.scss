@@ -44,11 +44,11 @@
 
     $animation-parameters: 2s 2s ease forwards;
 
-    &--left {
+    &-left {
       animation: liftLeftCurtain $animation-parameters;
     }
 
-    &--right {
+    &-right {
       animation: liftRightCurtain $animation-parameters;
 
       .curtain__fold {

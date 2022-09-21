@@ -1,0 +1,38 @@
+@use '../abstracts';
+
+.page-menu {
+  display: none;
+  padding: 0 0 abstracts.$spacer-md abstracts.$spacer-md;
+
+  @include abstracts.respondTo(tablet) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.page-menu__container {
+  width: max(calc(abstracts.em-scale(100) * 100), abstracts.percent-scale(400));
+  border: 1px solid transparent;
+  border-radius: abstracts.$border-radius;
+  padding: abstracts.$spacer-md;
+  background: abstracts.color(green, 900);
+  overflow: hidden;
+}
+
+.menu__container-ul {
+  a {
+    display: block;
+    color: abstracts.color(white, 100);
+  }
+
+  h5 {
+    color: abstracts.color(brown, 100);
+    font-size: .8rem;
+    font-weight: 900;
+    margin-top: abstracts.$spacer-lg;
+    margin-bottom: abstracts.$spacer-sm;
+    border-bottom: 1px solid abstracts.color(brown, 100);
+    padding: abstracts.$spacer-lg 0 abstracts.$spacer-sm 0;
+  }
+}

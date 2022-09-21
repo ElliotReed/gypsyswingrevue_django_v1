@@ -44,6 +44,16 @@ $scale: (
   @return #{$value +'rem'};
 }
 
+@function percent-scale($keys...) {
+  $value: $sizes;
+
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+
+  @return #{$value * 100 +'%'};
+}
+
 
 /// Remove the unit of a length
 /// @param {Number} $number - Number to remove unit from
