@@ -1,3 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title%}Contact |
+{% endblock title%}
+
+{% block content %}
+<section class="container padded">
+
+  {% if messages %}
+  {% for message in messages %}
+  <p class="container-blue-600">
+    {{ message }}
+  </p>
+  {% endfor %}
+
+  {% else %}
+  <form class="contact-form" action="" method="POST">
+    {% csrf_token %}
+
+    <h1 class="text-heading-lg">Send me a note!</h1>
+
+    {{contact_form}}
+
+    <br>
+
+    <button class="btn text-uppercase" name="contact" type="submit">
+      Send
+    </button>
+
+  </form>
+
+</section>
+
+
+{% include 'core/newsletter_subscribe.html' %}
+
+{% endif %}
+
+{% endblock content %}
+
+
 <!--FEATURES -->
 
 <div class="row">

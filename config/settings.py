@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "whitenoise.runserver_nostatic",
+    "embed_video",
     "fontawesomefree",
     "core",
 ]
@@ -63,6 +64,8 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.request",)
+
 WSGI_APPLICATION = "config.wsgi.application"
 
 
@@ -71,8 +74,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT"),
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
     }
 }
 

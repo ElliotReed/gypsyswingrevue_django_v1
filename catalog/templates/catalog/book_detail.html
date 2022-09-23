@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title%}{{book.title}} |
+{% endblock title%}
+
+{% block content %}
+
+<div class="container padded">
+  <div class="book-wrapper padded book paper">
+
+    <section class="book-head">
+      {% include 'catalog/book_image.html' %}
+      <section class="book-info">
+        <h1>{{book.title}}</h1>
+        <p class="book-genre"><span>Genre: </span>{{book.genre}}</p>
+        <p class="book-publishing-info"><span>Publisher: </span>{{book.publisher}} | {{book.published_date}}</p>
+      </section>
+    </section>
+
+    <br>
+
+    <section class="book-synopsis clearfix">
+      <p class="text-tight-spacing">{{book.synopsis}}</p>
+    </section>
+
+    <br>
+
+    {% if book.excerpt %}
+    <section class="book-excerpt">
+      <a href="{{book.excerpt.url}}" download>
+        Click to download an excerpt of "{{book.title}}" (pdf)
+      </a>
+      <span>or</span>
+      <a href="{{book.excerpt.url}}">
+        Click to open an excerpt of "{{book.title}}" (pdf)
+      </a>
+    </section>
+    {% endif %}
+
+    <br>
+
+    {% include 'catalog/sale_link.html' %}
+
+    <br>
+
+    {% for blurb in book.get_all_blurbs %}
+    {% include 'catalog/blurb.html' %}
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock content %}

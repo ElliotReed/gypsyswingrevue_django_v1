@@ -18,12 +18,11 @@ body {
   width: 100%;
   min-height: 100%;
   min-block-size: 100vh;
-  font-family: typography.$fontStackSans;
+  font-family: typography.$fontStackSerif;
   line-height: 1.47;
   color: abstracts.color(brown, 900);
   background-color: black;
   @include abstracts.appFixedContainer;
-  // @include abstracts.scrollbar;
 }
 
 a {

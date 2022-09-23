@@ -1,0 +1,10 @@
+{% load static %}
+
+<section class="book-image-container">
+  <div class="book-image">
+    <picture>
+      <source srcset="{{book.large_image.url}}" media="(min-width: 768px)">
+      <img src="{{book.small_image.url}}" alt="{{book.cover_description}}" />
+    </picture>
+  </div>
+</section>

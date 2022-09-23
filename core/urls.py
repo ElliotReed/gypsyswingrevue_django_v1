@@ -3,12 +3,12 @@ from . import views
 
 app_name = "core"
 urlpatterns = [
-    path("", views.index, name="index"),
-    path("band", views.index, name="band"),
-    path("songs", views.index, name="songs"),
-    path("i-love-paris", views.index, name="iloveparis"),
-    path("contact", views.index, name="contact"),
-    path("schedule", views.index, name="schedule"),
+    path("", views.front_page, name="front_page"),
+    path("band", views.band, name="band"),
+    path("songs", views.songs, name="songs"),
+    path("i-love-paris", views.i_love_paris, name="i_love_paris"),
+    path("contact", views.contact, name="contact"),
+    path("schedule", views.schedule, name="schedule"),
     path("store", views.StoreView.as_view(), name="store"),
-    path("media", views.index, name="media"),
+    path("media", views.media, name="media"),
 ]

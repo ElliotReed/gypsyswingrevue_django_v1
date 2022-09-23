@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title%}Catalog |
+{% endblock title%}
+
+{% block content %}
+
+<h1 class="hidden">Catalog</h1>
+
+{% for book in book_list %}
+
+<div class="container padded">
+  <div class="book-wrapper padded book paper">
+
+    <section class="book-head">
+
+      <a class="book-image-link" href="{{ book.get_absolute_url }}">
+        {% include 'catalog/book_image.html' %}
+      </a>
+
+      <section class="book-info">
+
+        <h2>
+          <a class="book-link" href="{{ book.get_absolute_url }}">
+            {{ book.title }}
+          </a>
+        </h2>
+        <p class="book-genre"><span>Genre: </span>{{book.genre}}</p>
+
+      </section>
+
+    </section>
+
+    <br>
+
+    <section class="book-synopsis clearfix">
+      <p class="text-tight-spacing">{{book.synopsis}}</p>
+    </section>
+
+    <br>
+
+    {% include 'catalog/sale_link.html' %}
+
+    <br>
+
+    {% for blurb in book.get_featured_blurb %}
+    {% include 'catalog/blurb.html' %}
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endfor %}
+
+{% endblock content %}

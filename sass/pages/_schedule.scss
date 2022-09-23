@@ -1,0 +1,52 @@
+#schedule__container {
+  position: relative;
+  margin: 0;
+  padding: var(--padding);
+}
+
+.performance {
+  margin-bottom: var(--margin);
+  padding: var(--padding);
+  border: var(--border);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--boxShadow);
+}
+
+.performance:last-child {
+  margin-bottom: 0;
+}
+
+.performance__title {
+  margin: 0;
+  color: var(--red-dark);
+  font-family: var(--fontStackSerif);
+  font-weight: bold;
+}
+
+.performance__date {
+  margin-left: var(--margin);
+  color: var(--green-dark);
+  font-size: .8rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.performance__time-display {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.performance__start,
+.performance__end {
+  color: var(--green-dark);
+  font-size: .8rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.performance__to {
+  color: var(--green);
+  font-size: .8rem;
+  font-style: normal;
+  font-weight: 700;
+}

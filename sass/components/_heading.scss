@@ -4,6 +4,7 @@
 
 
 @use '../abstracts';
+@use '../base';
 @use 'sass:list';
 
 $size-difference: 100;
@@ -26,6 +27,7 @@ $letter-spacing-list: (
   h#{$i},
   .heading-#{$i} {
     color: abstracts.color(red, 500);
+    font-family: base.$fontStackSans;
     font-size: abstracts.rem-scale($font-size);
     font-weight: abstracts.$fw-lg;
     line-height: (1 + abstracts.scale($line-height-size));

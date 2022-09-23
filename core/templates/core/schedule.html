@@ -1,3 +1,31 @@
+<div id="schedule">
+  <Panel>
+    <Heading>Schedule</Heading>
+
+    <ScheduleList schedule={schedule} />
+    <li key={performance.id} className="performance">
+      <div className="performance__date">
+        <Moment format="dddd, MMMM Do YYYY">{ performance.date }
+        </Moment>
+      </div>
+      <h5 className="performance__title">
+        { performance.name }
+      </h5>
+      <div className="performance__time-display">
+        <div className="performance__start">
+          <Moment format="h:mm A">{ performance.start }</Moment>
+        </div>
+        <div className="performance__to">&nbsp; to &nbsp;</div>
+        <div className="performance__end">
+          <Moment format="h:mm A">{ performance.end }</Moment>
+        </div>
+      </div>
+    </li>
+
+  </Panel>
+</div>
+
+
 <div class="row hidden-for-small-down">
   <div class="medium-12 columns ">
     <h4 class="text-center" style="color: rgba(255, 255, 255, 0.75); background:rgba(124,200,121,0.25); height:5em;">

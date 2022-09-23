@@ -1,3 +1,83 @@
+<div id="band-page">
+  <div id="band">
+    <Panel>
+      <Heading>The Band</Heading>
+      <div id="band" className="theband__grid">
+        <p>Gypsy Swing Revue is a group based in the Denver metro area of
+          Colorado. They perform music in the "Hot Club" style popularized
+          by Django Reinhardt and Stephane Grappelli in Paris during the 30's
+          and 40's. The focus is on tight arrangements with plenty of room for
+          jazz improvisation. With a mix of instrumental pieces and vocals,
+          this energetic music is fun for everyone.
+        </p>
+        <div id="band-image__container" className="image-wrapper">
+          <picture>
+            <source media="(min-width: 1024px)" srcSet={require("../../../assets/images/ImageHook/snug_1024.jpg")} />
+            <source media="(min-width: 768px)" srcSet={require("../../../assets/images/ImageHook/snug_768.jpg")} />
+            <img srcSet={require("../../../assets/images/ImageHook/snug_375.jpg")} alt="" />
+          </picture>
+        </div>
+      </div>
+    </Panel>
+  </div>
+
+  <div id="musicians">
+    <Panel>
+      <Heading>The Musicians</Heading>
+      <div id="musicians" className="musicians__grid">
+        <p> The core of Gypsy Swing Revue consists of Elliot Reed, Stephane Hill,
+          Anthony Salvo and Jean-Luc Davis.
+        </p>
+        <div id="musician-image__container" className="image-wrapper">
+          <picture id="elliot">
+            <source media="(min-width: 1024px)" srcSet={require("../../../assets/images/elliot.jpg")} />
+            <source media="(min-width: 768px)" srcSet={require("../../../assets/images/elliot.jpg")} />
+            <img srcSet={require("../../../assets/images/elliot.jpg")} alt="" />
+          </picture>
+          <picture id="stephen">
+            <source media="(min-width: 1024px)" srcSet={require("../../../assets/images/stephen.jpg")} />
+            <source media="(min-width: 768px)" srcSet={require("../../../assets/images/stephen.jpg")} />
+            <img srcSet={require("../../../assets/images/stephen.jpg")} alt="" />
+          </picture>
+          <picture>
+            <source media="(min-width: 1024px)" srcSet={require("../../../assets/images/anthony.jpg")} />
+            <source media="(min-width: 768px)" srcSet={require("../../../assets/images/anthony.jpg")} />
+            <img srcSet={require("../../../assets/images/anthony.jpg")} alt="" />
+          </picture>
+          <picture>
+            <source media="(min-width: 1024px)" srcSet={require("../../../assets/images/jean-luc.jpg")} />
+            <source media="(min-width: 768px)" srcSet={require("../../../assets/images/jean-luc.jpg")} />
+            <img srcSet={require("../../../assets/images/jean-luc.jpg")} alt="" />
+          </picture>
+        </div>
+      </div>
+    </Panel>
+  </div>
+
+  <div id="genre">
+    <Panel>
+      <Heading>The Genre</Heading>
+      <div id="genre" className="genre__grid">
+        <p>Django Reinhardt and Stephane Grappelli were working musicians
+          in Paris in the mid 1930's. They were working as side men in Louis
+          Vola's band, but between sets, they would jam on the new swing music
+          coming over from America. Eventually settling on a format of two
+          rhythm guitars, lead guitar, violin and upright bass, they created
+          their own versions of the music that was becoming popular in the
+          States, but had yet to make inroads in France and Europe in general.
+        </p>
+        <div id="genre-image__container" className="image-wrapper">
+          <picture>
+            <source media="(min-width: 1024px)" srcSet={require("../../../assets/images/hot-club-600x600.jpg")} />
+            <source media="(min-width: 768px)" srcSet={require("../../../assets/images/hot-club-600x600.jpg")} />
+            <img srcSet={require("../../../assets/images/hot-club-600x600.jpg")} alt="" />
+          </picture>
+        </div>
+      </div>
+    </Panel>
+  </div>
+</div>
+
 <!--The BAND-->
 <div class="row">
   <div class="medium-12 columns">
@@ -5,7 +85,10 @@
       <h4>The Band</h4>
       <div class="row">
         <div class="medium-6 columns">
-          <p>Gypsy Swing Revue is a group based in the Denver metro area of Colorado. They perform music in the "Hot Club" style popularized by Django Reinhardt and Stephane Grappelli in Paris during the 30's and 40's. The focus is on tight arrangements with plenty of room for jazz improvisation. With a mix of instrumental pieces and vocals, this energetic music is fun for everyone.
+          <p>Gypsy Swing Revue is a group based in the Denver metro area of Colorado. They perform music in the "Hot
+            Club" style popularized by Django Reinhardt and Stephane Grappelli in Paris during the 30's and 40's. The
+            focus is on tight arrangements with plenty of room for jazz improvisation. With a mix of instrumental pieces
+            and vocals, this energetic music is fun for everyone.
 
           </p>
         </div>
@@ -48,7 +131,11 @@
       <h4>The Genre</h4>
       <div class="row">
         <div class="medium-6 columns">
-          <p>Django Reinhardt and Stephane Grappelli were working musicians in Paris in the mid 1930's. They were working as side men in Louis Vola's band, but between sets, they would jam on the new swing music coming over from America. Eventually settling on a format of two rhythm guitars, lead guitar, violin and upright bass, they created their own versions of the music that was becoming popular in the States, but had yet to make inroads in France and Europe in general.
+          <p>Django Reinhardt and Stephane Grappelli were working musicians in Paris in the mid 1930's. They were
+            working as side men in Louis Vola's band, but between sets, they would jam on the new swing music coming
+            over from America. Eventually settling on a format of two rhythm guitars, lead guitar, violin and upright
+            bass, they created their own versions of the music that was becoming popular in the States, but had yet to
+            make inroads in France and Europe in general.
           </p>
         </div>
         <div class="medium-6 columns">

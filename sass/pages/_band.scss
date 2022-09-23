@@ -1,0 +1,55 @@
+.theband__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 1fr 1.618fr; */
+}
+
+@media only screen and (min-width: 768px) {
+  .theband__grid {
+    grid-template-columns: 1.618fr 1fr;
+  }
+}
+
+.musicians__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 769px) {
+  .musicians__grid {
+    grid-template-columns: 1fr 1.618fr;
+  }
+}
+
+.image-wrapper {
+  width: 100%;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 13em;
+}
+
+#musician-image__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 13em 13em;
+  grid-gap: .5em;
+}
+
+.image-wrapper picture {
+  box-shadow: var(--boxShadow);
+  border: var(--border);
+  border-radius: var(--borderRadius);
+}
+
+.genre__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 769px) {
+  .genre__grid {
+    grid-template-columns: 1.618fr 1fr;
+  }
+}

@@ -1,0 +1,16 @@
+<section class="sales-links">
+
+  {% if book.get_all_links %}
+
+  <p>Purchase from these sellers:</p>
+
+  <div class="sales-links-container">
+    {% for link in book.get_all_links %}
+    <a class="sales-link" href="{{link.link}}">{{link.text}}</a>
+    <span class="sales-link-seperator">|</span>
+    {% endfor %}
+  </div>
+
+  {% endif %}
+
+</section>

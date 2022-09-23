@@ -8,6 +8,8 @@ django = "*"
 whitenoise = "*"
 python-decouple = "*"
 fontawesomefree = "==6"
+mysqlclient = "*"
+django-embed-video = "*"
 
 [dev-packages]
 

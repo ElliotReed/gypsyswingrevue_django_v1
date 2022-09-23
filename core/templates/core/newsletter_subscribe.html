@@ -1,0 +1,29 @@
+<section class="container padded newsletter-container">
+
+  {% if messages %}
+  {% for message in messages %}
+  <p class="container-blue-600">
+    {{ message }}
+  </p>
+  {% endfor %}
+
+  {% else %}
+  <form class="newsletter-form" action="" method="POST">
+    {% csrf_token %}
+
+    <label class="newsletter-form-label" for="subscriber_email">
+      Subscribe to my newsletter
+    </label>
+
+    {% if newsletter_note %}
+    <p class="container-blue-600">{{newsletter_note}}</p>
+    {% endif %}
+
+    <div class="input-group">
+      {{newsletter_form.subscriber_email}}
+      <button class="newsletter-button btn text-uppercase" name="newsletter" type="submit">Subscribe</button>
+    </div>
+  </form>
+  {% endif %}
+
+</section>
