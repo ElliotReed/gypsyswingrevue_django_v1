@@ -1,0 +1,79 @@
+<section class="newsletter-container">
+  <hgroup>
+    <h2 class="heading-2">Join Our Email List!</h2>
+    <p>We'll keep you up to date on special shows!</p>
+  </hgroup>
+
+  <form class="newsletter-form" data-subscribe-form action="" method="POST" name="subscribeform" id="subscribeform"
+    enctype="multipart/form-data">
+
+    <div class="form-inner-wrapper" data-form-inner>
+      <label class="newsletter-form-label" for="email">
+        <div data-email-label class="required">Email</div>
+      </label>
+
+      <input type=hidden name="htmlemail" value="1">
+      <input type="hidden" name="list[2]" value="signup" />
+      <input type="hidden" name="subscribe" value="subscribe" />
+      <div style="display:none">
+        <input type="text" name="VerificationCodeX" value="" size="20">
+      </div>
+
+      <div class="input-group">
+        <input data-email type=text name="email" value="" id="email" placeholder="bill@thecat.ack">
+        <button data-submit class='newsletter-button button' type="button">
+          Subscribe
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script>
+  const SUBSCRIBE_URL = "https://lists.gypsyswingrevue.com/lists/?p=asubscribe&id=1"
+
+  const emailInput = document.querySelector("[data-email");
+  const submitButton = document.querySelector("[data-submit]");
+  const emailLabel = document.querySelector("[data-email-label]");
+
+  submitButton.addEventListener('click', handleSubmitClick);
+
+  function handleSubmitClick(e) {
+    if (!checkform()) return;
+    submitForm();
+  }
+
+  function checkform() {
+    const emailErrorText = "Please enter a valid email address";
+    const emailErrorClass = "error"
+    const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
+    if (!(re.test(emailInput.value))) {
+      emailLabel.textContent = emailErrorText;
+      emailLabel.classList.add(emailErrorClass);
+      emailInput.focus();
+      return false;
+    }
+    return true;
+  }
+
+  function submitForm() {
+    const successMessage = 'Thank you for subscribing to our email list! In order to prevent spam, confirmation is required. Check your email to confirm.';
+    data = jQuery('[data-subscribe-form]').serialize();
+    jQuery.ajax({
+      type: 'POST',
+      data: data,
+      url: SUBSCRIBE_URL,
+      dataType: 'html',
+      success: function (data, status, request) {
+        jQuery("[data-form-inner]").empty().append(data != '' ? data : successMessage);
+
+      },
+      error: function (request, status, error) {
+        alert('Sorry, we were unable to process your subscription.');
+      }
+    });
+  }
+</script>

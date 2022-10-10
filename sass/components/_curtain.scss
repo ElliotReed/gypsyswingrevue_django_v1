@@ -2,9 +2,10 @@
 
 .curtain {
   position: absolute;
+  display: flex;
   inset: 0;
   overflow: hidden;
-  display: flex;
+  pointer-events: none;
 
   &__panel {
     position: relative;
@@ -42,7 +43,7 @@
       }
     }
 
-    $animation-parameters: 2s 2s ease forwards;
+    $animation-parameters: 1s 1.618s ease-in forwards;
 
     &-left {
       animation: liftLeftCurtain $animation-parameters;
@@ -59,25 +60,25 @@
 }
 
 @keyframes liftLeftCurtain {
-  from {
+  0% {
     border-radius: 0;
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
-  to {
+  100% {
     border-radius: 0 0 500px 0;
-    transform: translate(-100%, -100%);
+    transform: translate3d(-100%, 0, 0);
   }
 }
 
 @keyframes liftRightCurtain {
-  from {
+  0% {
     border-radius: 0;
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
-  to {
+  100% {
     border-radius: 0 0 0 500px;
-    transform: translate(100%, -100%);
+    transform: translate3d(100%, 0, 0);
   }
 }

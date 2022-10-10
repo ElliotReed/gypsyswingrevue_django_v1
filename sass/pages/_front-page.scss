@@ -3,7 +3,6 @@
 
 .feature {
   display: block;
-  @include abstracts.flow;
 }
 
 .feature__inner {
@@ -24,7 +23,6 @@
 
 .subscribe,
 .contact {
-  @include abstracts.flow;
 
   &>.heading {
     font-size: abstracts.size(600);

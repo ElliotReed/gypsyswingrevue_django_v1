@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title%}Contact |
-{% endblock title%}
+{% block title %}
+Gypsy Swing Revue | Contact
+{% endblock title %}
 
 {% block content %}
-<section class="container padded">
+<section class="container panel">
 
   {% if messages %}
   {% for message in messages %}
+
+  {% if message.tags == 'success' %}
+  <h2 class="heading-3">Thank you for contacting Gypsy Swing Revue!</h2>
+  {% endif %}
+
   <p class="container-blue-600">
     {{ message }}
   </p>
@@ -17,13 +23,18 @@
   <form class="contact-form" action="" method="POST">
     {% csrf_token %}
 
-    <h1 class="text-heading-lg">Send me a note!</h1>
+    <h2>Contact Us!</h2>
+    <p>
+    <blockquote>
+      For booking information, contact:<br>
+      Elliot Reed at 303.745.7944
+      or use the form.<br>
+    </blockquote>
+    </p>
 
     {{contact_form}}
 
-    <br>
-
-    <button class="btn text-uppercase" name="contact" type="submit">
+    <button class="button" name="contact" type="submit">
       Send
     </button>
 
@@ -31,89 +42,12 @@
 
 </section>
 
-
-{% include 'core/newsletter_subscribe.html' %}
+<div class="container">
+  <div class="panel subscribe">
+    {% include 'core/partials/newsletter_subscribe.html' %}
+  </div>
+</div>
 
 {% endif %}
 
 {% endblock content %}
-
-
-<!--FEATURES -->
-
-<div class="row">
-  <div class="medium-12 columns">
-    <div class="panel mypanel">
-      <div id="submitted">
-        <h5>Contact Us!</h5>
-        <p>
-        <blockquote>
-          For booking information, contact:<br>
-          Elliot Reed at 303.745.7944
-          or use the form.<br>
-        </blockquote>
-        </p>
-
-        <form data-abide="ajax" id="myForm">
-          <div class="name-field">
-            <label for='name'>Your Name <small>required</small>
-              <input type="text" name="name" id="name" required pattern="[a-zA-Z]+">
-            </label>
-            <small class="error">Name is required.</small>
-          </div>
-
-          <div class="email-field">
-            <label for='email'>Email <small>required</small>
-              <input type="email" name="email" id="email" required>
-            </label>
-            <small class="error">An email address is required.</small>
-          </div>
-          <div class="text">
-            <label for='message'>Message <small>required</small>
-              <textarea name="message" id="message" required pattern="[a-zA-Z]+"></textarea>
-            </label>
-            <small class="error">A message is required.</small>
-          </div>
-
-          <button type="submit">Send Message
-          </button>
-
-        </form>
-
-        <script>
-          $('#myForm').submit(function (e) {
-            //prevent default form submitting.
-            e.preventDefault()
-
-            $(this).on('valid', function () {
-              var name = $("input#name").val();
-              var email = $("input#email").val();
-              var message = $("textarea#message").val();
-
-              //Data for reponse
-              var dataString = 'name=' + name +
-                '&email=' + email +
-                '&message=' + message;
-
-              //Begin Ajax call
-              $.ajax({
-                type: "POST",
-                url: "../php/contact-handler.php",
-                data: dataString,
-                //cache: false,
-                success: function (data) {
-                  $('#submitted').html("<div id='thanks'></div>");
-                  $('#thanks').html("<h4>Thank you for contacting Gypsy Swing Revue!</h4>")
-                    .append("<p>Your message has been sent to Elliot Reed.<br/>You will be contacted shortly;)</p>")
-                    .hide()
-                    .fadeIn(1500);
-                },
-              }); //ajax call , for append Dear "+ name +", 
-              return false;
-            });
-          });
-        </script>
-      </div>
-    </div>
-  </div>
-</div>

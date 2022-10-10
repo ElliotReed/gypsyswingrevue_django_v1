@@ -1,0 +1,28 @@
+{% for event in events %}
+<li class="performance">
+
+  <div class="performance__date-time-container">
+    <date class="performance__date" datetime={{event.event_date|date:"F j, Y"}}>{{event.event_date|date:"F j, Y"}}
+    </date>
+
+    <div class="performance__time-display">
+      <time class="performance__start" datetime={{event.event_start|time:"g:i"}}>
+        {{event.event_start|time:"g:i a"}}
+      </time>
+      <span class="performance__to">&nbsp; to &nbsp;</span>
+      <time class="performance__end" datetime={{event.event_start|time:"g:i"}}>
+        {{event.event_end|time:"g:i a"}}
+      </time>
+    </div>
+  </div>
+
+  <h2 class="performance__title heading-3">
+    {{event.event_name}}
+  </h2>
+
+  <div class="performance__venue">
+    <h3 class="heading-5">Venue:</h3>
+    <p>{{event.entity_name}}</p>
+  </div>
+</li>
+{% endfor %}

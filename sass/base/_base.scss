@@ -26,7 +26,8 @@ body {
 }
 
 a {
-  color: inherit;
+  color: abstracts.color(green, 300);
+  text-decoration: underline;
 }
 
 

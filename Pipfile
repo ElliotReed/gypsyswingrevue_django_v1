@@ -10,6 +10,7 @@ python-decouple = "*"
 fontawesomefree = "==6"
 mysqlclient = "*"
 django-embed-video = "*"
+requests = "*"
 
 [dev-packages]
 

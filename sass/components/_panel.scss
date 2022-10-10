@@ -8,9 +8,9 @@
   background-blend-mode: color-dodge;
   backdrop-filter: blur(6px);
   @include abstracts.shadow(3);
+  @include abstracts.flow();
 
   &:hover {
-    // background: transparentize(abstracts.color(max), .18);
     @include abstracts.shadow(3);
   }
 }

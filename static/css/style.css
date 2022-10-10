@@ -239,11 +239,12 @@ meter {
 
 .curtain {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 .curtain__panel {
   position: relative;
@@ -300,12 +301,12 @@ meter {
   }
 }
 .curtain__panel-left {
-  -webkit-animation: liftLeftCurtain 2s 2s ease forwards;
-          animation: liftLeftCurtain 2s 2s ease forwards;
+  -webkit-animation: liftLeftCurtain 1s 1.618s ease-in forwards;
+          animation: liftLeftCurtain 1s 1.618s ease-in forwards;
 }
 .curtain__panel-right {
-  -webkit-animation: liftRightCurtain 2s 2s ease forwards;
-          animation: liftRightCurtain 2s 2s ease forwards;
+  -webkit-animation: liftRightCurtain 1s 1.618s ease-in forwards;
+          animation: liftRightCurtain 1s 1.618s ease-in forwards;
 }
 .curtain__panel-right .curtain__fold {
   -webkit-transform: scaleX(-1);
@@ -313,52 +314,52 @@ meter {
 }
 
 @-webkit-keyframes liftLeftCurtain {
-  from {
+  0% {
     border-radius: 0;
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
-  to {
+  100% {
     border-radius: 0 0 500px 0;
-    -webkit-transform: translate(-100%, -100%);
-            transform: translate(-100%, -100%);
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
   }
 }
 
 @keyframes liftLeftCurtain {
-  from {
+  0% {
     border-radius: 0;
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
-  to {
+  100% {
     border-radius: 0 0 500px 0;
-    -webkit-transform: translate(-100%, -100%);
-            transform: translate(-100%, -100%);
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
   }
 }
 @-webkit-keyframes liftRightCurtain {
-  from {
+  0% {
     border-radius: 0;
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
-  to {
+  100% {
     border-radius: 0 0 0 500px;
-    -webkit-transform: translate(100%, -100%);
-            transform: translate(100%, -100%);
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
   }
 }
 @keyframes liftRightCurtain {
-  from {
+  0% {
     border-radius: 0;
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
-  to {
+  100% {
     border-radius: 0 0 0 500px;
-    -webkit-transform: translate(100%, -100%);
-            transform: translate(100%, -100%);
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
   }
 }
 html {
@@ -430,7 +431,8 @@ body .scrollabel-content::-webkit-scrollbar-track {
 }
 
 a {
-  color: inherit;
+  color: #6d7e6a;
+  text-decoration: underline;
 }
 
 input,
@@ -645,6 +647,113 @@ h6,
           margin-block-end: 2rem;
 }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  margin-left: -32px;
+}
+
+.loader:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid var(--light);
+  border-color: var(--green) transparent var(--green) transparent;
+  -webkit-animation: loaderspin 1.2s linear infinite;
+          animation: loaderspin 1.2s linear infinite;
+}
+
+@-webkit-keyframes loaderspin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loaderspin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.newsletter-container > * + * {
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+}
+
+.newsletter-form .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1em;
+}
+
+.input-group div {
+  display: none;
+}
+
+.newsletter-form input {
+  display: block;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  border: 1px solid #25231c;
+  border-radius: 5px;
+  background: #fff;
+  padding: 0.47em 0.76em;
+}
+.newsletter-form input::-webkit-input-placeholder {
+  opacity: 47%;
+}
+.newsletter-form input::-moz-placeholder {
+  opacity: 47%;
+}
+.newsletter-form input:-ms-input-placeholder {
+  opacity: 47%;
+}
+.newsletter-form input::-ms-input-placeholder {
+  opacity: 47%;
+}
+.newsletter-form input::placeholder {
+  opacity: 47%;
+}
+
+.newsletter-form-label {
+  line-height: 2;
+}
+
+.newsletter-button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.newsletter-form .error {
+  color: #7e6a6a;
+  font-weight: 700;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
+}
+
 .panel {
   border: 1px solid #25231c;
   border-radius: 5px;
@@ -655,6 +764,10 @@ h6,
           backdrop-filter: blur(6px);
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+}
+.panel > * + * {
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
 .panel:hover {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
@@ -792,6 +905,50 @@ h6,
     opacity: 0;
   }
 }
+.theband__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 1fr 1.618fr; */
+}
+
+@media only screen and (min-width: 768px) {
+  .theband__grid {
+    grid-template-columns: 1.618fr 1fr;
+  }
+}
+.musicians__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 769px) {
+  .musicians__grid {
+    grid-template-columns: 1fr 1.618fr;
+  }
+}
+.image-wrapper {
+  width: 100%;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 13em;
+}
+
+#musician-image__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 13em 13em;
+  grid-gap: 0.5em;
+}
+
+.image-wrapper picture {
+  -webkit-box-shadow: var(--boxShadow);
+          box-shadow: var(--boxShadow);
+  border: var(--border);
+  border-radius: var(--borderRadius);
+}
+
 .container {
   max-width: min(100% - 2em, 70ch);
   margin-inline: auto;
@@ -799,10 +956,6 @@ h6,
 
 .feature {
   display: block;
-}
-.feature > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
 }
 
 .feature__inner {
@@ -832,11 +985,6 @@ h6,
   }
 }
 
-.subscribe > * + *,
-.contact > * + * {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
-}
 .subscribe > .heading,
 .contact > .heading {
   font-size: 1.38em;
@@ -854,6 +1002,135 @@ h6,
   overflow: hidden;
 }
 
+/* ratio of 56.26% (height 9 ÷ width 16) because this is the default ratio for
+ YouTube videos. However, other ratios can be used as well. */
+.video__container > iframe {
+  border: 1px solid transparent;
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  border: 1px solid transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.schedule .heading-link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.schedule .heading-link-container h1 {
+  display: inline;
+}
+.schedule .heading-link-container a {
+  font-size: 0.76rem;
+}
+.schedule .events > * + * {
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
+}
+.schedule .events .performance {
+  border-bottom: 1px solid #bcb8ac;
+}
+.schedule .events .performance:last-child {
+  border-bottom: none;
+}
+.schedule .events .performance__date-time-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.schedule .events .performance__date {
+  font-style: italic;
+  font-weight: 700;
+}
+.schedule .events .performance__title {
+  margin: 0;
+  color: #3c4c38;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+}
+.schedule .events .performance__venue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.76em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.schedule .events .performance__venue h3 {
+  display: inline;
+  -webkit-margin-before: 0.47em;
+          margin-block-start: 0.47em;
+  -webkit-margin-after: 0.47em;
+          margin-block-end: 0.47em;
+}
+
+.performance__time-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.performance__start,
+.performance__end {
+  color: hsl(110deg, 15%, 30%);
+  font-size: 0.76em;
+  font-weight: 500;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
+}
+@media (min-width: 56.25rem) {
+  .performance__start,
+.performance__end {
+    font-size: 1em;
+  }
+}
+
+.performance__to {
+  color: hsl(110deg, 15%, 30%);
+  font-size: 0.76em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.genre__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 769px) {
+  .genre__grid {
+    grid-template-columns: 1.618fr 1fr;
+  }
+}
 .AlbumSale {
   display: grid;
   grid-template-columns: 1fr 1.68fr;

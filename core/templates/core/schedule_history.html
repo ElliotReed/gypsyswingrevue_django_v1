@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Gypsy Swing Revue | Past Events
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="container schedule">
+  <section class="panel">
+    <div class="heading-link-container">
+      <h1>History</h1><a href="{% url 'core:schedule' %}">View current <i
+          class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+
+    <ol class="events">
+      {% include 'core/partials/event.html' with events=events %}
+    </ol>
+  </section>
+</div>
+
+{% endblock content %}

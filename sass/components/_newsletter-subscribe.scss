@@ -1,0 +1,43 @@
+@use '../abstracts';
+
+.newsletter-container {
+  @include abstracts.flow;
+}
+
+.newsletter-form .input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: abstracts.$spacer-md;
+}
+
+// hides injected html so the flex will work
+.input-group div {
+  display: none;
+}
+
+.newsletter-form input {
+  display: block;
+  flex: 1 1 auto;
+  border: abstracts.$border;
+  border-radius: abstracts.$border-radius;
+  background: abstracts.color(max);
+  @include abstracts.padding-box(sm);
+
+  &::placeholder {
+    opacity: abstracts.percent-scale(300);
+  }
+}
+
+.newsletter-form-label {
+  line-height: 2;
+}
+
+.newsletter-button {
+  flex: 1 0 auto;
+}
+
+.newsletter-form .error {
+  color: abstracts.color(red, 300);
+  font-weight: abstracts.$fw-lg;
+  max-height: max-content;
+}

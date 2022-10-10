@@ -1,52 +1,82 @@
-#schedule__container {
-  position: relative;
-  margin: 0;
-  padding: var(--padding);
-}
+@use '../abstracts';
 
-.performance {
-  margin-bottom: var(--margin);
-  padding: var(--padding);
-  border: var(--border);
-  border-radius: var(--borderRadius);
-  box-shadow: var(--boxShadow);
-}
+.schedule {
+  .heading-link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.performance:last-child {
-  margin-bottom: 0;
-}
+    h1 {
+      display: inline;
+    }
 
-.performance__title {
-  margin: 0;
-  color: var(--red-dark);
-  font-family: var(--fontStackSerif);
-  font-weight: bold;
-}
+    a {
+      font-size: abstracts.$fs-sm-rem;
+    }
+  }
 
-.performance__date {
-  margin-left: var(--margin);
-  color: var(--green-dark);
-  font-size: .8rem;
-  font-style: italic;
-  font-weight: 700;
+  .events {
+    @include abstracts.flow();
+
+    .performance {
+      border-bottom: 1px solid abstracts.color(brown, 100);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &__date-time-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &__date {
+        font-style: italic;
+        font-weight: abstracts.$fw-lg;
+      }
+
+      &__title {
+        margin: 0;
+        color: abstracts.color(green, 600);
+        font-family: abstracts.$fontStackSerif;
+        font-weight: bold;
+      }
+
+      &__venue {
+        display: flex;
+        gap: abstracts.$spacer-sm;
+        align-items: center;
+
+        h3 {
+          display: inline;
+          margin-block-start: abstracts.$spacer-xs;
+          margin-block-end: abstracts.$spacer-xs;
+        }
+      }
+    }
+  }
 }
 
 .performance__time-display {
   display: flex;
   justify-content: flex-end;
+  align-items: baseline;
 }
 
 .performance__start,
 .performance__end {
-  color: var(--green-dark);
-  font-size: .8rem;
-  font-style: normal;
-  font-weight: 700;
+  color: abstracts.color(green, 500);
+  font-size: abstracts.$fs-sm-em;
+  font-weight: abstracts.$fw-md;
+
+  @include abstracts.respondTo(tablet) {
+    font-size: abstracts.$fs-md-em;
+  }
 }
 
 .performance__to {
-  color: var(--green);
-  font-size: .8rem;
-  font-style: normal;
-  font-weight: 700;
+  color: abstracts.color(green, 500);
+  font-size: abstracts.$fs-sm-em;
+  font-style: italic;
+  font-weight: abstracts.$fw-sm;
 }
