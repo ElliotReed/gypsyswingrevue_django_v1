@@ -5,7 +5,16 @@ Gypsy Swing Revue | Contact
 {% endblock title %}
 
 {% block content %}
-<section class="container panel">
+<section class="contact container panel">
+  <hgroup>
+    <h2>Contact Us!</h2>
+    <p>
+      For booking information, contact:
+      <br>
+      Elliot Reed at 303.745.7944
+      or use the form.
+    </p>
+  </hgroup>
 
   {% if messages %}
   {% for message in messages %}
@@ -20,22 +29,14 @@ Gypsy Swing Revue | Contact
   {% endfor %}
 
   {% else %}
-  <form class="contact-form" action="" method="POST">
+  <form class="form contact-form " action="" method="POST">
     {% csrf_token %}
 
-    <h2>Contact Us!</h2>
-    <p>
-    <blockquote>
-      For booking information, contact:<br>
-      Elliot Reed at 303.745.7944
-      or use the form.<br>
-    </blockquote>
-    </p>
 
-    {{contact_form}}
+    {% include 'core/partials/form-fields.html' with form=contact_form %}
 
     <button class="button" name="contact" type="submit">
-      Send
+      Send message
     </button>
 
   </form>

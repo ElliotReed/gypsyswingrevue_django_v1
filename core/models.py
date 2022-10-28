@@ -44,13 +44,3 @@ class Event(models.Model):
 
     def __str__(self):
         return self.event_name
-
-
-# class Newsletter(models.Model):
-#     note = models.TextField(null=True, blank=True)
-#     current = models.BooleanField(
-#         default=False, help_text="One or none may be selected"
-#     )
-
-#     def __str__(self):
-#         return self.note
