@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.views import View
-from .forms import ContactForm, NewsletterForm
+from .forms import ContactForm
 from .models import GSRSong, ILoveParisVideo, Event, Testimonial
-from .email import send_contact_form
-from .phplist import add_subscriber
+from email_service.email import send_contact_form
 from datetime import datetime
 import json
+
+# TODO: incorporate newsletter confirmation
 
 
 def band(request):
@@ -16,7 +17,6 @@ def band(request):
 
 def contact(request):
     contact_form = ContactForm()
-    newsletter_form = NewsletterForm()
 
     if request.method == "POST":
         if "contact" in request.POST:
@@ -28,7 +28,6 @@ def contact(request):
 
     context = {
         "contact_form": contact_form,
-        "newsletter_form": newsletter_form,
     }
 
     return render(request, "core/contact.html", context)
@@ -42,7 +41,6 @@ def front_page(request):
         "snug-basement",
         "starlight",
     ]
-    newsletter_form = NewsletterForm()
     testimonials = Testimonial.objects.all().order_by("order")
 
     if request.method == "POST":
@@ -54,7 +52,6 @@ def front_page(request):
     context = {
         "image_prefixes": image_prefixes,
         "testimonials": testimonials,
-        "newsletter_form": newsletter_form,
     }
 
     return render(request, "core/front-page.html", context)

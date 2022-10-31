@@ -4,9 +4,9 @@
   border: abstracts.$border;
   border-radius: abstracts.$border-radius;
   padding: 0 abstracts.$padding abstracts.$padding;
-  background: transparentize(abstracts.color(max), .04);
+  background: transparentize(abstracts.color(max), abstracts.scale(100) / 8);
   background-blend-mode: color-dodge;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(3px);
   @include abstracts.shadow(3);
   @include abstracts.flow();
 

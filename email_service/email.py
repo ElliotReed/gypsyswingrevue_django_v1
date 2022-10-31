@@ -44,8 +44,10 @@ def send_contact_form(request):
     sender_message = body.get("message")
     sender_email = body.get("email")
 
+    print("sent")
+
     msg_html = render_to_string(
-        "core/email.html",
+        "email.html",
         {"message": {"message": sender_message, "name": name, "sender": sender_email}},
     )
 

@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "embed_video",
     "fontawesomefree",
     "core",
+    "email_service",
 ]
 
 MIDDLEWARE = [

@@ -133,6 +133,207 @@ meter {
   -webkit-user-drag: element;
 }
 
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: calc(0.9375rem + 0.390625vw);
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  min-block-size: 100vh;
+  font-family: "Georgia", serif;
+  line-height: 1.47;
+  color: #25231c;
+  background-color: black;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
+  width: 100vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
+}
+@media (min-width: 56.25rem) {
+  body {
+    grid-template-columns: 1fr 1.618fr;
+  }
+}
+body .scrollabel-content {
+  overflow-y: auto;
+  padding-bottom: 1em;
+}
+body .scrollabel-content::-webkit-scrollbar {
+  width: 0.76em;
+  /* Mostly for vertical scrollbars */
+}
+body .scrollabel-content::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: hsl(0deg, 15%, 30%);
+}
+body .scrollabel-content::-webkit-scrollbar-thumb:hover {
+  border: 1px solid #bcb8ac;
+  background: #4c3838;
+}
+body .scrollabel-content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.24);
+          box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.24);
+  background: #7e6a6a;
+}
+
+a {
+  color: #6d7e6a;
+  text-decoration: underline;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+cite {
+  font-size: 0.76em;
+}
+
+body,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+blockquote,
+figcaption {
+  max-width: 60ch;
+}
+
+:focus {
+  outline: thin dotted #bcb8ac;
+  outline-offset: 0.12em;
+}
+
+/* Blockquotes */
+.blockquote {
+  border-left: 3px solid #7e7a6a;
+}
+.blockquote blockquote {
+  padding-left: 1em;
+}
+.blockquote blockquote::before {
+  content: "“";
+}
+.blockquote blockquote::after {
+  content: "”";
+}
+.blockquote cite {
+  display: block;
+  font-size: 0.76em;
+  font-style: italic;
+  line-height: 1.38em;
+  color: hsl(50deg, 15%, 30%);
+  margin-top: 0.76em;
+  padding-left: 1em;
+}
+.blockquote cite:before {
+  content: "— ";
+}
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0;
+  /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 .button {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -145,6 +346,7 @@ meter {
           align-items: center;
   min-width: 60px;
   min-height: 60px;
+  font-family: "Cuprum", sans-serif;
   font-weight: 500;
   color: #bcb8ac;
   text-align: center;
@@ -198,6 +400,7 @@ meter {
           align-items: center;
   min-width: 60px;
   min-height: 60px;
+  font-family: "Cuprum", sans-serif;
   font-weight: 500;
   color: #bcb8ac;
   text-align: center;
@@ -362,205 +565,20 @@ meter {
             transform: translate3d(100%, 0, 0);
   }
 }
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-size: calc(0.9375rem + 0.390625vw);
+.form > * + * {
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em;
 }
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-}
-
-body {
-  position: relative;
+.form input,
+.form textarea {
   width: 100%;
-  min-height: 100%;
-  min-block-size: 100vh;
-  font-family: "Georgia", serif;
-  line-height: 1.47;
-  color: #25231c;
-  background-color: black;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  grid-template-columns: 1fr;
-  width: 100vw;
-  min-height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
-  /* Example usage div {
-    // regular styles here
-    @include respondTo(desktop) {
-      &:hover {
-        background: blue;
-      } // only add the hover effect on desktop browsers
-    }
-  }
-  This can be done
-  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
-  */
-}
-@media (min-width: 56.25rem) {
-  body {
-    grid-template-columns: 1fr 1.618fr;
-  }
-}
-body .scrollabel-content {
-  overflow-y: auto;
-  padding-bottom: 1em;
-}
-body .scrollabel-content::-webkit-scrollbar {
-  width: 0.76em;
-  /* Mostly for vertical scrollbars */
-}
-body .scrollabel-content::-webkit-scrollbar-thumb {
+  border: 1px solid #bcb8ac;
   border-radius: 5px;
-  background: hsl(0deg, 15%, 30%);
+  padding: 0.47em 0.76em;
 }
-body .scrollabel-content::-webkit-scrollbar-thumb:hover {
-  border: 1px solid #25231c;
-  background: #4c3838;
-}
-body .scrollabel-content::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.24);
-          box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.24);
-  background: #7e6a6a;
-}
-
-a {
-  color: #6d7e6a;
-  text-decoration: underline;
-}
-
-input,
-select,
-textarea,
-button {
-  font-family: inherit;
-}
-
-img {
-  display: block;
+.form button {
   width: 100%;
-}
-
-cite {
-  font-size: 0.76em;
-}
-
-body,
-p,
-ul,
-ol,
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-ul[class],
-ol[class] {
-  list-style: none;
-  padding: 0;
-}
-
-img {
-  display: block;
-  max-inline-size: 100%;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li,
-blockquote,
-figcaption {
-  max-width: 60ch;
-}
-
-:focus {
-  outline: thin dotted #bcb8ac;
-  outline-offset: 0.12em;
-}
-
-/* Blockquotes */
-.blockquote {
-  border-left: 3px solid #7e7a6a;
-}
-.blockquote blockquote {
-  padding-left: 1em;
-}
-.blockquote blockquote::before {
-  content: "“";
-}
-.blockquote blockquote::after {
-  content: "”";
-}
-.blockquote cite {
-  display: block;
-  font-size: 0.76em;
-  font-style: italic;
-  line-height: 1.38em;
-  color: hsl(50deg, 15%, 30%);
-  margin-top: 0.76em;
-  padding-left: 1em;
-}
-.blockquote cite:before {
-  content: "— ";
-}
-
-/**
- * Clear inner floats
- */
-.clearfix::after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-/**
- * Main content containers
- * 1. Make the container full-width with a maximum width
- * 2. Center it in the viewport
- * 3. Leave some space on the edges, especially valuable on small screens
- */
-/**
- * Hide text while making it readable for screen readers
- * 1. Needed in WebKit-based browsers because of an implementation bug;
- *    See: https://code.google.com/p/chromium/issues/detail?id=457146
- */
-.hide-text {
-  overflow: hidden;
-  padding: 0;
-  /* 1 */
-  text-indent: 101%;
-  white-space: nowrap;
-}
-
-/**
- * Hide element while making it readable for screen readers
- * Shamelessly borrowed from HTML5Boilerplate:
- * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
- */
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+  text-transform: capitalize;
 }
 
 h1,
@@ -715,7 +733,7 @@ h6,
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  border: 1px solid #25231c;
+  border: 1px solid #bcb8ac;
   border-radius: 5px;
   background: #fff;
   padding: 0.47em 0.76em;
@@ -755,13 +773,13 @@ h6,
 }
 
 .panel {
-  border: 1px solid #25231c;
+  border: 1px solid #bcb8ac;
   border-radius: 5px;
   padding: 0 0.618rem 0.618rem;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.9775);
   background-blend-mode: color-dodge;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
 }
@@ -1229,6 +1247,7 @@ iframe {
           align-items: center;
   min-width: 60px;
   min-height: 60px;
+  font-family: "Cuprum", sans-serif;
   font-weight: 500;
   color: #25231c;
   text-align: center;
@@ -1377,6 +1396,7 @@ footer {
           align-items: center;
   min-width: 60px;
   min-height: 60px;
+  font-family: "Cuprum", sans-serif;
   font-weight: 500;
   color: #bcb8ac;
   text-align: center;
