@@ -1,0 +1,211 @@
+@use '../abstracts';
+@use '../components/button';
+@use '../base';
+
+.page-menu__nav {
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+  background-color: abstracts.color(gold, 100);
+  border: .5em solid abstracts.color(brown, 900);
+  @include abstracts.scrollbar;
+  overflow-y: auto;
+
+  .nav__ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .nav__item {
+      display: block;
+      color: abstracts.color(brown, 100);
+      font-family: base.$fontStackSans;
+
+      &:focus-within {
+        .nav__item-list {
+          transform: unset;
+          transition: all abstracts.$duration-md;
+        }
+      }
+
+      &:first-child:focus-within {
+        .nav__item-list {
+          left: unset;
+          transform: unset;
+        }
+      }
+
+      &:last-child:focus-within {
+        .nav__item-list {
+          right: unset;
+          transform: unset;
+        }
+      }
+    }
+
+    .nav__item-header {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: abstracts.$fs-lg-em;
+      font-weight: abstracts.$fw-lg;
+      padding: 0;
+
+      i {
+        font-size: abstracts.$fs-sm-em;
+      }
+    }
+
+    .nav__heading {
+      margin: 0;
+      position: relative;
+
+      font-weight: bold;
+      line-height: 1;
+      z-index: 0;
+
+      .marquee__text {
+        font-size: abstracts.$fs-lg-em;
+        color: abstracts.color(min);
+        margin-block: .5em;
+
+      }
+    }
+
+    .nav__item-list {
+      position: static;
+      display: block;
+      width: 100%;
+      top: unset;
+      transform: unset;
+      background-color: transparent;
+      // transform-origin: bottom center;
+
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        position: relative;
+
+        font-weight: bold;
+        line-height: 1;
+        z-index: 0;
+      }
+
+      &>*+* {
+        margin-block-start: .5em;
+      }
+    }
+
+    .marquee__text {
+      display: block;
+      min-width: unset;
+      min-height: unset;
+      padding: 0;
+      color: abstracts.color(min);
+      font-size: abstracts.$fs-md-em;
+      font-weight: abstracts.$fw-lg;
+      font-family: Arial, Helvetica, sans-serif;
+      text-shadow: 1px 1px 0 transparentize(abstracts.color(min), .5);
+      background-color: transparent;
+      box-shadow: unset;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: abstracts.color(brown, 100);
+        box-shadow: 0 0 3px hsla(0, 0%, 0%, 25%);
+        z-index: -1;
+      }
+
+      &:before {
+        top: 20%;
+      }
+
+      &:after {
+        bottom: 15%;
+      }
+
+      &:hover {
+        box-shadow: unset;
+      }
+    }
+  }
+}
+
+.nav__ul {
+  display: flex;
+
+  .nav__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: abstracts.color(brown, 100);
+    font-family: base.$fontStackSans;
+
+    &:focus-within {
+      .nav__item-list {
+        transform: translateY(-100%) scaleY(1);
+        transition: all abstracts.$duration-md;
+      }
+    }
+
+    &:first-child:focus-within {
+      .nav__item-list {
+        left: 0;
+        transform: translateY(-100%) scaleY(1);
+      }
+    }
+
+    &:last-child:focus-within {
+      .nav__item-list {
+        right: 0;
+        transform: translateY(-100%) scaleY(1);
+      }
+    }
+  }
+
+  .nav__item-header button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: abstracts.em-scale(300);
+    padding: abstracts.$spacer-sm;
+    font-size: abstracts.$fs-sm-em;
+    font-weight: abstracts.$fw-md;
+
+    i {
+      font-size: abstracts.$fs-lg-em;
+    }
+  }
+
+  .nav__heading {
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+  }
+
+  .nav__item-list {
+    position: absolute;
+    top: 0;
+    width: max-content;
+    margin: 0;
+    background: transparentize(abstracts.color(min), .12);
+    border-radius: abstracts.$border-radius;
+    transform: translateY(-100%) scaleY(0);
+    transform-origin: bottom center;
+
+  }
+
+  .link {
+    @include button.link-as-button(md, $bg-color: transparent);
+    display: flex; // overides link-as-button
+    justify-content: start; // overides link-as-button
+    text-decoration: underline; // overides link-as-button
+  }
+}

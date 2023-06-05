@@ -3,4 +3,9 @@
 .container {
   max-width: min(100% - abstracts.$spacer-md * 2, abstracts.$max-width);
   margin-inline: auto;
+
+  @include abstracts.respondTo(tablet) {
+    max-width: 50ch;
+    margin-inline: 1rem;
+  }
 }

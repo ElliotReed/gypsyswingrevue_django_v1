@@ -1,3 +1,28 @@
+.picture-container {
+  border: 3px solid black;
+  overflow: hidden;
+}
+
+.moving-picture {
+  animation: move 30s alternate infinite ease;
+}
+
+@media (prefers-reduced-motion) {
+  .moving-picture {
+    animation: none;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
 /* ratio of 56.26% (height 9 ÷ width 16) because this is the default ratio for
  YouTube videos. However, other ratios can be used as well. */
 .video__container {

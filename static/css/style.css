@@ -133,24 +133,27 @@ meter {
   -webkit-user-drag: element;
 }
 
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-size: calc(0.9375rem + 0.390625vw);
-}
-
 *,
 *:before,
 *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+  font-size: calc(0.9375rem + 0.390625vw);
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
   position: relative;
   width: 100%;
-  min-height: 100%;
-  min-block-size: 100vh;
   font-family: "Georgia", serif;
   line-height: 1.47;
   color: #25231c;
@@ -159,8 +162,8 @@ body {
   grid-template-rows: auto minmax(0, 1fr) auto;
   grid-template-columns: 1fr;
   width: 100vw;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 100%;
+  max-height: 100%;
   overflow: hidden;
   /* Example usage div {
     // regular styles here
@@ -184,12 +187,12 @@ body .scrollabel-content {
   padding-bottom: 1em;
 }
 body .scrollabel-content::-webkit-scrollbar {
-  width: 0.76em;
+  width: 0.76rem;
   /* Mostly for vertical scrollbars */
 }
 body .scrollabel-content::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: hsl(0deg, 15%, 30%);
+  background: hsl(0, 15%, 30%);
 }
 body .scrollabel-content::-webkit-scrollbar-thumb:hover {
   border: 1px solid #bcb8ac;
@@ -216,6 +219,7 @@ button {
 img {
   display: block;
   width: 100%;
+  max-inline-size: 100%;
 }
 
 cite {
@@ -241,11 +245,6 @@ ol[class] {
   padding: 0;
 }
 
-img {
-  display: block;
-  max-inline-size: 100%;
-}
-
 p,
 h1,
 h2,
@@ -261,7 +260,7 @@ figcaption {
 
 :focus {
   outline: thin dotted #bcb8ac;
-  outline-offset: 0.12em;
+  outline-offset: -0.12em;
 }
 
 /* Blockquotes */
@@ -282,7 +281,7 @@ figcaption {
   font-size: 0.76em;
   font-style: italic;
   line-height: 1.38em;
-  color: hsl(50deg, 15%, 30%);
+  color: hsl(50, 15%, 30%);
   margin-top: 0.76em;
   padding-left: 1em;
 }
@@ -353,7 +352,7 @@ figcaption {
   text-decoration: none;
   white-space: nowrap;
   border-radius: 5px;
-  background-color: hsl(110deg, 15%, 30%);
+  background-color: #455841;
   padding: 0.76em 1em;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -368,16 +367,16 @@ figcaption {
       touch-action: manipulation;
 }
 .button:hover, .button:focus {
-  background: #324130;
+  background: #334130;
   -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
           box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
 }
 .button:focus {
   outline: thin dotted #bcb8ac;
-  outline-offset: 0.12em;
+  outline-offset: -0.12em;
 }
 .button:active {
-  background: #0b0f0b;
+  background: #0c0f0b;
   -webkit-transform: scale(1.012);
           transform: scale(1.012);
 }
@@ -407,7 +406,7 @@ figcaption {
   text-decoration: none;
   white-space: nowrap;
   border-radius: 5px;
-  background-color: hsl(110deg, 15%, 30%);
+  background-color: #455841;
   padding: 0.76em 1em;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -420,16 +419,16 @@ figcaption {
           box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
 }
 .link-as-button:hover, .link-as-button:focus {
-  background: #324130;
+  background: #334130;
   -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
           box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
 }
 .link-as-button:focus {
   outline: thin dotted #bcb8ac;
-  outline-offset: 0.12em;
+  outline-offset: -0.12em;
 }
 .link-as-button:active {
-  background: #0b0f0b;
+  background: #0c0f0b;
   -webkit-transform: scale(1.012);
           transform: scale(1.012);
 }
@@ -456,7 +455,7 @@ figcaption {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  background: hsl(0deg, 15%, 30%);
+  background: hsl(0, 15%, 30%);
   border: 2px solid #251c1c;
   width: 50vw;
   height: 100%;
@@ -468,8 +467,8 @@ figcaption {
   background: repeating-linear-gradient(to left, #392a2a 0%, #968383 8%, #392a2a 15%);
   z-index: 3;
   opacity: 0.5;
-  -webkit-box-shadow: -1em 0 1em hsla(50deg, 15%, 20%, 0.5);
-          box-shadow: -1em 0 1em hsla(50deg, 15%, 20%, 0.5);
+  -webkit-box-shadow: -1em 0 1em hsla(50, 15%, 20%, 0.5);
+          box-shadow: -1em 0 1em hsla(50, 15%, 20%, 0.5);
   /* Example usage div {
     // regular styles here
     @include respondTo(desktop) {
@@ -583,7 +582,7 @@ figcaption {
 
 h1,
 .heading-1 {
-  color: hsl(0deg, 15%, 30%);
+  color: hsl(0, 15%, 30%);
   font-family: "Cuprum", sans-serif;
   font-size: 2rem;
   font-weight: 700;
@@ -597,7 +596,7 @@ h1,
 
 h2,
 .heading-2 {
-  color: hsl(0deg, 15%, 30%);
+  color: hsl(0, 15%, 30%);
   font-family: "Cuprum", sans-serif;
   font-size: 1.62rem;
   font-weight: 700;
@@ -611,7 +610,7 @@ h2,
 
 h3,
 .heading-3 {
-  color: hsl(0deg, 15%, 30%);
+  color: hsl(0, 15%, 30%);
   font-family: "Cuprum", sans-serif;
   font-size: 1.38rem;
   font-weight: 700;
@@ -625,7 +624,7 @@ h3,
 
 h4,
 .heading-4 {
-  color: hsl(0deg, 15%, 30%);
+  color: hsl(0, 15%, 30%);
   font-family: "Cuprum", sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -639,7 +638,7 @@ h4,
 
 h5,
 .heading-5 {
-  color: hsl(0deg, 15%, 30%);
+  color: hsl(0, 15%, 30%);
   font-family: "Cuprum", sans-serif;
   font-size: 0.76rem;
   font-weight: 700;
@@ -653,7 +652,7 @@ h5,
 
 h6,
 .heading-6 {
-  color: hsl(0deg, 15%, 30%);
+  color: hsl(0, 15%, 30%);
   font-family: "Cuprum", sans-serif;
   font-size: 0.47rem;
   font-weight: 700;
@@ -970,6 +969,27 @@ h6,
 .container {
   max-width: min(100% - 2em, 70ch);
   margin-inline: auto;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
+}
+@media (min-width: 56.25rem) {
+  .container {
+    max-width: 50ch;
+    margin-inline: 1rem;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .feature {
@@ -1020,6 +1040,42 @@ h6,
   overflow: hidden;
 }
 
+.picture-container {
+  border: 3px solid black;
+  overflow: hidden;
+}
+
+.moving-picture {
+  -webkit-animation: move 30s alternate infinite ease;
+          animation: move 30s alternate infinite ease;
+}
+
+@media (prefers-reduced-motion) {
+  .moving-picture {
+    -webkit-animation: none;
+            animation: none;
+  }
+}
+@-webkit-keyframes move {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+}
+@keyframes move {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+}
 /* ratio of 56.26% (height 9 ÷ width 16) because this is the default ratio for
  YouTube videos. However, other ratios can be used as well. */
 .video__container > iframe {
@@ -1110,7 +1166,7 @@ iframe {
 
 .performance__start,
 .performance__end {
-  color: hsl(110deg, 15%, 30%);
+  color: #455841;
   font-size: 0.76em;
   font-weight: 500;
   /* Example usage div {
@@ -1127,13 +1183,13 @@ iframe {
 }
 @media (min-width: 56.25rem) {
   .performance__start,
-.performance__end {
+  .performance__end {
     font-size: 1em;
   }
 }
 
 .performance__to {
-  color: hsl(110deg, 15%, 30%);
+  color: #455841;
   font-size: 0.76em;
   font-style: italic;
   font-weight: 400;
@@ -1188,7 +1244,7 @@ iframe {
   border: 1px solid transparent;
   border-radius: 5px;
   color: #dddddd;
-  background: hsl(110deg, 15%, 30%);
+  background: #455841;
 }
 
 .paypal__btn:hover {
@@ -1277,7 +1333,7 @@ iframe {
 }
 .track__list .track__title:focus {
   outline: thin dotted #bcb8ac;
-  outline-offset: 0.12em;
+  outline-offset: -0.12em;
 }
 .track__list .track__title:active {
   background: rgba(0, 0, 0, 0);
@@ -1368,7 +1424,6 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.47em 0.76em;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -1383,67 +1438,6 @@ footer {
   This can be done
   @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
   */
-}
-.footer__nav a {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-width: 60px;
-  min-height: 60px;
-  font-family: "Cuprum", sans-serif;
-  font-weight: 500;
-  color: #bcb8ac;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  border-radius: 5px;
-  background-color: transparent;
-  padding: 0.76em 1em;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-transition: all 320ms ease-in-out;
-  transition: all 320ms ease-in-out;
-  cursor: pointer;
-  -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.76rem;
-}
-.footer__nav a:hover, .footer__nav a:focus {
-  background: rgba(0, 0, 0, 0);
-  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
-          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
-}
-.footer__nav a:focus {
-  outline: thin dotted #bcb8ac;
-  outline-offset: 0.12em;
-}
-.footer__nav a:active {
-  background: rgba(0, 0, 0, 0);
-  -webkit-transform: scale(1.012);
-          transform: scale(1.012);
-}
-.footer__nav a:hover {
-  text-decoration: underline;
-}
-.footer__nav a:hover i {
-  text-decoration: none;
 }
 @media (min-width: 56.25rem) {
   .footer__nav {
@@ -1585,7 +1579,9 @@ footer {
 
 .site-header {
   position: relative;
-  padding: 1em 1em;
+  padding: 0.76em;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
   /* Example usage div {
     // regular styles here
     @include respondTo(desktop) {
@@ -1602,6 +1598,10 @@ footer {
   .site-header {
     grid-column-start: 1;
     grid-column-end: 3;
+    height: 3rem;
+  }
+  .site-header .logo {
+    display: none;
   }
 }
 
@@ -1619,33 +1619,47 @@ footer {
   height: 3em;
   -webkit-filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.53));
           filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.53));
+  -webkit-filter: drop-shadow(4px 4px 1px rgba(251, 233, 180, 0.2));
+          filter: drop-shadow(4px 4px 1px rgba(251, 233, 180, 0.2));
 }
 .logo .gypsy {
+  -webkit-animation: glow 1s 2s ease-in-out alternate infinite;
+          animation: glow 1s 2s ease-in-out alternate infinite;
+}
+.logo .gypsy.should-animate {
+  -webkit-animation: glow 1s 2s ease-in-out alternate infinite, gypsy 1s 100ms ease-in-out forwards;
+          animation: glow 1s 2s ease-in-out alternate infinite, gypsy 1s 100ms ease-in-out forwards;
   opacity: 0;
   -webkit-transform: translate(-150%, 0);
           transform: translate(-150%, 0);
-  -webkit-animation: gypsy 1s 100ms ease-in-out forwards, glow 1s 2s ease-in-out alternate infinite;
-          animation: gypsy 1s 100ms ease-in-out forwards, glow 1s 2s ease-in-out alternate infinite;
 }
 .logo .swing {
   position: relative;
   top: 0.4rem;
+  -webkit-animation: glow 1s 2333ms ease-in-out alternate infinite;
+          animation: glow 1s 2333ms ease-in-out alternate infinite;
+}
+.logo .swing.should-animate {
+  -webkit-animation: glow 1s 2333ms ease-in-out alternate infinite, swing 3s 400ms ease-in-out forwards;
+          animation: glow 1s 2333ms ease-in-out alternate infinite, swing 3s 400ms ease-in-out forwards;
+  opacity: 0;
   -webkit-transform: translate(-10vh, -10vh);
           transform: translate(-10vh, -10vh);
   -webkit-transform-origin: 50%;
           transform-origin: 50%;
-  opacity: 0;
-  -webkit-animation: swing 3s 400ms ease-in-out forwards, glow 1s 2333ms ease-in-out alternate infinite;
-          animation: swing 3s 400ms ease-in-out forwards, glow 1s 2333ms ease-in-out alternate infinite;
 }
 .logo .revue {
   position: relative;
   top: 0.3rem;
+  -webkit-animation: glow 1s 2666ms ease-in-out alternate infinite;
+          animation: glow 1s 2666ms ease-in-out alternate infinite;
+}
+.logo .revue.should-animate {
+  -webkit-animation: glow 1s 2666ms ease-in-out alternate infinite, revue 1s 100ms ease-in-out forwards;
+          animation: glow 1s 2666ms ease-in-out alternate infinite, revue 1s 100ms ease-in-out forwards;
   opacity: 0;
-  -webkit-transform: translate(150%, 0);
-          transform: translate(150%, 0);
-  -webkit-animation: revue 1s 800ms ease-in-out forwards, glow 1s 2666ms ease-in-out alternate infinite;
-          animation: revue 1s 800ms ease-in-out forwards, glow 1s 2666ms ease-in-out alternate infinite;
+  -webkit-transform: translate(-150%, 0);
+          transform: translate(-150%, 0);
 }
 
 @-webkit-keyframes glow {
@@ -1777,9 +1791,287 @@ footer {
     opacity: 1;
   }
 }
+.page-menu__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+  background-color: #fdf4da;
+  border: 0.5em solid #25231c;
+  overflow-y: auto;
+}
+.page-menu__nav::-webkit-scrollbar {
+  width: 0.76rem;
+  /* Mostly for vertical scrollbars */
+}
+.page-menu__nav::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: hsl(0, 15%, 30%);
+}
+.page-menu__nav::-webkit-scrollbar-thumb:hover {
+  border: 1px solid #bcb8ac;
+  background: #4c3838;
+}
+.page-menu__nav::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.24);
+          box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.24);
+  background: #7e6a6a;
+}
+.page-menu__nav .nav__ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+.page-menu__nav .nav__ul .nav__item {
+  display: block;
+  color: #bcb8ac;
+  font-family: "Cuprum", sans-serif;
+}
+.page-menu__nav .nav__ul .nav__item:focus-within .nav__item-list {
+  -webkit-transform: unset;
+          transform: unset;
+  -webkit-transition: all 320ms;
+  transition: all 320ms;
+}
+.page-menu__nav .nav__ul .nav__item:first-child:focus-within .nav__item-list {
+  left: unset;
+  -webkit-transform: unset;
+          transform: unset;
+}
+.page-menu__nav .nav__ul .nav__item:last-child:focus-within .nav__item-list {
+  right: unset;
+  -webkit-transform: unset;
+          transform: unset;
+}
+.page-menu__nav .nav__ul .nav__item-header {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.29em;
+  font-weight: 700;
+  padding: 0;
+}
+.page-menu__nav .nav__ul .nav__item-header i {
+  font-size: 0.76em;
+}
+.page-menu__nav .nav__ul .nav__heading {
+  margin: 0;
+  position: relative;
+  font-weight: bold;
+  line-height: 1;
+  z-index: 0;
+}
+.page-menu__nav .nav__ul .nav__heading .marquee__text {
+  font-size: 1.29em;
+  color: #000;
+  margin-block: 0.5em;
+}
+.page-menu__nav .nav__ul .nav__item-list {
+  position: static;
+  display: block;
+  width: 100%;
+  top: unset;
+  -webkit-transform: unset;
+          transform: unset;
+  background-color: transparent;
+  list-style-type: none;
+  padding: 0;
+}
+.page-menu__nav .nav__ul .nav__item-list li {
+  position: relative;
+  font-weight: bold;
+  line-height: 1;
+  z-index: 0;
+}
+.page-menu__nav .nav__ul .nav__item-list > * + * {
+  -webkit-margin-before: 0.5em;
+          margin-block-start: 0.5em;
+}
+.page-menu__nav .nav__ul .marquee__text {
+  display: block;
+  min-width: unset;
+  min-height: unset;
+  padding: 0;
+  color: #000;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+}
+.page-menu__nav .nav__ul .marquee__text:before, .page-menu__nav .nav__ul .marquee__text:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #bcb8ac;
+  -webkit-box-shadow: 0 0 3px hsla(0, 0%, 0%, 0.25);
+          box-shadow: 0 0 3px hsla(0, 0%, 0%, 0.25);
+  z-index: -1;
+}
+.page-menu__nav .nav__ul .marquee__text:before {
+  top: 20%;
+}
+.page-menu__nav .nav__ul .marquee__text:after {
+  bottom: 15%;
+}
+.page-menu__nav .nav__ul .marquee__text:hover {
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+}
+
+.nav__ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.nav__ul .nav__item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #bcb8ac;
+  font-family: "Cuprum", sans-serif;
+}
+.nav__ul .nav__item:focus-within .nav__item-list {
+  -webkit-transform: translateY(-100%) scaleY(1);
+          transform: translateY(-100%) scaleY(1);
+  -webkit-transition: all 320ms;
+  transition: all 320ms;
+}
+.nav__ul .nav__item:first-child:focus-within .nav__item-list {
+  left: 0;
+  -webkit-transform: translateY(-100%) scaleY(1);
+          transform: translateY(-100%) scaleY(1);
+}
+.nav__ul .nav__item:last-child:focus-within .nav__item-list {
+  right: 0;
+  -webkit-transform: translateY(-100%) scaleY(1);
+          transform: translateY(-100%) scaleY(1);
+}
+.nav__ul .nav__item-header button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.47em;
+  padding: 0.76em;
+  font-size: 0.76em;
+  font-weight: 500;
+}
+.nav__ul .nav__item-header button i {
+  font-size: 1.29em;
+}
+.nav__ul .nav__heading {
+  font-size: inherit;
+  color: inherit;
+  margin: 0;
+}
+.nav__ul .nav__item-list {
+  position: absolute;
+  top: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.88);
+  border-radius: 5px;
+  -webkit-transform: translateY(-100%) scaleY(0);
+          transform: translateY(-100%) scaleY(0);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+}
+.nav__ul .link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 60px;
+  min-height: 60px;
+  font-family: "Cuprum", sans-serif;
+  font-weight: 500;
+  color: #bcb8ac;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 0.76em 1em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: all 320ms ease-in-out;
+  transition: all 320ms ease-in-out;
+  cursor: pointer;
+  -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  text-decoration: underline;
+}
+.nav__ul .link:hover, .nav__ul .link:focus {
+  background: rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+}
+.nav__ul .link:focus {
+  outline: thin dotted #bcb8ac;
+  outline-offset: -0.12em;
+}
+.nav__ul .link:active {
+  background: rgba(0, 0, 0, 0);
+  -webkit-transform: scale(1.012);
+          transform: scale(1.012);
+}
+.nav__ul .link:hover {
+  text-decoration: underline;
+}
+.nav__ul .link:hover i {
+  text-decoration: none;
+}
+
 .page-menu {
+  font-size: 0.9rem;
   display: none;
-  padding: 0 0 1em 1em;
+  padding: 1em 0 1em 1em;
+  color: #000;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
   /* Example usage div {
     // regular styles here
     @include respondTo(desktop) {
@@ -1794,40 +2086,82 @@ footer {
 }
 @media (min-width: 56.25rem) {
   .page-menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    display: block;
   }
 }
 
-.page-menu__container {
-  width: max(0.18em * 100, 76%);
+.marquee {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 96%;
+  max-width: 40ch;
+  margin-inline: auto;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #25231c;
   border: 1px solid transparent;
   border-radius: 5px;
-  padding: 1em;
-  background: #1d251c;
+  -webkit-transform: rotateY(10deg) translateY(0rem);
+          transform: rotateY(10deg) translateY(0rem);
   overflow: hidden;
 }
 
-.menu__container-ul a {
-  display: block;
-  color: #dddddd;
+.heading-wrapper {
+  position: relative;
+  font-size: 1rem;
+  padding-block: 0.29em;
+  z-index: 0;
 }
-.menu__container-ul h5 {
-  color: #bcb8ac;
-  font-size: 0.8rem;
-  font-weight: 900;
-  margin-top: 1.618em;
-  margin-bottom: 0.76em;
-  border-bottom: 1px solid #bcb8ac;
-  padding: 1.618em 0 0.76em 0;
+
+.light-rack__instalation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.light-rack {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.1em;
+  padding: 0.1em;
+  background-color: rgba(255, 255, 255, 0.0941176471);
+  border: 1px dotted #846f2d;
+  border-radius: 5px;
+}
+.light-rack .light-rack__bulb {
+  background-color: #cdb879;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.7333333333);
+          box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.7333333333);
+  -webkit-filter: drop-shadow(3px 3px #000000);
+          filter: drop-shadow(3px 3px #000000);
+}
+.light-rack.light-rack-horizontal {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.light-rack.light-rack-horizontal .light-rack__bulb {
+  height: 0.2em;
+  margin: 0.18em 0;
+}
+.light-rack.light-rack-verticle {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.light-rack.light-rack-verticle .light-rack__bulb {
+  width: 0.2em;
+  margin: 0 0.18em;
 }
 
 /* css for footlight values inverted!!! */
@@ -1839,6 +2173,17 @@ footer {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   z-index: -1;
+  /* Example usage div {
+    // regular styles here
+    @include respondTo(desktop) {
+      &:hover {
+        background: blue;
+      } // only add the hover effect on desktop browsers
+    }
+  }
+  This can be done
+  @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+  */
   /* optional light on stage element
   &__light {
     position: relative;
@@ -1864,6 +2209,11 @@ footer {
       }
   } */
 }
+@media (min-width: 56.25rem) {
+  .spotlight {
+    top: 0;
+  }
+}
 .spotlight__stage {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1882,7 +2232,7 @@ footer {
   display: flex;
   position: relative;
   top: -1rem;
-  width: 1.6em;
+  width: 1.6rem;
   height: 2.2em;
   border: 1px solid transparent;
   -webkit-box-pack: center;

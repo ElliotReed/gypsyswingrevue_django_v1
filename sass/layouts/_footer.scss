@@ -6,7 +6,7 @@ footer {
   // margin-top: calc(abstracts.$spacer-md * -2);
   background: transparentize(abstracts.color(min), .12);
   z-index: 1;
-
+  
   @include abstracts.respondTo(tablet) {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -15,17 +15,8 @@ footer {
 
 .footer__nav {
   display: flex;
-  @include abstracts.padding-box(sm);
+  // @include abstracts.padding-box(sm);
   justify-content: space-evenly;
-
-  a {
-    @include button.link-as-button(md, $bg-color: transparent);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: abstracts.$fs-sm-rem;
-  }
 
   @include abstracts.respondTo(tablet) {
     display: none;

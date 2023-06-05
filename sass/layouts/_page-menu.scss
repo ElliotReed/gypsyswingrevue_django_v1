@@ -1,38 +1,79 @@
 @use '../abstracts';
+@use 'sass:math';
 
 .page-menu {
+  font-size: .9rem;
   display: none;
-  padding: 0 0 abstracts.$spacer-md abstracts.$spacer-md;
+  padding: abstracts.$spacer-md 0 abstracts.$spacer-md abstracts.$spacer-md;
+  color: abstracts.color(min);
+  perspective: 500px;
+  perspective-origin: 50% 50%;
 
   @include abstracts.respondTo(tablet) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    display: block;
   }
 }
 
-.page-menu__container {
-  width: max(calc(abstracts.em-scale(100) * 100), abstracts.percent-scale(400));
+.marquee {
+  display: flex;
+  flex-direction: column;
+  max-height: 96%;
+  max-width: 40ch;
+  margin-inline: auto;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: abstracts.color(brown, 900);
   border: 1px solid transparent;
   border-radius: abstracts.$border-radius;
-  padding: abstracts.$spacer-md;
-  background: abstracts.color(green, 900);
+  transform: rotateY(10deg) translateY(0rem);
   overflow: hidden;
 }
 
-.menu__container-ul {
-  a {
-    display: block;
-    color: abstracts.color(white, 100);
+.heading-wrapper {
+  position: relative;
+  font-size: abstracts.$fs-md-rem;
+  padding-block: abstracts.em-scale(200);
+  z-index: 0;
+}
+
+.light-rack__instalation {
+  display: flex;
+  overflow: hidden;
+}
+
+.light-rack {
+  $_bulb-thickness: .2em;
+  $_offset: .18em;
+  display: flex;
+  margin: .1em;
+  padding: .1em;
+  background-color: #ffffff18;
+  border: 1px dotted abstracts.color(gold, 900);
+  border-radius: abstracts.$border-radius;
+
+  .light-rack__bulb {
+    background-color: abstracts.color(gold, 700);
+    border-radius: abstracts.$border-radius;
+    box-shadow: 0 0 .5em #ffffffbb;
+    filter: drop-shadow(3px 3px #000000);
   }
 
-  h5 {
-    color: abstracts.color(brown, 100);
-    font-size: .8rem;
-    font-weight: 900;
-    margin-top: abstracts.$spacer-lg;
-    margin-bottom: abstracts.$spacer-sm;
-    border-bottom: 1px solid abstracts.color(brown, 100);
-    padding: abstracts.$spacer-lg 0 abstracts.$spacer-sm 0;
+  &.light-rack-horizontal {
+    flex-direction: column;
+
+    .light-rack__bulb {
+      height: $_bulb-thickness;
+      margin: $_offset 0;
+    }
+  }
+
+  &.light-rack-verticle {
+    flex-direction: row;
+
+    .light-rack__bulb {
+      width: $_bulb-thickness;
+      margin: 0 $_offset;
+
+    }
   }
 }

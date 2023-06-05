@@ -1,52 +1,35 @@
 <aside class="page-menu">
-  <nav class="page-menu__container">
+  <div class="marquee">
+    <div class="light-rack light-rack-horizontal">
+      <div class="light-rack__bulb"></div>
+      <div class="light-rack__bulb"></div>
+    </div>
 
-    <ul class="menu__container-ul">
-      <li>
-        <h5>Find Us</h5>
-        <ul>
-          <li>
-            <a href="/schedule">Schedule</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-          <li>
-            <a href="/contact">Subscribe to our newsletter</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <h5>I Love Paris</h5>
-        <ul>
-          <li>
-            <a href="/i-love-paris">I Love Paris</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <h5>The Band</h5>
-        <ul>
-          <li>
-            <a href="{% url 'core:band' %}">the Band</a>
-          </li>
-          <li>
-            <a href="{% url 'core:band' %}">the Musicians</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <h5>The Music</h5>
-        <ul>
-          <li>
-            <a href="{% url 'core:songs' %}">the Genre</a>
-          </li>
-          <li>
-            <a href="{% url 'core:songs' %}">Songlist</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div class="heading-wrapper">
+      {% include "partials/logo.html" %}
+    </div>
 
-  </nav>
+    <div class="light-rack  light-rack-horizontal">
+      <div class="light-rack__bulb "></div>
+      <div class="light-rack__bulb "></div>
+    </div>
+
+    <div class="light-rack__instalation">
+
+      <div class="light-rack light-rack-verticle">
+        <div class="light-rack__bulb"></div>
+        <div class="light-rack__bulb"></div>
+        <div class="light-rack__bulb"></div>
+      </div>
+
+      <nav class="page-menu__nav">
+        {% include "partials/menu.html" with type="page" %}
+      </nav>
+
+      <div class="light-rack light-rack-verticle">
+        <div class="light-rack__bulb"></div>
+        <div class="light-rack__bulb"></div>
+        <div class="light-rack__bulb"></div>
+      </div>
+    </div>
 </aside>

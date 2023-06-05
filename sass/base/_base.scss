@@ -2,22 +2,28 @@
 @use "../themes";
 @use "typography";
 
-html {
-  box-sizing: border-box;
-  font-size: calc(.9375rem + 0.390625vw);
-}
-
 *,
 *:before,
 *:after {
+  box-sizing: border-box;
+}
+
+html {
   box-sizing: inherit;
+  font-size: calc(.9375rem + 0.390625vw);
+}
+
+
+html,
+body {
+  height: 100%;
+  // min-block-size: 100vh;
+
 }
 
 body {
   position: relative;
   width: 100%;
-  min-height: 100%;
-  min-block-size: 100vh;
   font-family: typography.$fontStackSerif;
   line-height: 1.47;
   color: abstracts.color(brown, 900);
@@ -30,7 +36,6 @@ a {
   text-decoration: underline;
 }
 
-
 input,
 select,
 textarea,
@@ -41,6 +46,7 @@ button {
 img {
   display: block;
   width: 100%;
+  max-inline-size: 100%; // Instead of width?
 }
 
 cite {
@@ -71,10 +77,6 @@ ol[class] {
   padding: 0;
 }
 
-img {
-  display: block;
-  max-inline-size: 100%;
-}
 
 p,
 h1,

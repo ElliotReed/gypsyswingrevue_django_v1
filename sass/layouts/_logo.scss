@@ -12,30 +12,51 @@
     width: 6em;
     height: 3em;
     filter: drop-shadow(0 3px 3px transparentize(abstracts.color(min), .47));
+    filter: drop-shadow(4px 4px 1px transparentize(abstracts.color(gold, 400), .8));
   }
 
   .gypsy {
-    opacity: 0;
-    transform: translate(-150%, 0);
-    animation: gypsy 1s 100ms $ease forwards, glow 1s 2s $ease alternate infinite;
+    $glow-delay: 2s;
+    $glow-animation: glow 1s $glow-delay $ease alternate infinite;
+    $gypsy-animation: gypsy 1s 100ms $ease forwards;
+    animation: $glow-animation;
+
+    &.should-animate {
+      animation: $glow-animation, $gypsy-animation;
+      opacity: 0;
+      transform: translate(-150%, 0);
+    }
   }
 
   .swing {
+    $glow-delay: 2333ms;
+    $glow-animation: glow 1s $glow-delay $ease alternate infinite;
+    $swing-animation: swing 3s 400ms $ease forwards;
     position: relative;
     top: .4rem;
-    transform: translate(-10vh, -10vh);
-    transform-origin: 50%;
-    opacity: 0;
-    animation: swing 3s 400ms $ease forwards,
-      glow 1s 2333ms $ease alternate infinite;
+    animation: $glow-animation;
+
+    &.should-animate {
+      animation: $glow-animation, $swing-animation;
+      opacity: 0;
+      transform: translate(-10vh, -10vh);
+      transform-origin: 50%;
+    }
   }
 
   .revue {
+    $glow-delay: 2666ms;
+    $glow-animation: glow 1s $glow-delay $ease alternate infinite;
+    $revue-animation: revue 1s 100ms $ease forwards;
     position: relative;
     top: .3rem;
-    opacity: 0;
-    transform: translate(150%, 0);
-    animation: revue 1s 800ms $ease forwards, glow 1s 2666ms $ease alternate infinite;
+    animation: $glow-animation;
+
+    &.should-animate {
+      animation: $glow-animation, $revue-animation;
+      opacity: 0;
+      transform: translate(-150%, 0);
+    }
   }
 }
 

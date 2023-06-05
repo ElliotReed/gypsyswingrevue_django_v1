@@ -70,7 +70,7 @@ def i_love_paris(request):
 
 def media(request):
     # TODO: implement
-    return
+    pass
 
 
 def newsletter(request):

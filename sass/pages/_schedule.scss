@@ -1,4 +1,5 @@
 @use '../abstracts';
+@use '../base';
 
 .schedule {
   .heading-link-container {
@@ -38,7 +39,7 @@
       &__title {
         margin: 0;
         color: abstracts.color(green, 600);
-        font-family: abstracts.$fontStackSerif;
+        font-family: base.$fontStackSerif;
         font-weight: bold;
       }
 

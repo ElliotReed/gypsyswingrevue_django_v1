@@ -15,7 +15,7 @@ $scale: (
 );
 
 @function scale($keys...) {
-  $value: $sizes;
+  $value: $scale;
 
   @each $key in $keys {
     $value: map-get($value, $key);
@@ -25,15 +25,16 @@ $scale: (
 }
 
 @function em-scale($keys...) {
-  $value: $sizes;
+  $value: $scale;
 
   @each $key in $keys {
     $value: map-get($value, $key);
   }
 
-  @return #{$value +'em'};
+  @return #{$value}em;
 }
 
+// TODO: update scale as in em-scale
 @function rem-scale($keys...) {
   $value: $sizes;
 
@@ -41,7 +42,7 @@ $scale: (
     $value: map-get($value, $key);
   }
 
-  @return #{$value +'rem'};
+  @return #{$value}rem;
 }
 
 @function percent-scale($keys...) {

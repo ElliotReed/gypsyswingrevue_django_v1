@@ -9,8 +9,8 @@
   grid-template-rows: auto minmax(0, 1fr) auto;
   grid-template-columns: 1fr;
   width: 100vw;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 100%;
+  max-height: 100%;
   overflow: hidden;
 
   @include respondTo(tablet) {
@@ -70,7 +70,7 @@
 
 @mixin focus($color: colors.color(brown, 100)) {
   outline: thin dotted $color;
-  outline-offset: 0.12em;
+  outline-offset: -0.12em;
 }
 
 @mixin gradient($color) {
@@ -211,7 +211,7 @@
 
 @mixin scrollbar {
   &::-webkit-scrollbar {
-    width: functions.size(400);
+    width: functions.rem-scale(400);
     // width: .47rem;
     /* Mostly for vertical scrollbars */
   }
