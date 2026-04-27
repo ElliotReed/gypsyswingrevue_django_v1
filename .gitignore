@@ -1,6 +1,7 @@
 # Editors
 .vscode/
 .idea/
+_no-commit
 
 # Vagrant
 .vagrant/

@@ -11,6 +11,7 @@ fontawesomefree = "==6"
 mysqlclient = "*"
 django-embed-video = "*"
 requests = "*"
+gunicorn = "*"
 
 [dev-packages]
 

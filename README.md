@@ -4,5 +4,5 @@
 
 To start:
 
-    pipenve shell
+    pipenv shell
     py manage.py runserver
