@@ -41,7 +41,8 @@ def front_page(request):
         "snug-basement",
         "starlight",
     ]
-    testimonials = Testimonial.objects.all().order_by("order")
+    # testimonials = Testimonial.objects.all().order_by("order")
+    testimonials = [{quote: "Good job!", citation: "I said so", order: 1}]
 
     if request.method == "POST":
         # subscriber_email = request.POST.get("subscriber_email")
