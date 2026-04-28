@@ -1,7 +1,7 @@
 name: Deploy Django App to VPS Production
 on:
-  push:
-    # branches: [main]
+  # push:
+  #   branches: [main]
   workflow_dispatch:
 env:
   VPS_HOST: ${{ secrets.VPS_HOST }}
