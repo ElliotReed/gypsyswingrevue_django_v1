@@ -1,4 +1,4 @@
-name: Deploy  App to VPS Staging
+name: Deploy App to VPS Staging
 on:
   push:
     branches: [main]
