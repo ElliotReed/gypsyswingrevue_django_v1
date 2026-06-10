@@ -36,7 +36,7 @@ Gypsy Swing Revue | I Love Paris!
     <div class="panel mypanel" data-equalizer-watch>
       <h5>Gypsy Swing Revue's "I Love Paris" ft. Kristi Stice</h5>
       <p class="video__container">
-        {% video vid.url '100% x 100%' %}
+        {% include "core/partials/iframe.html" with filename=vid %}
       </p>
 
     </div>
@@ -51,7 +51,7 @@ Gypsy Swing Revue | I Love Paris!
     <ol>
       {% for song in song_list %}
 
-      <li>{{song.title}}</li>
+      <li>{{song.song.title}}</li>
 
       {% endfor %}
     </ol>

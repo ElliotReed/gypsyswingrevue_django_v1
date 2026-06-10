@@ -12,6 +12,7 @@ django-embed-video = "*"
 requests = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+django-stubs = "*"
 
 [dev-packages]
 

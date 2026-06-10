@@ -1,6 +1,14 @@
-{% for event in events %}
-<li class="performance">
+{% extends 'base.html' %}
 
+{% block title %}
+Gypsy Swing Revue | Schedule
+{% endblock title %}
+
+{% block content %}
+<div class="container schedule">
+  <section class="panel">
+
+  <a href="{% url "core:schedule" %}">Back to schedule</a>
   <div class="performance__date-time-container">
     <date class="performance__date" datetime={{event.event_date|date:"F j, Y"}}>{{event.event_date|date:"F j, Y"}}
     </date>
@@ -18,7 +26,6 @@
 
   <h2 class="performance__title heading-3">
     {{event.event_name}}
-    <a href="{% url "core:schedule_detail" event.id %}">Details</a>
   </h2>
 
   <div class="performance__venue">
@@ -34,5 +41,12 @@
       {%endif%}
     </div>
 
-</li>
-{% endfor %}
+    <ul>
+      {% for  musician in event.musicians.all %}
+      <li>{{musician.entity_name}}</li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+
+{% endblock content %}

@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import ILoveParisVideo, Testimonial, Event, GSRSong
+from .models import ILoveParisVideo, Testimonial, Event, ProjectSong, Song
 from embed_video.admin import AdminVideoMixin
 
 admin.site.register(Event)
-admin.site.register(GSRSong)
+admin.site.register(ProjectSong)
 
 
 class ModelVideoAdmin(AdminVideoMixin, admin.ModelAdmin):

@@ -54,16 +54,19 @@
 
   <li class="nav__item">
     <section>
-      {% url 'core:songs' as song_url %}
+      {% url 'core:music' as music_url %}
 
             <!-- button or anchor tag, class="nav__item-header" -->
-      {% include "partials/_nav-item-header.html" with type=type label="The Music" href=song_url icon="fa-music" %}
+      {% include "partials/_nav-item-header.html" with type=type label="The Music" href=music_url icon="fa-music" %}
       <ul class="nav__item-list">
         <li>
-          <a class="link marquee__text" href="{% url 'core:songs' %}#genre">the Genre</a>
+          <a class="link marquee__text" href="{% url 'core:music' %}#genre">the Genre</a>
         </li>
         <li>
-          <a class="link marquee__text" href="{% url 'core:songs' %}#songlist">Songlist</a>
+          <a 
+          class="link marquee__text" 
+          href="{% url 'core:songs' %}"
+          >Songlist</a>
         </li>
       </ul>
     </section>

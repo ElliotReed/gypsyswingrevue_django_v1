@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views import View
 from .forms import ContactForm
-from .models import GSRSong, ILoveParisVideo, Event, Testimonial
+from .models import ILoveParisVideo, Event, ProjectSong, Testimonial
 from email_service.email import send_contact_form
-from datetime import datetime
+from datetime import datetime, date
 import json
 
 # TODO: incorporate newsletter confirmation
@@ -24,7 +24,7 @@ def contact(request):
 
         if "newsletter" in request.POST:
             subscriber_email = request.POST.get("subscriber_email")
-            add_subscriber(request, subscriber_email)
+            # add_subscriber(request, subscriber_email)
 
     context = {
         "contact_form": contact_form,
@@ -59,9 +59,14 @@ def front_page(request):
 
 
 def i_love_paris(request):
-    video = ILoveParisVideo.objects.all()[1]
+    # video = ILoveParisVideo.objects.all()[1]
+    video = "Kpz3-UHoSVY?si=uvKoheYFGwi_XNg5" 
 
-    song_list = GSRSong.objects.filter(project_id=7)
+    song_list = (
+        ProjectSong.objects.select_related("song")
+        .filter(project_id=7, archive=False)
+        .order_by("song__title")
+    )
     context = {
         "song_list": song_list,
         "vid": video,
@@ -75,28 +80,45 @@ def media(request):
 
 
 def newsletter(request):
-    author = Author.objects.get(id=1)
-    newsletter_form = NewsletterForm()
+    # author = Author.objects.get(id=1)
+    # newsletter_form = NewsletterForm()
 
     if request.method == "POST":
         subscriber_email = request.POST.get("subscriber_email")
-        add_subscriber(request, subscriber_email)
+        # add_subscriber(request, subscriber_email)
 
     context = {
-        "newsletter_form": newsletter_form,
-        "author": author,
+        # "newsletter_form": newsletter_form,
+        # "author": author,
     }
 
-    add_current_newsletter_note_if_exists(context)
+    # add_current_newsletter_note_if_exists(context)
 
     return render(request, "core/newsletter.html", context)
 
 
 def schedule(request):
-    events = Event.objects.filter(event_date__gte=datetime.today())
+    dev_start_date = date(2020, 1, 1)
+    #  .filter(event_date__gte=datetime.today())
+
+    events = (
+        Event.objects.select_related("event_type_relation")
+        .prefetch_related("venues__state_relation")
+        .filter(project_id=6, event_date__gte=dev_start_date)
+        .exclude(event_type_relation__id__in=[3, 7, 8])
+        .order_by("event_date", "event_start")
+    )
     context = {"events": events}
     return render(request, "core/schedule.html", context)
 
+def schedule_detail(request, event_id):
+    event = get_object_or_404(
+        Event.objects.select_related("event_type_relation").prefetch_related("venues__state_relation", "musicians"),
+        id=event_id
+    )   
+
+    context = {"event": event}
+    return render(request, "core/schedule_detail.html", context)
 
 def schedule_history(request):
     events = Event.objects.filter(event_date__lt=datetime.today())
@@ -105,10 +127,17 @@ def schedule_history(request):
 
 
 def songs(request):
-    song_list = GSRSong.objects.filter(project_id=6)
+    song_list = (
+        ProjectSong.objects.select_related("song")
+        .filter(project_id=6, archive=False)
+        .order_by("song__title")
+    )
     context = {"song_list": song_list}
     return render(request, "core/song_list.html", context)
 
+def music(request):
+    context = {}
+    return render(request, "core/music.html", context)
 
 class StoreView(View):
     template_name = "core/store.html"
