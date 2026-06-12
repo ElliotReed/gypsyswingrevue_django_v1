@@ -1,14 +1,9 @@
 from decouple import config
 
-# from mailchimp_marketing import Client
-# from mailchimp_marketing.api_client import ApiClientError
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
-# api_key = config("MAILCHIMP_API_KEY")
-# server = config("MAILCHIMP_DATA_CENTER")
-# list_id = config("MAILCHIMP_LIST_ID")
 
 contact_recieving_email = config("CONTACT_RECIEVING_EMAIL")
 
@@ -59,7 +54,7 @@ def send_contact_form(request):
             [contact_recieving_email],
             html_message=msg_html,
         )
-    except:
+    except Exception:
         messages.error(request, "Sorry, something went wrong...")
 
     return messages.success(

@@ -15,6 +15,19 @@ def band(request):
     return render(request, "core/band.html", context)
 
 
+def find_us(request):
+    social_links = [
+        # {"url": "https//:facebook.com", "content": "Facebook"},
+        {
+            "url": "https://www.youtube.com/@GypsyswingrevueMusic",
+            "content": "Youtube",
+            "icon": "fa-youtube",
+        },
+    ]
+    context = {"social_links": social_links}
+    return render(request, "core/find-us.html", context)
+
+
 def contact(request):
     contact_form = ContactForm()
 
@@ -41,8 +54,32 @@ def front_page(request):
         "snug-basement",
         "starlight",
     ]
+
+    # TODO: Implement someday
     # testimonials = Testimonial.objects.all().order_by("order")
-    testimonials = [{"quote": "Good job!", "citation": "I said so", "order": 1}]
+    testimonials = [
+        {
+            "quote": "Gypsy Swing Revue is ABSOLUTELY the best django/gypsy jazz/parisian jazz/hot club band in Colorado…",
+            "citation": "Dazzle Jazz",
+            "order": 1,
+        },
+        {
+            "quote": "...the band is ridiculously talented... ",
+            "citation": "Denver Post",
+            "order": 2,
+        },
+        {"quote": "..sweet and brilliant..", "citation": "KUVO 89.3 FM", "order": 3},
+        {
+            "quote": "..favorite band...in the style of Django Reinhardt and Stéphane Grappelli..",
+            "citation": "Fox News",
+            "order": 4,
+        },
+        {
+            "quote": "Thank you so much for the beautiful and highly entertaining music you and the Gypsy Swing Revue ensemble played on Saturday night. We received multiple compliments on your performance...It truly capped off a memorable evening celebrating Opera Colorado’s 35th anniversary.",
+            "citation": "Ben Newman, Executive and Special Projects Coordinator, Opera Colorado",
+            "order": 5,
+        },
+    ]
 
     if request.method == "POST":
         # subscriber_email = request.POST.get("subscriber_email")
@@ -60,7 +97,7 @@ def front_page(request):
 
 def i_love_paris(request):
     # video = ILoveParisVideo.objects.all()[1]
-    video = "Kpz3-UHoSVY?si=uvKoheYFGwi_XNg5" 
+    video = "Kpz3-UHoSVY?si=uvKoheYFGwi_XNg5"
 
     song_list = (
         ProjectSong.objects.select_related("song")
@@ -111,14 +148,18 @@ def schedule(request):
     context = {"events": events}
     return render(request, "core/schedule.html", context)
 
+
 def schedule_detail(request, event_id):
     event = get_object_or_404(
-        Event.objects.select_related("event_type_relation").prefetch_related("venues__state_relation", "musicians"),
-        id=event_id
-    )   
+        Event.objects.select_related("event_type_relation").prefetch_related(
+            "venues__state_relation", "musicians"
+        ),
+        id=event_id,
+    )
 
     context = {"event": event}
     return render(request, "core/schedule_detail.html", context)
+
 
 def schedule_history(request):
     events = Event.objects.filter(event_date__lt=datetime.today())
@@ -135,9 +176,11 @@ def songs(request):
     context = {"song_list": song_list}
     return render(request, "core/song_list.html", context)
 
+
 def music(request):
     context = {}
     return render(request, "core/music.html", context)
+
 
 class StoreView(View):
     template_name = "core/store.html"

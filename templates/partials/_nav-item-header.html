@@ -1,10 +1,10 @@
 <!-- Requires with: href, icon, label, type -->
 <div class="nav__item-header">
   {% if type == 'footer' %}
-    <button>
-      <i class="fa-solid {{ icon }}"></i>
-      <h2 class="nav__heading">{{ label }}</h2>
-    </button>
+        <a class="nav__heading nav__wrap" href="{{ href }}">
+          <i class="fa-solid {{ icon }}"></i>
+          {{ label }}
+        </a>
     {% elif type == 'page' %}
     <h2 class="nav__heading"><a class="link marquee__text" href="{{ href }}">{{ label }}</a></h2>
   {% endif %}

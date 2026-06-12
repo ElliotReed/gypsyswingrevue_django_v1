@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 app_name = "core"
 urlpatterns = [
     path("", views.front_page, name="front_page"),
+    path("find-us", views.find_us, name="find_us"),
     path("band", views.band, name="band"),
     path("songs", views.songs, name="songs"),
     path("music", views.music, name="music"),

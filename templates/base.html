@@ -6,8 +6,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="manifest" href="{% static 'manifest.webmanifest' %}"> -->
-  <!-- <link rel="shortcut icon" href="{% static 'images/icons/icon-512x512.png' %}"> -->
+  <link rel="icon" type="image/ico" href="/favicon.ico" />
+  <link 
+    rel="icon" 
+    type="image/png" 
+    href="{% static 'images/icons/favicon-96x96.png' %}" 
+    sizes="96x96" 
+  />
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/icons/favicon.svg' %}" />
+  <link rel="shortcut icon" href="{% static '/favicon.ico' %}" />
+  <link 
+    rel="apple-touch-icon" 
+    sizes="180x180" 
+    href="{% static 'images/icons/apple-touch-icon.png' %}" 
+  />
+  <link rel="manifest" href="{% static 'site.webmanifest' %}" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="{% static 'css/style.min.css' %}">

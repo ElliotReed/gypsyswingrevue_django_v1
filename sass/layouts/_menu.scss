@@ -169,7 +169,7 @@
     }
   }
 
-  .nav__item-header button {
+  .nav__item-header .nav__wrap {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -178,6 +178,8 @@
     padding: abstracts.$spacer-sm;
     font-size: abstracts.$fs-sm-em;
     font-weight: abstracts.$fw-md;
+    text-decoration: none;
+    cursor: pointer;
 
     i {
       font-size: abstracts.$fs-lg-em;

@@ -6,7 +6,7 @@
   <li class="nav__item">
     <section>
       <!-- button or anchor tag, class="nav__item-header" -->
-      {% include "partials/_nav-item-header.html" with type=type label="Find  Us" href="/schedule" icon="fa-magnifying-glass" %}
+      {% include "partials/_nav-item-header.html" with type=type label="Find  Us" href="/find-us" icon="fa-magnifying-glass" %}
 
       <ul class="nav__item-list nav__item-left">
         <li>
@@ -15,23 +15,10 @@
         <li>
           <a class="link marquee__text" href="/contact">Contact</a>
         </li>
-        <li>
+        {% comment %} <li>
           <a class="link marquee__text" href="/contact#subscribeform">Subscribe to our newsletter</a>
-        </li>
+        </li> {% endcomment %}
       </ul> 
-    </section>
-  </li>
-
-  <li class="nav__item">
-    <section>
-      <!-- button or anchor tag, class="nav__item-header" -->
-      {% include "partials/_nav-item-header.html" with type=type label="I Love Paris" href="/i-love-paris" icon="fa-heart" %}
-
-      <ul class="nav__item-list">
-        <li>
-          <a class="link marquee__text" href="/i-love-paris">I Love Paris</a>
-        </li>
-      </ul>
     </section>
   </li>
 
@@ -59,9 +46,9 @@
       <!-- button or anchor tag, class="nav__item-header" -->
       {% include "partials/_nav-item-header.html" with type=type label="The Music" href=music_url icon="fa-music" %}
       <ul class="nav__item-list">
-        <li>
+        {% comment %} <li>
           <a class="link marquee__text" href="{% url 'core:music' %}#genre">the Genre</a>
-        </li>
+        </li> {% endcomment %}
         <li>
           <a 
           class="link marquee__text" 
@@ -72,21 +59,28 @@
     </section>
   </li>
 
+    <li class="nav__item">
+    <section>
+      <!-- button or anchor tag, class="nav__item-header" -->
+      {% include "partials/_nav-item-header.html" with type=type label="I Love Paris" href="/i-love-paris" icon="fa-heart" %}
+    </section>
+  </li>
+
   <li class="nav__item">
     <section>
       <!-- button or anchor tag, class="nav__item-header" -->
       {% include "partials/_nav-item-header.html" with type=type label="Store" href="/store" icon="fa-store" %}
       {% comment %} <ul class="nav__item-list nav__item-right"></ul> {% endcomment %}
       <ul class="nav__item-list nav__item-right">
-        <li>
+        {% comment %} <li>
           <a class="link marquee__text" href="/schedule">Schedule</a>
         </li>
         <li>
           <a class="link marquee__text" href="/contact">Contact</a>
-        </li>
-        <li>
+        </li> {% endcomment %}
+        {% comment %} <li>
           <a class="link marquee__text" href="/contact">Subscribe to our newsletter</a>
-        </li>
+        </li> {% endcomment %}
       </section>
     </ul>
   </li>
