@@ -1,0 +1,126 @@
+.logo {
+  $ease: ease-in-out;
+  position: relative;
+  display: inline-flex;
+  gap: var(--space-sm);
+  z-index: 100;
+
+  img {
+    display: block;
+    width: 6em;
+    height: 3em;
+    filter: drop-shadow(4px 4px 1px color-mix(in srgb, var(--color-gold-400) 20%, transparent));
+  }
+
+  .gypsy {
+    $glow-delay: 2s;
+    $glow-animation: glow 1s $glow-delay $ease alternate infinite;
+    $gypsy-animation: gypsy 1s var(--duration-fast) $ease forwards;
+    animation: $glow-animation;
+
+    &.should-animate {
+      animation: $glow-animation, $gypsy-animation;
+      opacity: 0;
+      transform: translate(-150%, 0);
+    }
+  }
+
+  .swing {
+    $glow-delay: 2333ms;
+    $glow-animation: glow 1s $glow-delay $ease alternate infinite;
+    $swing-animation: swing 3s var(--duration-slow) $ease forwards;
+    position: relative;
+    top: .4rem;
+    animation: $glow-animation;
+
+    &.should-animate {
+      animation: $glow-animation, $swing-animation;
+      opacity: 0;
+      transform: translate(-10vh, -10vh);
+      transform-origin: 50%;
+    }
+  }
+
+  .revue {
+    $glow-delay: 2666ms;
+    $glow-animation: glow 1s $glow-delay $ease alternate infinite;
+    $revue-animation: revue 1s var(--duration-fast) $ease forwards;
+    position: relative;
+    top: .3rem;
+    animation: $glow-animation;
+
+    &.should-animate {
+      animation: $glow-animation, $revue-animation;
+      opacity: 0;
+      transform: translate(-150%, 0);
+    }
+  }
+}
+
+@keyframes glow {
+  from {
+    opacity: 1;
+    transform: scale(1, 1)
+  }
+
+  to {
+    opacity: 0.9;
+    transform: scale(1, .98)
+  }
+}
+
+@keyframes gypsy {
+  from {
+    transform: translate(-150%, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: translate(-10vh, -10vh) rotate(90deg);
+    opacity: 0;
+  }
+
+  20% {
+    transform: translate(0, 0) rotate(-10deg);
+    opacity: 1;
+  }
+
+  40% {
+    transform: translate(0, 0) rotate(10deg);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translate(0, 0) rotate(-5deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: translate(0, 0) rotate(5deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes revue {
+  from {
+    transform: translate(150%, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}

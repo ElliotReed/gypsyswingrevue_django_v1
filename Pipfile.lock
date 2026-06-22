@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "95f3d53b33e3b09b08db46d818068819d70f096222bc82705fa4ed8faf8e8eaa"
+            "sha256": "4e66ef703603a038e0e83b039472316d4b6fe5de12886e6185d3146c41b7be66"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -200,6 +200,14 @@
             ],
             "markers": "python_version >= '3.10'",
             "version": "==6.0.5"
+        },
+        "django-vite": {
+            "hashes": [
+                "sha256:4e46572bd6b1ce70784be129205dc2ffcbc7a3c19fea50bebfb72b327bbde5fc",
+                "sha256:8b4ffe4a9fa81ff568bfb195e74dde8694aaf13fd4b656ae60bf59cce08b85e8"
+            ],
+            "index": "pypi",
+            "version": "==3.1.0"
         },
         "fontawesomefree": {
             "hashes": [

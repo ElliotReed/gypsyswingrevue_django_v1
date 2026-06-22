@@ -1,0 +1,43 @@
+@use "functions" as *;
+
+$colors: (
+    "primary": #1A73FF,
+    ) !default;
+
+$color-scheme: "complementary" !default;
+
+$fonts: (
+    "body": (Georgia, "Times New Roman", serif),
+    "heading": (system-ui, sans-serif),
+    "display": (Impact, "Arial Narrow", sans-serif),
+    "ui": (system-ui, sans-serif),
+    "mono": ("Courier New", Courier, monospace),
+    ) !default;
+
+$font-weights: (
+    "regular": 400,
+    "bold": 700,
+    ) !default;
+
+$type-base: 1rem !default;
+$type-ratio: 1.25 !default;
+$content-width: 70ch !default;
+
+$space-unit: 0.25rem !default;
+
+$radius-base: 6px !default;
+
+$box-ratio: 2 !default;
+
+$shadow-offset-base: 2px !default;
+$shadow-direction: "none" !default;
+$shadow-hardness: 5 !default;
+
+$breakpoints: (
+    "xs": px-to-em(360px),
+    "sm": px-to-em(576px),
+    "md": px-to-em(768px),
+    "lg": px-to-em(992px),
+    "xl": px-to-em(1200px),
+    "2xl": px-to-em(1400px),
+    ) !default;

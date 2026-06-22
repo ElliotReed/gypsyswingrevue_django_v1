@@ -1,0 +1,177 @@
+@use "../../mixins" as *;
+
+@layer base {
+  form {
+    width: 100%;
+  }
+
+  fieldset {
+    @include border;
+    @include radius-card;
+    padding: var(--space-6);
+  }
+
+  legend {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    padding-inline: var(--space-2);
+  }
+
+  label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    cursor: pointer;
+    margin-block-end: var(--space-1);
+    // margin-block-start: var(--space-1);
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(
+      [type="color"]
+    ),
+  select,
+  textarea {
+    width: 100%;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    @include border;
+    @include radius-input;
+    @include box-input;
+    @include focus-ring;
+    transition: border-color var(--transition-fast);
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      border-color: var(--color-border-strong);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /*
+    Source - https://stackoverflow.com/a/68240841
+    Posted by Kostiantyn Ko, modified by community. See post 'Timeline' for change history
+    Retrieved 2026-04-03, License - CC BY-SA 4.0
+    */
+    // this disables chromes autofill styles
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+      transition:
+        background-color 0s 600000s,
+        color 0s 600000s !important;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: calc(var(--space-6) * 4);
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-3) center;
+    padding-inline-end: var(--space-8);
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: var(--space-4);
+    height: var(--space-4);
+    accent-color: var(--color-interactive);
+    cursor: pointer;
+    @include focus-ring;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--color-interactive);
+    cursor: pointer;
+  }
+
+  input[type="color"] {
+    width: var(--space-8);
+    height: var(--space-8);
+    @include border;
+    @include radius-input;
+    padding: var(--space-1);
+    cursor: pointer;
+    background: none;
+    @include focus-ring;
+  }
+
+  button {
+    @include box-button;
+    @include radius-button;
+    @include focus-ring;
+    cursor: pointer;
+
+    font-weight: var(--font-weight-bold);
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[type="submit"] {
+      background-color: var(--color-interactive);
+      color: var(--color-neutral-50);
+      border: none;
+
+      &:hover:not(:disabled) {
+        background-color: var(--color-interactive-hover);
+      }
+    }
+
+    &[type="reset"] {
+      background-color: transparent;
+      color: var(--color-text-muted);
+      @include border;
+
+      &:hover:not(:disabled) {
+        background-color: var(--color-surface);
+        color: var(--color-text);
+      }
+    }
+
+    &[type="button"] {
+      background-color: var(--color-surface);
+      color: var(--color-text);
+      @include border;
+
+      &:hover:not(:disabled) {
+        background-color: var(--color-surface-raised);
+      }
+    }
+  }
+
+  output {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    @include border;
+    @include radius-card;
+    @include box-card;
+  }
+
+  meter,
+  progress {
+    width: 100%;
+    accent-color: var(--color-interactive);
+  }
+}

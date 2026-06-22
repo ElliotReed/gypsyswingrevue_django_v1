@@ -1,0 +1,96 @@
+@use "../../backtalk/mixins";
+@use 'sass:math';
+
+.page-menu {
+  display: none;
+  margin-block: var(--space-md);
+  padding-inline-start: var(--space-md);
+  perspective: 500px;
+  perspective-origin: 50% 50%;
+
+  @include mixins.respond-to("md") {
+    display: block;
+  }
+}
+
+.marquee {
+  $marquee-border: 1px solid var(--color-brown-500);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateX(2rem) rotateY(10deg);
+  margin-left: auto;
+  max-width: min-content;
+  transform-origin: left top;
+
+  .marquee__front {
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--color-brown-900);
+    border: $marquee-border;
+    @include mixins.radius;
+    overflow: hidden;
+  }
+
+  .marquee__spine {
+    display: flex;
+    border: $marquee-border;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 2rem;
+    height: 100%;
+    background-color: var(--color-brown-900);
+    transform: rotateY(-60deg);
+    transform-origin: right center;
+  }
+}
+
+.heading-wrapper {
+  position: relative;
+  font-size: var(--text-md);
+  min-width: max-content;
+  @include mixins.padding-box;
+  z-index: 0;
+}
+
+.light-rack__instalation {
+  display: flex;
+  overflow: hidden;
+}
+
+.light-rack {
+  $_bulb-thickness: .2em;
+  $_offset: .18em;
+  display: flex;
+  margin: .1em;
+  padding: .1em;
+  background-color: #ffffff18;
+  border: 1px dotted var(--color-brown-900);
+  @include mixins.radius;
+
+  .light-rack__bulb {
+    background-color: var(--color-gold-600);
+    @include mixins.radius;
+    box-shadow: 0 0 .5em #ffffffbb;
+    filter: drop-shadow(3px 3px #000000);
+  }
+
+  &.light-rack-horizontal {
+    flex-direction: column;
+
+    .light-rack__bulb {
+      height: $_bulb-thickness;
+      margin: $_offset 0;
+    }
+  }
+
+  &.light-rack-verticle {
+    flex-direction: row;
+
+    .light-rack__bulb {
+      width: $_bulb-thickness;
+      margin: 0 $_offset;
+
+    }
+  }
+}

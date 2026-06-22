@@ -1,0 +1,29 @@
+// @use '../abstracts';
+// @use '../components/button';
+@use "../../backtalk/mixins";
+
+footer {
+  position: relative;
+  background: color-mix(in srgb, var(--color-brown-900) 90%, transparent);
+  z-index: 1;
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  @include mixins.respond-to("md") {
+    bottom: var(--space-sm);
+  }
+
+  .footlight {
+    // top: calc(var(--space-sm) * -1) !important;
+  }
+}
+
+.footer__nav {
+  display: flex;
+  @include mixins.padding-box("sm");
+  justify-content: space-evenly;
+
+  @include mixins.respond-to("md") {
+    display: none;
+  }
+}

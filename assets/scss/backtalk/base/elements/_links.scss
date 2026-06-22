@@ -1,0 +1,19 @@
+@use "../../mixins" as *;
+
+@layer base {
+    a {
+        color: var(--color-interactive);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+        transition: color var(--transition-fast);
+        @include focus-ring;
+
+        &:hover {
+            color: var(--color-interactive-hover);
+        }
+
+        &:visited {
+            color: var(--color-accent);
+        }
+    }
+}

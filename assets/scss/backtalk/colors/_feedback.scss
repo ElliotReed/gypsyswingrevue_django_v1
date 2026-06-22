@@ -1,0 +1,68 @@
+@use "sass:map";
+@use "sass:color";
+@use "sass:math";
+
+// base hues — perceptually clear in oklch
+// these are the "true" positions for each feedback meaning
+$feedback-hues: (
+  "success": 145,
+  // green
+  "warning": 65,
+  // amber
+  "error": 25,
+  // red-orange
+  "info": 240, // blue
+) !default;
+
+// how much to nudge toward primary hue
+// small value — cohesion without compromising meaning
+$nudge: 0.15 !default;
+
+@function generate($colors) {
+  $primary: map.get($colors, "primary");
+
+  $primary-hue: color.channel($primary, "hue", $space: oklch);
+
+  $primary-chroma: color.channel($primary, "chroma", $space: oklch);
+
+  // feedback chroma is primary chroma scaled up slightly
+  // clamped so it's always readable but never wildly different
+  $feedback-chroma: math.clamp(0.1, $primary-chroma * 1.3, 0.22);
+
+  $result: ();
+
+  @each $name, $base-hue in $feedback-hues {
+    // skip if project has already set this color
+    @if not map.has-key($colors, $name) {
+      // nudge base hue toward primary hue
+      // linear interpolation between base and primary
+      $nudged-hue: $base-hue + ($primary-hue - $base-hue) * $nudge;
+
+      // each feedback color has considered lightness and chroma
+      // warning is lighter — amber needs higher lightness to read clearly
+      // error is slightly more chromatic — needs to feel urgent
+      $color: null;
+
+      @if $name == "success" {
+        $color: oklch(52% $feedback-chroma $nudged-hue);
+      } @else if $name == "warning" {
+        $color: oklch(68% $feedback-chroma $nudged-hue);
+      } @else if $name == "error" {
+        $color: oklch(
+          55% ($feedback-chroma * 1.1) $nudged-hue
+        ); // error slightly more urgent
+      } @else if $name == "info" {
+        $color: oklch(55% $feedback-chroma $nudged-hue);
+      }
+
+      $result: map.merge(
+        $result,
+        (
+          $name: $color,
+        )
+      );
+    }
+  }
+
+  @return $result;
+}

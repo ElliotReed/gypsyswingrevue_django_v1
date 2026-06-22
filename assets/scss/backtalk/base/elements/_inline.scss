@@ -1,0 +1,48 @@
+@layer base {
+    mark {
+        background-color: var(--color-warning-surface);
+        color: var(--color-warning-text);
+        padding-inline: var(--space-1);
+        border-radius: var(--radius-sm);
+    }
+
+    abbr[title] {
+        text-decoration: underline dotted;
+        text-underline-offset: 0.2em;
+        cursor: help;
+    }
+
+    cite {
+        font-style: italic;
+        color: var(--color-text-muted);
+    }
+
+    del {
+        text-decoration: line-through;
+        color: var(--color-text-muted);
+        opacity: 0.75;
+    }
+
+    ins {
+        text-decoration: underline;
+        text-decoration-color: var(--color-success);
+        text-underline-offset: 0.2em;
+    }
+
+    var {
+        font-style: italic;
+        color: var(--color-accent);
+    }
+
+    q {
+        font-style: italic;
+
+        &::before {
+            content: "\201C";
+        }
+
+        &::after {
+            content: "\201D";
+        }
+    }
+}

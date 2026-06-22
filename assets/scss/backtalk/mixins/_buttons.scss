@@ -1,0 +1,145 @@
+@use "border" as *;
+@use "padding-box" as *;
+@use "radius" as *;
+@use "shadow" as *;
+// ── shared visual base ────────────────────────────────────
+// base handles: cursor, font, focus-ring, disabled
+// this handles: appearance, spacing, shadow, transitions
+
+@mixin button-base {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-2);
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    user-select: none;
+    @include box-button;
+    @include radius-button;
+    @include shadow(1);
+    transition:
+        background-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+
+    &:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+}
+
+// ── variants ──────────────────────────────────────────────
+
+@mixin button-primary {
+    // colors defined as local vars — visited reuses them explicitly
+    $text: var(--color-neutral-50);
+    $bg: var(--color-interactive);
+    $hover: var(--color-interactive-hover);
+    $active: var(--color-interactive-active);
+
+    @include button-base;
+    background-color: $bg;
+    color: $text;
+    border: none;
+
+    &:hover:not(:disabled) {
+        background-color: $hover;
+        @include shadow(2);
+    }
+
+    &:active:not(:disabled) {
+        background-color: $active;
+    }
+
+    // visited reuses the same vars — relationship is explicit
+    &:visited {
+        color: $text;
+        background-color: $bg;
+    }
+}
+
+@mixin button-secondary {
+    $text: var(--color-text);
+    $bg: var(--color-surface);
+    $hover: var(--color-surface-raised);
+
+    @include button-base;
+    background-color: $bg;
+    color: $text;
+    @include border;
+
+    &:hover:not(:disabled) {
+        background-color: $hover;
+        @include shadow(2);
+    }
+
+    &:visited {
+        color: $text;
+        background-color: $bg;
+    }
+}
+
+@mixin button-ghost {
+    $text: var(--color-interactive);
+    $hover: var(--color-interactive-muted);
+
+    @include button-base;
+    background-color: transparent;
+    color: $text;
+    @include border(var(--color-interactive));
+    box-shadow: none;
+
+    &:hover:not(:disabled) {
+        background-color: $hover;
+    }
+
+    &:visited {
+        color: $text;
+        background-color: transparent;
+    }
+}
+
+@mixin button-danger {
+    $text: white;
+    $bg: var(--color-error);
+    $hover: var(--color-error-text);
+
+    @include button-base;
+    background-color: $bg;
+    color: $text;
+    border: none;
+
+    &:hover:not(:disabled) {
+        background-color: $hover;
+        @include shadow(2);
+    }
+
+    &:visited {
+        color: $text;
+        background-color: $bg;
+    }
+}
+
+// ── sizes ─────────────────────────────────────────────────
+
+@mixin button-sm {
+    @include box-button("sm");
+    font-size: var(--text-sm);
+}
+
+@mixin button-lg {
+    @include box-button("lg");
+    font-size: var(--text-lg);
+}
+
+// ── shapes ────────────────────────────────────────────────
+
+@mixin button-pill {
+    border-radius: 100vw;
+}
+
+@mixin button-icon {
+    aspect-ratio: 1;
+    padding: var(--space-2);
+}

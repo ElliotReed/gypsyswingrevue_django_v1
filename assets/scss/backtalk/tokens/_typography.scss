@@ -1,0 +1,45 @@
+@use "sass:math";
+@use "../config" as config;
+
+// modular scale function
+@function ms($step) {
+    @return math.pow(config.$type-ratio, $step) * config.$type-base;
+}
+
+@layer tokens {
+    :root {
+
+        // font families
+        @each $name, $stack in config.$fonts {
+            --font-#{$name}: #{$stack};
+        }
+
+        // type scale
+        --text-xs: #{ms(-2)};
+        --text-sm: #{ms(-1)};
+        --text-md: #{ms(0)};
+        --text-lg: #{ms(1)};
+        --text-xl: #{ms(2)};
+        --text-2xl: #{ms(3)};
+        --text-3xl: #{ms(4)};
+        --text-4xl: #{ms(5)};
+
+        // line heights
+        --leading-none: 1;
+        --leading-tight: 1.25;
+        --leading-snug: 1.375;
+        --leading-normal: 1.5;
+        --leading-relaxed: 1.625;
+        --leading-loose: 1.75;
+
+        // letter spacing
+        --tracking-tight: -0.02em;
+        --tracking-normal: 0em;
+        --tracking-wide: 0.05em;
+        --tracking-wider: 0.1em;
+
+        @each $name, $value in config.$font-weights {
+            --font-weight-#{$name}: #{$value};
+        }
+    }
+}

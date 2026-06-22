@@ -1,0 +1,62 @@
+@mixin flow($space: var(--space-stack)) {
+    &>*+* {
+        margin-block-start: $space;
+    }
+}
+
+@mixin stack($space: var(--space-stack)) {
+    display: flex;
+    flex-direction: column;
+    gap: $space;
+}
+
+@mixin scroll-container($direction: x, // x, y, both
+    $behavior: auto, // auto, smooth
+
+) {
+    @if $direction ==x {
+        overflow-x: auto;
+        overflow-y: visible;
+        contain: inline-size;
+    }
+
+    @else if $direction ==y {
+        overflow-y: auto;
+        overflow-x: visible;
+    }
+
+    @else if $direction ==both {
+        overflow: auto;
+    }
+
+    @if $behavior ==smooth {
+        scroll-behavior: smooth;
+
+        @media (prefers-reduced-motion: reduce) {
+            scroll-behavior: auto;
+        }
+    }
+
+    // touch scrolling
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin content-grid($gutter: var(--space-md),
+    $content: var(--content-width),
+    $gap: var(--space-lg)) {
+    display: grid;
+    grid-template-columns: [full-start] minmax(#{$gutter}, 1fr) [wide-start] minmax(0, 4rem) [content-start] min(#{$content}, calc(100% - #{$gutter} * 2)) [content-end] minmax(0, 4rem) [wide-end] minmax(#{$gutter}, 1fr) [full-end];
+    row-gap: #{$gap};
+
+    &>* {
+        grid-column: content;
+    }
+
+    &>.wide {
+        grid-column: wide;
+    }
+
+    &>.full-bleed {
+        grid-column: full;
+    }
+}

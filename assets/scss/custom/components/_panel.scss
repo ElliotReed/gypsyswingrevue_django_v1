@@ -1,0 +1,14 @@
+@use "../../backtalk/mixins";
+
+.panel {
+  @include mixins.box-card;
+  background: color-mix(in srgb, white 85%, transparent);
+  background-blend-mode: color-dodge;
+  backdrop-filter: blur(3px);
+  @include mixins.shadow(3);
+  @include mixins.flow();
+
+  &:hover {
+    @include mixins.shadow(3);
+  }
+}

@@ -1,0 +1,54 @@
+@use "sass:map";
+@use "sass:color";
+@use "sass:math";
+
+@function scheme-rotation($scheme) {
+    @if $scheme =="monochromatic" {
+        @return 0;
+    }
+
+    @if $scheme =="analogous" {
+        @return 30;
+    }
+
+    @if $scheme =="complementary" {
+        @return 180;
+    }
+
+    @if $scheme =="split-complementary" {
+        @return 150;
+    }
+
+    @warn "Unknown scheme #{$scheme}, falling back to complementary";
+    @return 180;
+}
+
+@function generate($colors, $scheme) {
+    @if map.has-key($colors, "accent") {
+        @return ();
+    }
+
+    $primary: map.get($colors, "primary");
+    $lightness: color.channel($primary, "lightness", $space: oklch);
+    $chroma: color.channel($primary, "chroma", $space: oklch);
+    $hue: color.channel($primary, "hue", $space: oklch);
+
+    $accent: null;
+
+    @if $scheme =="monochromatic" {
+        // lighter, less saturated, same hue
+        $accent: oklch(math.clamp(0%, $lightness * 1.35, 100%) ($chroma * 0.4) $hue );
+    }
+
+    @else {
+        $rotation: scheme-rotation($scheme);
+        $new-hue: $hue + $rotation;
+
+        // slight lightness and chroma variation
+        // makes accent feel like a companion not a clone
+        // complementary hues can feel very different at same lightness
+        $accent: oklch(math.clamp(0%, $lightness * 0.95, 100%) ($chroma * 1.05) $new-hue );
+    }
+
+    @return ("accent": $accent);
+}

@@ -1,0 +1,64 @@
+@use "../animations";
+
+// ── general purpose ───────────────────────────────────────
+
+@mixin soft-in($duration: var(--duration-normal), $easing: var(--ease-out)) {
+    animation: softIn $duration $easing both;
+}
+
+@mixin fade-up($duration: var(--duration-normal), $easing: var(--ease-out)) {
+    animation: fade-up $duration $easing both;
+}
+
+@mixin fade-in-top($duration: var(--duration-normal), $easing: var(--ease-out)) {
+    animation: fade-in-top $duration $easing both;
+}
+
+@mixin fade-in-bottom($duration: var(--duration-normal), $easing: var(--ease-out)) {
+    animation: fade-in-bottom $duration $easing both;
+}
+
+@mixin fade-in-right($duration: var(--duration-normal), $easing: var(--ease-out)) {
+    animation: fade-in-right $duration $easing both;
+}
+
+@mixin fade-left($duration: var(--duration-normal), $easing: var(--ease-out)) {
+    animation: fade-left $duration $easing both;
+}
+
+@mixin fade-out-top($duration: var(--duration-normal), $easing: var(--ease-in)) {
+    animation: fade-out-top $duration $easing both;
+}
+
+@mixin scale-in-center($duration: var(--duration-normal), $easing: var(--ease-out)) {
+    animation: scale-in-center $duration $easing both;
+}
+
+@mixin scale-up($duration: var(--duration-normal), $easing: var(--ease-spring)) {
+    animation: scale-up $duration $easing both;
+}
+
+@mixin puff-in-center($duration: var(--duration-normal), $easing: var(--ease-out)) {
+    animation: puff-in-center $duration $easing both;
+}
+
+@mixin swing-in-top($duration: var(--duration-slow), $easing: var(--ease-out)) {
+    animation: swing-in-top-fwd $duration $easing both;
+}
+
+@mixin jello-horizontal($duration: var(--duration-slow)) {
+    animation: jello-horizontal $duration both;
+}
+
+@mixin turn-on-overflow($duration: var(--duration-slow), $easing: var(--ease-out)) {
+    animation: turn-on-overflow $duration $easing both;
+}
+
+@mixin winner-box-shadow-fade($duration: var(--duration-slow), $easing: var(--ease-out)) {
+    animation: winner-box-shadow-fade $duration $easing both;
+}
+
+// animista-keyframes.scss
+// note: crown-* and poster-* keyframes are project-specific
+// and should not be used in new projects directly —
+// recreate with appropriate values per component

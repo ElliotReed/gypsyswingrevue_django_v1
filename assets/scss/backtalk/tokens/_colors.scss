@@ -1,0 +1,17 @@
+@use "sass:map";
+@use "sass:color";
+@use "../colors/scale";
+@use "../colors/generated";
+
+@layer tokens {
+    :root {
+        @each $name, $value in generated.$colors {
+            @if $name !="neutral-light" and $name !="neutral-dark" {
+                @include scale.generate($name, $value);
+            }
+        }
+
+        @include scale.generate-neutral(map.get(generated.$colors, "neutral-light"),
+            map.get(generated.$colors, "neutral-dark"));
+    }
+}

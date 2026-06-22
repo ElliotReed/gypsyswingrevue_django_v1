@@ -1,0 +1,65 @@
+@use "sass:map";
+// @use "../../mixins" as *;
+
+// heading values — size, line-height, tracking, margin scale inversely
+$headings: (
+    1: (size: var(--text-4xl), line-height: 1.1, tracking: -0.04em, margin: var(--space-4)),
+    2: (size: var(--text-3xl), line-height: 1.15, tracking: -0.03em, margin: var(--space-5)),
+    3: (size: var(--text-2xl), line-height: 1.25, tracking: -0.02em, margin: var(--space-6)),
+    4: (size: var(--text-xl), line-height: 1.35, tracking: -0.01em, margin: var(--space-7)),
+    5: (size: var(--text-lg), line-height: 1.45, tracking: 0em, margin: var(--space-8)),
+    6: (size: var(--text-md), line-height: 1.5, tracking: 0.01em, margin: var(--space-8)),
+    ) !default;
+
+@layer base {
+    @each $level, $values in $headings {
+        h#{$level} {
+            font-family: var(--font-heading
+            );
+        font-weight: 700;
+        color: var(--color-text);
+        font-size: map.get($values, size);
+        line-height: map.get($values, line-height);
+        letter-spacing: map.get($values, tracking);
+        margin-block-start: map.get($values, margin);
+    }
+}
+
+h1+h2,
+h2+h3,
+h3+h4,
+h4+h5,
+h5+h6 {
+    margin-block-start: var(--space-2);
+}
+
+p {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    line-height: var(--leading-normal);
+    hanging-punctuation: first last;
+    margin-block-start: var(--space-3);
+}
+
+pre,
+code,
+kbd,
+samp {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    tab-size: 4;
+}
+
+small {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+}
+
+strong {
+    font-weight: 700;
+}
+
+em {
+    font-style: italic;
+}
+}

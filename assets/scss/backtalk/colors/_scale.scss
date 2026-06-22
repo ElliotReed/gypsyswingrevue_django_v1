@@ -1,0 +1,81 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@use "sass:string";
+
+@mixin generate($name, $base) {
+    $hue: color.channel($base, "hue", $space: oklch);
+    $chroma: color.channel($base, "chroma", $space: oklch);
+    $lightness: color.channel($base, "lightness", $space: oklch);
+
+    // light anchor — same hue, pushed light but not white
+    $light-anchor: math.clamp(0%, $lightness + 44%, 97%);
+
+    // dark anchor — same hue, pushed dark but not black
+    $dark-anchor: math.clamp(3%, $lightness - 44%, 100%);
+
+    $steps: (
+        "50": (light: 98%, dark: 0%),
+        "100": (light: 85%, dark: 15%),
+        "200": (light: 70%, dark: 30%),
+        "300": (light: 50%, dark: 50%),
+        "400": (light: 25%, dark: 75%),
+        "500": (light: 0%, dark: 0%),
+        // ← exact base
+        "600": (light: 0%, dark: 25%),
+        "700": (light: 0%, dark: 50%),
+        "800": (light: 0%, dark: 70%),
+        "900": (light: 0%, dark: 85%),
+        "950": (light: 0%, dark: 93%),
+    );
+
+@each $step, $values in $steps {
+    $toward-light: map.get($values, "light");
+    $toward-dark: map.get($values, "dark");
+
+    $step-lightness: null;
+    $step-chroma: $chroma;
+
+    @if $step =="500" {
+        $step-lightness: $lightness;
+    }
+
+    @else if $toward-light >0% {
+        // interpolate toward light anchor
+        $step-lightness: $lightness + ($light-anchor - $lightness) * math.div($toward-light, 100%);
+        $step-chroma: $chroma * (1 - math.div($toward-light, 100%) * 0.6);
+    }
+
+    @else {
+        // interpolate toward dark anchor
+        $step-lightness: $lightness + ($dark-anchor - $lightness) * math.div($toward-dark, 100%);
+        $step-chroma: $chroma * (1 - math.div($toward-dark, 100%) * 0.3);
+    }
+
+    --color-#{$name}-#{$step}: oklch(#{math.clamp(0%, $step-lightness, 100%)} #{math.max(0, $step-chroma)} #{$hue});
+}
+}
+
+@mixin generate-neutral($light, $dark) {
+    $steps: (
+        "50": (lightness: 97%, chroma: 0),
+        "100": (lightness: 93%, chroma: 0),
+        "200": (lightness: 85%, chroma: 0.001),
+        "300": (lightness: 74%, chroma: 0.002),
+        "400": (lightness: 62%, chroma: 0.003),
+        "500": (lightness: 50%, chroma: 0.004),
+        "600": (lightness: 38%, chroma: 0.005),
+        "700": (lightness: 27%, chroma: 0.005),
+        "800": (lightness: 18%, chroma: 0.004),
+        "900": (lightness: 10%, chroma: 0.003),
+        "950": (lightness: 5%, chroma: 0.002),
+    );
+
+$hue: color.channel($light, "hue", $space: oklch);
+
+@each $step, $values in $steps {
+    $lightness: map.get($values, "lightness");
+    $chroma: map.get($values, "chroma");
+    --color-neutral-#{$step}: oklch(#{$lightness} #{$chroma} #{$hue});
+}
+}

@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "../config";
+
+$radius-base: config.$radius-base;
+
+@mixin radius($size: md) {
+    border-radius: #{map.get((
+ none: 0,
+        sm: $radius-base * 0.5,
+        md: $radius-base,
+        lg: $radius-base * 1.5,
+        xl: $radius-base * 2,
+        2xl: $radius-base * 3,
+        ), $size)
+}
+
+;
+}
+
+@mixin radius-input {
+    @include radius(md);
+}
+
+@mixin radius-button {
+    @include radius(md);
+}
+
+@mixin radius-card {
+    @include radius(lg);
+}
+
+@mixin radius-modal {
+    @include radius(xl);
+}
+
+@mixin radius-tooltip {
+    @include radius(sm);
+}
+
+@mixin radius-badge {
+    @include radius(sm);
+}

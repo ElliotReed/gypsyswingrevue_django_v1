@@ -1,0 +1,95 @@
+@use "sass:map";
+@use "../config";
+
+$padding-radius-base: config.$radius-base;
+
+// radius scale — local to this mixin, not exposed as tokens
+$radius-scale: (
+    "none": 0,
+    "sm": $padding-radius-base * 0.5,
+    "md": $padding-radius-base,
+    "lg": $padding-radius-base * 1.5,
+    "xl": $padding-radius-base * 2,
+    "2xl": $padding-radius-base * 3,
+);
+
+// default — handcrafted ratios landing on clean space tokens
+$box-sizes-default: (
+    "xs": ("block": var(--space-1), "inline": var(--space-2)),
+    "sm": ("block": var(--space-2), "inline": var(--space-3)),
+    "md": ("block": var(--space-3), "inline": var(--space-5)),
+    "lg": ("block": var(--space-4), "inline": var(--space-6)),
+    "xl": ("block": var(--space-5), "inline": var(--space-7)),
+    "2xl": ("block": var(--space-6), "inline": var(--space-8)),
+    ) !default;
+
+// use handcrafted when:    
+// - no ratio set (null)
+// - ratio is 2 (matches handcrafted design)
+// use calculated when:
+// - any other ratio value
+$use-calculated: config.$box-ratio !=null and config.$box-ratio !=2;
+
+$box-sizes: null;
+
+@if $use-calculated {
+    $box-sizes: (
+        "xs": ("block": var(--space-1), "inline": calc(var(--space-1) * #{resolved.$box-ratio})),
+        "sm": ("block": var(--space-2), "inline": calc(var(--space-2) * #{resolved.$box-ratio})),
+        "md": ("block": var(--space-3), "inline": calc(var(--space-3) * #{resolved.$box-ratio})),
+        "lg": ("block": var(--space-4), "inline": calc(var(--space-4) * #{resolved.$box-ratio})),
+        "xl": ("block": var(--space-4), "inline": calc(var(--space-5) * #{resolved.$box-ratio})),
+        "2xl": ("block": var(--space-4), "inline": calc(var(--space-6) * #{resolved.$box-ratio})),
+    );
+}
+
+@else {
+    $box-sizes: $box-sizes-default;
+}
+
+// type variants — semantic element relationships
+// radius defaults follow element personality
+$box-types: (
+    "input": "md",
+    "button": "md",
+    "card": "lg",
+    "badge": "sm",
+    "tooltip": "sm",
+    "modal": "xl",
+    ) !default;
+
+// base mixin — padding + optional radius
+@mixin padding-box($size: "md", $radius: null) {
+    padding-block: map.get($box-sizes, $size, "block"
+    );
+padding-inline: map.get($box-sizes, $size, "inline");
+
+@if $radius {
+    border-radius: map.get($radius-scale, $radius);
+}
+}
+
+// typed mixins — semantic defaults, overridable
+@mixin box-input($size: "md") {
+    @include padding-box($size, "md");
+}
+
+@mixin box-button($size: "md") {
+    @include padding-box($size, "md");
+}
+
+@mixin box-card($size: "md") {
+    @include padding-box($size, "lg");
+}
+
+@mixin box-badge($size: "sm") {
+    @include padding-box($size, "sm");
+}
+
+@mixin box-tooltip($size: "xs") {
+    @include padding-box($size, "sm");
+}
+
+@mixin box-modal($size: "lg") {
+    @include padding-box($size, "xl");
+}

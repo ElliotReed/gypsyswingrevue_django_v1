@@ -1,0 +1,39 @@
+@use "../../backtalk/mixins";
+
+.feature {
+  display: block;
+  max-height: min-content;
+
+  figure {
+    margin: 0;
+    @include mixins.border-ghost;
+
+    figcaption {
+      @include mixins.border-ghost;
+
+    }
+
+    blockquote {
+      margin: 0;
+      padding-inline-start: var(--space-3);
+    }
+  }
+}
+
+.subscribe,
+.contact {
+
+  a {
+    @include mixins.button-primary;
+  }
+}
+
+.flex-video {
+  display: flex;
+  position: relative;
+  padding-top: 1.5625rem;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}

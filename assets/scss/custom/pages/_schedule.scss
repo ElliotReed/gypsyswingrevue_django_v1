@@ -1,0 +1,94 @@
+@use "../../backtalk/mixins";
+
+.schedule {
+  .heading-link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      display: inline;
+    }
+
+    a {
+      @include mixins.button-primary;
+    }
+  }
+
+  .event-list {
+    list-style: none;
+    padding: 0;
+    @include mixins.flow();
+  }
+}
+
+.performance {
+  border-bottom: 1px solid var(--color-brown-100);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__date-time-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: var(--space-md);
+  }
+
+  &__date {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--color-primary-500);
+  }
+
+  &__time-display {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  }
+
+  &__start,
+  &__end {
+    color: var(--color-green-500);
+    font-weight: 600;
+  }
+
+  &__end {
+    color: var(--color-red-500);
+  }
+
+  &__to {
+    font-style: italic;
+  }
+
+  &__title {
+    margin: 0;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  &__venue {
+    display: block;
+    font-weight: 600;
+
+    &-label {
+      font-size: var(--text-sm);
+    }
+
+    &-name {
+      margin: 0;
+      color: var(--color-red-500);
+    }
+
+    address {
+      span {
+        display: inline-block;
+        white-space: nowrap;
+      }
+    }
+  }
+}

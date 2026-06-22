@@ -1,0 +1,126 @@
+@use "sass:map";
+@use "sass:math";
+@use "../config";
+
+// ── base ──────────────────────────────────────────────────
+@mixin respond-to($size, $min-or-max: "min") {
+    @if $min-or-max !="min" and $min-or-max !="max" {
+        @warn "respond-to() expects min or max, got #{$min-or-max}";
+    }
+
+    @if not map.has-key(config.$breakpoints, $size) {
+        @warn "respond-to() unknown breakpoint #{$size}";
+    }
+
+    @else {
+        @media (#{$min-or-max}-width: map.get(config.$breakpoints, $size)) {
+            @content;
+        }
+    }
+}
+
+// ── respond-from (min-width) ──────────────────────────────
+@mixin respond-from-xs {
+    @include respond-to("xs") {
+        @content;
+    }
+}
+
+@mixin respond-from-sm {
+    @include respond-to("sm") {
+        @content;
+    }
+}
+
+@mixin respond-from-md {
+    @include respond-to("md") {
+        @content;
+    }
+}
+
+@mixin respond-from-lg {
+    @include respond-to("lg") {
+        @content;
+    }
+}
+
+@mixin respond-from-xl {
+    @include respond-to("xl") {
+        @content;
+    }
+}
+
+@mixin respond-from-2xl {
+    @include respond-to("2xl") {
+        @content;
+    }
+}
+
+// ── respond-until (max-width) ─────────────────────────────
+@mixin respond-until-xs {
+    @include respond-to("xs", "max") {
+        @content;
+    }
+}
+
+@mixin respond-until-sm {
+    @include respond-to("sm", "max") {
+        @content;
+    }
+}
+
+@mixin respond-until-md {
+    @include respond-to("md", "max") {
+        @content;
+    }
+}
+
+@mixin respond-until-lg {
+    @include respond-to("lg", "max") {
+        @content;
+    }
+}
+
+@mixin respond-until-xl {
+    @include respond-to("xl", "max") {
+        @content;
+    }
+}
+
+@mixin respond-until-2xl {
+    @include respond-to("2xl", "max") {
+        @content;
+    }
+}
+
+// ── semantic ──────────────────────────────────────────────
+// opinionated shortcuts — intent over precision
+// use respond-to() or respond-from-/respond-until- for exact control
+@mixin respond-mobile {
+    @include respond-until-sm {
+        @content;
+    }
+}
+
+// until 576px
+@mixin respond-tablet {
+    @include respond-from-sm {
+        @content;
+    }
+}
+
+// from 576px
+@mixin respond-desktop {
+    @include respond-from-lg {
+        @content;
+    }
+}
+
+// from 992px
+@mixin respond-wide {
+    @include respond-from-2xl {
+        @content;
+    }
+}
+
+// from 1400px

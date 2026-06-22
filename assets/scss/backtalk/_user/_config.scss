@@ -1,0 +1,63 @@
+@use "../config/functions" as *;
+
+// ── colors ────────────────────────────────────────────────
+// set primary — system derives accent, neutral, and feedback
+// "accent" key overrides generated accent
+// any extra key gets a full 50-950 scale
+
+$color-overrides: (
+  "primary": #225522,
+  "accent": #887354,
+  "tertiary": #552222,
+  "brown": #585441,
+  "green": #455841,
+  "gold": #fae6a8,
+  "red": #584141,
+  ) !default;
+
+// drives accent generation — ignored if "accent" set in $colors
+// "complementary" | "analogous" | "split-complementary" | "monochromatic"
+$color-scheme-override: "complementary" !default;
+
+// ── typography ────────────────────────────────────────────
+// override any role — unset roles use defaults
+// adding a new key generates a new --font-* token
+$font-overrides: (
+  "display": ("Mr Dafoe", Impact),
+  "heading": (Cuprum, sans-serif),
+  ) !default;
+
+// replaces defaults entirely — only list weights your font actually loads
+$font-weight-overrides: (
+  ) !default;
+
+// null uses default — ratios: 1.125 subtle / 1.25 default / 1.333 expressive
+$type-base-override: null !default;
+$type-ratio-override: null !default;
+// content area for grid content
+$content-width-override: null !default;
+
+// ── spacing ───────────────────────────────────────────────
+$space-unit-override: null !default;
+
+// ── radius ────────────────────────────────────────────────
+$radius-base-override: null !default;
+
+// ── box padding ───────────────────────────────────────────
+// ratio, 2 !default
+$box-ratio-override: null !default;
+
+// ── shadows ───────────────────────────────────────────────
+// direction: where the light source is
+// "none" overhead | "left" from left | "right" from right
+$shadow-direction-override: "left" !default;
+//  in px, 2px !default
+$shadow-offset-base-override: null !default;
+// Values 1 - 10, 5 !default
+$shadow-hardness-override: null !default;
+
+// ── breakpoints ───────────────────────────────────────────
+// merges with defaults — only set what changes or add new
+// use px-to-em() to convert from px
+$breakpoint-overrides: (
+  ) !default;

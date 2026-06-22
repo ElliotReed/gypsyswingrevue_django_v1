@@ -17,20 +17,21 @@
   </div>
 
   <h2 class="performance__title heading-3">
-    {{event.event_name}}
-    <a href="{% url "core:schedule_detail" event.id %}">Details</a>
+    <a href="{% url 'core:schedule_detail' event.id %}">{{event.event_name}}</a>
   </h2>
 
   <div class="performance__venue">
     {% if event.public_event %}
-    <h3 class="heading-5">Venue:</h3>
-    <p>{{event.primary_venue.entity_name}}</p>
+    <p class="performance__venue-label">Venue:</p>
+    <p class="performance__venue-name">{{event.primary_venue.entity_name}}</p>
       <address>
-        {{event.primary_venue.address}}, {{event.primary_venue.city}}
-        {{ event.primary_venue.state_relation.state_abbreviation }}
+      <span>{{event.primary_venue.address}}, </span>
+       <span>
+        {{event.primary_venue.city}} {{ event.primary_venue.state_relation.state_abbreviation }}
+       </span>
       </address>
       {%else %}
-        <p>Private Event</p>
+        <p class="performance__venue-private">Private Event</p>
       {%endif%}
     </div>
 

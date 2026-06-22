@@ -1,0 +1,17 @@
+@use "sass:map";
+@use "../base/elements/typography" as base-type;
+
+@layer utilities {
+    @each $level, $values in base-type.$headings {
+        .heading-#{$level} {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-text);
+            font-size: map.get($values, size);
+            line-height: map.get($values, line-height);
+            letter-spacing: map.get($values, tracking);
+            margin-block-start: map.get($values, margin);
+            margin-block-end: calc(map.get($values, margin) * 0.5);
+        }
+    }
+}

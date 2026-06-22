@@ -13,6 +13,7 @@ requests = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 django-stubs = "*"
+django-vite = "*"
 
 [dev-packages]
 

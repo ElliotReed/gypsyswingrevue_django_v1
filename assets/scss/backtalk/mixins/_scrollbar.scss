@@ -1,0 +1,147 @@
+@use "sass:math";
+@use "sass:meta";
+@use "shadow";
+
+// ── helpers ───────────────────────────────────────────────
+@function firefox-width($width) {
+    @if $width ==0px {
+        @return none;
+    }
+
+    @else if meta.type-of($width)==number and math.compatible($width, 1px) and $width < 4px {
+        @return thin;
+    }
+
+    @else {
+        @return auto;
+    }
+}
+
+// ── default scrollbar ─────────────────────────────────────
+// subtle, neutral, works anywhere
+// float: true  → transparent track, thumb appears to float
+// float: false → visible track with inset shadow
+@mixin scrollbar($width: 6px, $float: true) {
+    scrollbar-width: firefox-width($width);
+
+    $track-color: null;
+
+    @if $float {
+        $track-color: transparent;
+    }
+
+    @else {
+        $track-color: var(--color-neutral-100);
+    }
+
+    scrollbar-color: var(--color-neutral-400) $track-color;
+
+    &::-webkit-scrollbar {
+        width: $width;
+        height: $width;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        border-radius: var(--radius-md);
+        background: var(--color-neutral-400);
+
+        @if $float {
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        &:hover {
+            background: var(--color-neutral-600);
+        }
+
+        &:active {
+            background: var(--color-neutral-700);
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        @if $float {
+            background: transparent;
+        }
+
+        @else {
+            background: var(--color-neutral-100);
+            @include shadow.shadow-inset(1);
+        }
+    }
+
+    &::-webkit-scrollbar-corner {
+        @if $float {
+            background: transparent;
+        }
+
+        @else {
+            background: var(--color-neutral-100);
+        }
+    }
+}
+
+// ── themed scrollbar ──────────────────────────────────────
+// uses brand colors — intentional design choice
+// float: true  → transparent track, thumb appears to float
+// float: false → surface track with inset shadow
+@mixin scrollbar-themed($width: 6px, $float: true) {
+    scrollbar-width: firefox-width($width);
+    $track-color: null;
+
+    @if $float {
+        $track-color: transparent;
+    }
+
+    @else {
+        $track-color: var(--color-neutral-100);
+    }
+
+    scrollbar-color: var(--color-neutral-400) $track-color;
+
+    &::-webkit-scrollbar {
+        width: $width;
+        height: $width;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        border-radius: var(--radius-md);
+        background: var(--color-interactive-muted);
+
+        @if $float {
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        &:hover {
+            background: var(--color-interactive);
+        }
+
+        &:active {
+            background: var(--color-interactive-hover);
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        @if $float {
+            background: transparent;
+        }
+
+        @else {
+            background: var(--color-surface);
+            @include shadow.shadow-inset(1);
+        }
+    }
+
+    &::-webkit-scrollbar-corner {
+        @if $float {
+            background: transparent;
+        }
+
+        @else {
+            background: var(--color-neutral-100);
+        }
+    }
+}

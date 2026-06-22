@@ -1,0 +1,12 @@
+// mixins/_border.scss
+@mixin border($color: var(--color-border), $width: 1px, $style: solid) {
+    border-width: $width;
+    border-color: $color;
+    border-style: $style;
+}
+
+// transparent variant — explicit intent, not a default
+// use when border needed for layout/margin collapse but not visible
+@mixin border-ghost($width: 1px) {
+    border: $width solid transparent;
+}

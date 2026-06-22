@@ -8,30 +8,24 @@ Gypsy Swing Revue | Find Us
 
 {% block content %}
 
-<div class="container">
-  <section class="panel feature">
-    <h1>Colorado's Premier Gypsy Jazz Band</h1>
-
-    <div class="feature__inner">
-
-      <ul class="nav__item-list nav__item-left">
+  <section class="panel">
+    <h1>Find Us</h1>
+      <ul class="find-us-list">
         <li>
-          <a class="link marquee__text" href="/schedule">Schedule</a>
+          <a class="" href="/schedule">Schedule</a>
         </li>
         <li>
-          <a class="link marquee__text" href="/contact">Contact</a>
+          <a class="" href="/contact">Contact</a>
         </li>
-        
         {% for link in social_links%}
         <li>
+          <a class="" href={{link.url}}>
           <i class="fa-brands {{ link.icon }}"></i>
-          <a class="link marquee__text" href={{link.url}}>
             {{link.content}}
           </a>
         </li>
         {% endfor %}
       </ul> 
   </section>
-</div>
 
 {% endblock content %}

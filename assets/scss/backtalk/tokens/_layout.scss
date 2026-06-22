@@ -1,0 +1,8 @@
+@use "../config";
+
+@layer tokens {
+    :root {
+        // for content-grid etc.
+        --content-width: #{config.$content-width};
+    }
+}

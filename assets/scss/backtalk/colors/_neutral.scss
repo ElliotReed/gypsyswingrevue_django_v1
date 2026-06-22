@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "sass:color";
+@use "sass:math";
+
+@function generate($colors) {
+    $primary: map.get($colors, "primary");
+    $hue: color.channel($primary, "hue", $space: oklch);
+    $primary-chroma: color.channel($primary, "chroma", $space: oklch);
+
+    $neutral-light: oklch(97% 0 $hue); // barely a whisper
+    $neutral-dark: oklch(12% 0.006 $hue); // slightly more in darks
+
+    @return ("neutral-light": $neutral-light,
+        "neutral-dark": $neutral-dark,
+    );
+}

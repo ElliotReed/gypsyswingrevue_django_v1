@@ -1,0 +1,17 @@
+@use "../abstracts";
+@use "sass:math";
+
+.panel {
+  border: abstracts.$border;
+  border-radius: abstracts.$border-radius;
+  padding: 0 abstracts.$padding abstracts.$padding;
+  background: abstracts.color(dark, 200);
+  background-blend-mode: color-dodge;
+  backdrop-filter: blur(3px);
+  @include abstracts.shadow(3);
+  @include abstracts.flow();
+
+  &:hover {
+    @include abstracts.shadow(3);
+  }
+}

@@ -1,0 +1,42 @@
+@use "../config";
+
+@function shadow-direction-to-angle($direction) {
+    @if $direction =="left" {
+        @return 135deg;
+    }
+
+    @if $direction =="right" {
+        @return 225deg;
+    }
+
+    @if $direction =="none" {
+        @return 180deg;
+    }
+
+    @return 180deg;
+}
+
+@mixin gradient($color, $angle: null, $intensity: null) {
+    $resolved-angle: shadow-direction-to-angle(config.$shadow-direction);
+
+    @if $angle !=null {
+        $resolved-angle: $angle;
+    }
+
+    $resolved-intensity: config.$shadow-hardness * 1.5;
+
+    @if $intensity !=null {
+        $resolved-intensity: $intensity;
+    }
+
+    background: #{$color};
+
+    @supports (background: oklch(from red l c h)) {
+        background-image: linear-gradient($resolved-angle,
+            oklch(from #{$color} calc(l + #{$resolved-intensity * 0.01}) c h) 0%,
+            oklch(from #{$color} calc(l + #{$resolved-intensity * 0.0067}) c h) 10%,
+            #{$color} 62%,
+            oklch(from #{$color} calc(l - #{$resolved-intensity * 0.0067}) c h) 90%,
+            oklch(from #{$color} calc(l - #{$resolved-intensity * 0.01}) c h) 100%);
+    }
+}

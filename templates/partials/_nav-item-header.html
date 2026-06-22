@@ -5,7 +5,11 @@
           <i class="fa-solid {{ icon }}"></i>
           {{ label }}
         </a>
-    {% elif type == 'page' %}
-    <h2 class="nav__heading"><a class="link marquee__text" href="{{ href }}">{{ label }}</a></h2>
+        {% elif type == 'page' %}
+        <h2 class="nav__heading">
+          <a class="link marquee__text" href="{{ href }}">
+            {{ label }}
+          </a>
+        </h2>
   {% endif %}
 </div>

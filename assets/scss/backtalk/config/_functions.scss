@@ -1,0 +1,25 @@
+@use "sass:math";
+@use "sass:meta";
+
+// accepts px or unitless — both assume 16px base:
+// px-to-em(768px) → 48em
+// px-to-em(768)   → 48em
+@function px-to-em($value) {
+    @if meta.type-of($value) !=number {
+        @warn "px-to-em() expects a number, got #{$value}";
+        @return $value;
+    }
+
+    // unitless — assume px
+    @if math.is-unitless($value) {
+        @return math.div($value, 16) * 1em;
+    }
+
+    // px — convert
+    @if math.compatible($value, 1px) {
+        @return math.div($value, 16px) * 1em;
+    }
+
+    @warn "px-to-em() expects px or unitless, got #{$value}";
+    @return $value;
+}

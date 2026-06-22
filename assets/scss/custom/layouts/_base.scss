@@ -1,0 +1,56 @@
+@use "../../backtalk/mixins";
+
+@mixin appFixedContainer {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+
+  @include mixins.respond-to("md") {
+    grid-template-columns: 1fr 1.618fr;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  @include appFixedContainer;
+  max-height: 100dvh;
+}
+
+.main {
+  grid-row: 2;
+  grid-column: 1;
+  @include mixins.content-grid;
+  @include mixins.scroll-container(y);
+  @include mixins.scrollbar-themed;
+  @include mixins.flow;
+
+  @include mixins.respond-to("md") {
+    grid-column: 2 / -1;
+    display: block;
+    padding-inline: var(--space-md);
+
+    &>* {
+      margin-inline-end: auto;
+      max-width: 70ch;
+    }
+  }
+
+
+  &>:first-child {
+    margin-block-start: var(--space-md);
+  }
+
+  &> :last-child {
+    margin-block-end: var(--space-md);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-red-600);
+}

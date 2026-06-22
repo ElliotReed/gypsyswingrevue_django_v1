@@ -1,0 +1,4 @@
+// mixins/_debug.scss
+@mixin debug($color: var(--color-error)) {
+    border: 1px solid $color;
+}

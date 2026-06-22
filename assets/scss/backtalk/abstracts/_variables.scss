@@ -1,0 +1,77 @@
+// // @use "color" as *;
+// @use 'scale-functions' as *;
+
+// $body-background-color: get-color("lightShades");
+// $body-text: get-color("darkShades");
+
+// // color
+// $scrollbar-thumb-background: get-color("darkShades", 500);
+// $scrollbar-thumb-background-hover: get-color("darkShades", 400);
+// $scrollbar-track-background: get-color("lightShades", 500);
+
+// /* sizes */
+// $maxWidth: px-to-rem(960px);
+
+// $fs-xs-em: em-scale(300);
+// $fs-sm-em: em-scale(400);
+// $fs-md-em: em-scale(500);
+// $fs-lg-em: em-scale(600);
+// $fs-xl-em: em-scale(700);
+// $fs-2xl-em: em-scale(800);
+
+// $fs-xsm-rem: rem-scale(400);
+// $fs-sm-rem: rem-scale(400);
+// $fs-md-rem: rem-scale(500);
+// $fs-lg-rem: rem-scale(600);
+// $fs-xl-rem: rem-scale(700);
+
+// /* font weights */
+// $fw-xs: 300;
+// $fw-sm: 400;
+// $fw-md: 500;
+// $fw-lg: 700;
+
+// $space-xs: em-scale(300);
+// $space-sm: em-scale(400);
+// $space-md: em-scale(500);
+// $space-lg: em-scale(600);
+// $space-xl: em-scale(700);
+
+// // speed
+// $duration-sm: 160ms;
+// $duration-md: 320ms;
+// $duration-lg: 640ms;
+
+// $ease: ease-in-out;
+
+// /* box model */
+// // $border: 1px solid transparentize(color(brown, 900), functions.scale(500));
+// $border: 1px solid get-color("darkShades", 500);
+// $border-radius: em-scale(100);
+
+// $max-width: px-to-rem(960px);
+
+// $btn-spacing-sm-btn: px-to-rem(36px); // 36-48
+// $btn-spacing-md-btn: px-to-rem(24px); // 24-36
+// $btn-spacing-lg-btn: px-to-rem(12px); // 12-24
+
+// //factors
+// $goldenRatio: 1.618;
+// $goldenRatioDecrease: 0.618;
+// $large: 0.618;
+// $small: 0.382;
+// $largePercent: 61.8%;
+// $smallPercent: 38.2%;
+// $goldenPercent: 76%;
+
+// $grp: 1.618%;
+// $grp2: 2.618%;
+// $grp3: 4.236%;
+// $grp4: 6.854%;
+// $grp5: 11.089%;
+// $grp6: 17.942%;
+// $grp7: 29.03%;
+// $grp8: 46.971%;
+// $grp9: 75.999%;
+// $grp10: 122.966%;
+// $grp11: 198.959%;

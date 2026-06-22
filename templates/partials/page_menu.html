@@ -1,35 +1,45 @@
 <aside class="page-menu">
   <div class="marquee">
-    <div class="light-rack light-rack-horizontal">
-      <div class="light-rack__bulb"></div>
-      <div class="light-rack__bulb"></div>
-    </div>
-
-    <div class="heading-wrapper">
-      {% include "partials/logo.html" %}
-    </div>
-
-    <div class="light-rack  light-rack-horizontal">
-      <div class="light-rack__bulb "></div>
-      <div class="light-rack__bulb "></div>
-    </div>
-
-    <div class="light-rack__instalation">
-
-      <div class="light-rack light-rack-verticle">
-        <div class="light-rack__bulb"></div>
+    <div class="marquee__front">
+      <div class="light-rack light-rack-horizontal">
         <div class="light-rack__bulb"></div>
         <div class="light-rack__bulb"></div>
       </div>
 
-      <nav class="page-menu__nav">
-        {% include "partials/menu.html" with type="page" %}
-      </nav>
+      <div class="heading-wrapper">
+        {% include "partials/logo.html" %}
+      </div>
 
-      <div class="light-rack light-rack-verticle">
-        <div class="light-rack__bulb"></div>
-        <div class="light-rack__bulb"></div>
-        <div class="light-rack__bulb"></div>
+      <div class="light-rack  light-rack-horizontal">
+        <div class="light-rack__bulb "></div>
+        <div class="light-rack__bulb "></div>
+      </div>
+
+      <div class="light-rack__instalation">
+        <div class="light-rack light-rack-verticle">
+          <div class="light-rack__bulb"></div>
+          <div class="light-rack__bulb"></div>
+          <div class="light-rack__bulb"></div>
+        </div>
+
+        <nav class="page-menu__nav">
+          {% include "partials/menu.html" with type="page" %}
+        </nav>
+
+        <div class="light-rack light-rack-verticle">
+          <div class="light-rack__bulb"></div>
+          <div class="light-rack__bulb"></div>
+          <div class="light-rack__bulb"></div>
+        </div>
       </div>
     </div>
+    
+    <div class="marquee__spine">
+        <div class="light-rack light-rack-verticle">
+          <div class="light-rack__bulb"></div>
+          <div class="light-rack__bulb"></div>
+          <div class="light-rack__bulb"></div>
+        </div>
+    </div>
+  </div>
 </aside>

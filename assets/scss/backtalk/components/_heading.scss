@@ -1,0 +1,43 @@
+// This sets heading elements to the scale,
+//   and creates utility classes
+//   "heading-1, heading-2"
+
+
+@use "../abstracts" as *;
+@use "../base";
+@use "sass:list";
+
+$size-difference: 100;
+
+$font-size: 800;
+$margin-size: 300;
+$line-height-size: 000; // 1.35 1.7 ~1.5
+
+$letter-spacing-list: (
+  -.06rem,
+  -.04rem,
+  -.02rem,
+  0,
+  .12rem,
+  .18rem
+);
+
+@for $i from 1 through 6 {
+
+  h#{$i},
+  .heading-#{$i} {
+    color: get-color("mainBrand", 500);
+    font-family: base.$fontStackSans;
+    font-size: rem-scale($font-size);
+    font-weight: $fw-lg;
+    line-height: (1 + scale($line-height-size));
+    letter-spacing: list.nth($letter-spacing-list, $i);
+
+    margin-block-start: rem-scale($margin-size);
+    margin-block-end: rem-scale($margin-size);
+  }
+
+  $font-size: $font-size - $size-difference;
+  $margin-size: $margin-size + $size-difference;
+  $line-height-size: $line-height-size + $size-difference;
+}
