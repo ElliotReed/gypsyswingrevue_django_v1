@@ -123,7 +123,7 @@ DJANGO_VITE = {
     "default": {
         "dev_mode": DEBUG,  # True in dev, False in production
         "dev_server_port": 5173,
-        "manifest_path": BASE_DIR / "static" / "dist" / ".vite" / "manifest.json",
+        "manifest_path": BASE_DIR / "static" / ".vite" / "manifest.json",
     }
 }
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
