@@ -1,0 +1,33 @@
+.performance__datetime {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: var(--space-md);
+
+  &-date {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--color-primary-500);
+  }
+
+  &-time-display {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  }
+
+  &-start,
+  &-end {
+    color: var(--color-green-500);
+    font-weight: 600;
+  }
+
+  &-end {
+    color: var(--color-red-500);
+  }
+
+  &-to {
+    font-style: italic;
+  }
+}

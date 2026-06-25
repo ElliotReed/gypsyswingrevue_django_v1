@@ -5,48 +5,28 @@ Gypsy Swing Revue | Performance
 {% endblock title %}
 
 {% block content %}
-<div class="container schedule">
-  <section class="panel">
-
-  <a href="{% url "core:schedule" %}">Back to schedule</a>
-  <div class="performance__date-time-container">
-    <date class="performance__date" datetime={{event.event_date|date:"F j, Y"}}>{{event.event_date|date:"F j, Y"}}
-    </date>
-
-    <div class="performance__time-display">
-      <time class="performance__start" datetime={{event.event_start|time:"g:i"}}>
-        {{event.event_start|time:"g:i a"}}
-      </time>
-      <span class="performance__to">&nbsp; to &nbsp;</span>
-      <time class="performance__end" datetime={{event.event_start|time:"g:i"}}>
-        {{event.event_end|time:"g:i a"}}
-      </time>
-    </div>
-  </div>
-
-  <h2 class="performance__title heading-3">
-    {{event.event_name}}
-  </h2>
-
-  <div class="performance__venue">
-    {% if event.public_event %}
-    <h3 class="heading-5">Venue:</h3>
-    <p>{{event.primary_venue.entity_name}}</p>
-      <address>
-        {{event.primary_venue.address}}, {{event.primary_venue.city}}
-        {{ event.primary_venue.state_relation.state_abbreviation }}
-      </address>
-      {%else %}
-        <p>Private Event</p>
-      {%endif%}
-    </div>
-
-    <ul>
-      {% for  musician in event.musicians.all %}
-      <li>{{musician.entity_name}}</li>
-      {% endfor %}
-    </ul>
-  </section>
+<div class="panel">
+  <a href="{% url 'core:schedule' %}">Back to schedule</a>
 </div>
 
+<section class="panel">
+{% include 'core/partials/performance-datetime.html' with events=events %}
+
+  <h1 class="performance__title heading-1">
+    {{event.event_name}}
+  </h1>
+
+  <dl class="performance__details">
+  {% include 'core/partials/performance-venue.html' with events=events %}
+
+    <dt>Musicians:</dt>
+    <dd>
+      <ul class="performance__musicians">
+        {% for musician in event.musicians.all %}
+        <li>{{musician.entity_name}}</li>
+        {% endfor %}
+      </ul>
+    </dd>
+  </dl>
+</section>
 {% endblock content %}

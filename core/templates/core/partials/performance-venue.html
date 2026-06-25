@@ -1,0 +1,12 @@
+    {% if event.public_event %}
+    <dt class="performance__venue-label">Venue:</dt>
+    <dd class="performance__venue-name">
+      {{event.primary_venue.entity_name}}
+      <address>
+        {{event.primary_venue.address}}, {{event.primary_venue.city}}
+        {{event.primary_venue.state_relation.state_abbreviation}}
+      </address>
+    </dd>
+    {% else %}
+    <dd>Private Event</dd>
+    {% endif %}
