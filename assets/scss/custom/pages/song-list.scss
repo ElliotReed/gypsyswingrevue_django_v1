@@ -1,0 +1,10 @@
+.songlist {
+  li {
+    font-weight: 500;
+
+    &::marker {
+      font-size: var(--text-sm);
+      font-weight: 100;
+    }
+  }
+}

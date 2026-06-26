@@ -1,0 +1,26 @@
+@use "../../backtalk/mixins";
+
+.venue__term {
+  font-size: var(--text-sm);
+}
+
+.venue__description {
+  margin-block-start: var(--space-sm);
+  color: var(--color-primary-500);
+}
+
+.venue__address {
+  color: var(--color-primary-500);
+
+  span {
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+.venue__notice {
+  display: block;
+  margin-inline: 0;
+  color: var(--color-primary-500);
+
+}

@@ -1,0 +1,16 @@
+<div class="venue">
+  {% if event.public_event %}
+  <dt class="venue__term">Venue:</dt>
+  <dd class="venue__description">
+    {{event.primary_venue.entity_name}}
+    <address class="venue__address">
+      {{event.primary_venue.address}}, 
+      <span>
+        {{event.primary_venue.city}} {{event.primary_venue.state_relation.state_abbreviation}}
+      </span>
+    </address>
+  </dd>
+  {% else %}
+  <dd class="venue__notice">Private Event</dd>
+  {% endif %}
+</div>

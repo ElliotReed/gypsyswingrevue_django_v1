@@ -22,6 +22,14 @@
   max-width: min-content;
   transform-origin: left top;
 
+  .logo {
+    font-size: var(--text-sm);
+
+    @include mixins.respond-to("lg") {
+      font-size: var(--text-md);
+    }
+  }
+
   .marquee__front {
     text-align: center;
     text-transform: uppercase;

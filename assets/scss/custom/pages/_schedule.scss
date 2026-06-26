@@ -23,6 +23,7 @@
 }
 
 .performance {
+  padding-block: var(--space-md);
   border-bottom: 1px solid var(--color-brown-100);
 
   &:last-child {
@@ -30,8 +31,6 @@
   }
 
   &__title {
-    margin: 0;
-
     a {
       color: inherit;
     }
@@ -41,26 +40,21 @@
     display: block;
     font-weight: 600;
     @include mixins.flow;
-
-    dt {
-      font-size: var(--text-sm);
-    }
-
-    dd {
-      margin: 0;
-      color: var(--color-red-500);
-    }
-
-    address {
-      span {
-        display: inline-block;
-        white-space: nowrap;
-      }
-    }
   }
+}
 
-  &__musicians {
-    margin: 0;
-    list-style: none;
-  }
+.performance-musicians__term {
+  font-size: var(--text-sm);
+}
+
+.performance-musicians__description {
+  margin-block-start: var(--space-sm);
+  color: var(--color-primary-500);
+}
+
+.performance-musicians__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
 }

@@ -2,12 +2,12 @@
 <li class="performance">
   {% include 'core/partials/performance-datetime.html' with events=events %}
 
-  <h2 class="performance__title heading-3">
+  <h2 class="performance__title">
     <a href="{% url 'core:schedule_detail' event.id %}">{{event.event_name}}</a>
   </h2>
 
   <dl class="performance__details">
-    {% include 'core/partials/performance-venue.html' with events=events %}
+    {% include 'core/partials/venue.html' with events=events %}
   </dl>
 </li>
 {% endfor %}

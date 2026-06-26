@@ -5,7 +5,7 @@ class ContactForm(forms.Form):
     name = forms.CharField()
     email = forms.EmailField()
     message = forms.CharField()
-    message.widget = forms.Textarea(attrs={"rows": "6"})
+    message.widget = forms.Textarea(attrs={"rows": "10"})
 
 
 class NewsletterForm(forms.Form):

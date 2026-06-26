@@ -1,19 +1,9 @@
-@use '../abstracts';
-
 .form {
-  @include abstracts.flow;
+  display: block;
+}
 
-  input,
-  textarea {
-    width: 100%;
-    border: abstracts.$border;
-    border-radius: abstracts.$border-radius;
-    @include abstracts.padding-box(sm);
-
-  }
-
-  button {
-    width: 100%;
-    text-transform: capitalize;
+.form-group {
+  p {
+    margin: 0;
   }
 }

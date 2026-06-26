@@ -10,8 +10,16 @@ import json
 
 
 def band(request):
+    image_prefixes = [
+        "little-man-icecream",
+        "starlight",
+        "christmas",
+        "blueroots",
+        "snug",
+        "snug-basement",
+    ]
     # TODO: implement
-    context = {}
+    context = {"image_prefixes": image_prefixes,}
     return render(request, "core/band.html", context)
 
 
@@ -48,11 +56,12 @@ def contact(request):
 
 def front_page(request):
     image_prefixes = [
-        "blueroots",
-        "christmas",
-        "snug",
-        "snug-basement",
         "starlight",
+        "christmas",
+        "blueroots",
+        "snug",
+        "little-man-icecream",
+        "snug-basement",
     ]
 
     # TODO: Implement someday

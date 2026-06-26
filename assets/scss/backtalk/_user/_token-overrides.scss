@@ -1,6 +1,6 @@
 /* Semantic token overrides — uncomment and customize as needed */
 
-/* ── light mode ─────────────────────────────────────────
+// ── light mode ─────────────────────────────────────────
 :root {
   // ── surfaces ──────────────────────────────────────────
   // --color-background: var(--color-neutral-50);
@@ -13,8 +13,8 @@
   // --color-border-strong: var(--color-neutral-400);
 
   // ── text ──────────────────────────────────────────────
-  // --color-text: var(--color-neutral-900);
-  // --color-text-muted: var(--color-neutral-600);
+  --color-text: var(--color-primary-700);
+  --color-text-muted: var(--color-primary-600);
   // --color-text-subtle: var(--color-neutral-400);
   // --color-text-inverse: var(--color-neutral-50);
 
@@ -52,7 +52,6 @@
   // --color-header-text: var(--color-text);
   // --color-header-border: var(--color-neutral-500);
 }
-*/
 
 /* ── dark mode ─────────────────────────────────────────
 :root[data-theme="dark"] {

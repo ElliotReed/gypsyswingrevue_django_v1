@@ -1,75 +1,94 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load django_vite %}
 
 {% block title %}
-Gypsy Swing Revue | The Band
+  Gypsy Swing Revue | The Band
 {% endblock title %}
 
+{% block script %}
+  {% vite_asset 'js/pages/bandPage.js' %}
+{% endblock script %}
+
 {% block content %}
-
-<div class="container" id="band">
-  <section class="panel">
-    <h4>The Band</h4>
-    <div class="theband__grid">
-      <p>Gypsy Swing Revue is a group based in the Denver metro area of
-        Colorado. They perform music in the "Hot Club" style popularized
-        by Django Reinhardt and Stephane Grappelli in Paris during the 30's
-        and 40's. The focus is on tight arrangements with plenty of room for
-        jazz improvisation. With a mix of instrumental pieces and vocals,
-        this energetic music is fun for everyone.
-      </p>
-      <div id="band-image__container" class="image-wrapper">
-        <picture>
-          <source media="(min-width: 1024px)" srcSet="{% static '' %}images/ImageHook/snug_1024.jpg" />
-          <source media="(min-width: 768px)" srcSet="{% static '' %}images/ImageHook/snug_768.jpg" />
-          <img srcSet="{% static '' %}images/ImageHook/snug_375.jpg" alt="" />
-        </picture>
-      </div>
-    </div>
+  <h1 class="visually-hidden">The Gypsy Swing Revue Band</h1>
+  
+  <section class="panel" id="band">
+    <h2>The Band</h2>
+    <p>Gypsy Swing Revue is a group based in the Denver metro area of
+      Colorado. They perform music in the "Hot Club" style popularized
+      by Django Reinhardt and Stephane Grappelli in Paris during the 30's
+      and 40's. The focus is on tight arrangements with plenty of room for
+      jazz improvisation. With a mix of instrumental pieces and vocals,
+      this energetic music is fun for everyone.
+    </p>
+      
+    {% include 'core/partials/viewer.html' with image_prefixes=image_prefixes id="band-viewer" %}
   </section>
-</div>
 
-<div class="container" id="musicians">
-  <section class="panel">
-    <h4 name="musicians">The Musicians</h4>
-
-    <div className="musicians__grid">
+  <section class="panel" id="musicians">
+    <hgroup>
+      <h2 name="musicians">The Musicians</h2>
       <p> The core of Gypsy Swing Revue consists of Elliot Reed, Stephane Hill,
         Anthony Salvo and Jean-Luc Davis.
       </p>
-      <div id="musician-image__container" className="image-wrapper">
-        <picture id="elliot">
-          <source media="(min-width: 1024px)" srcSet="{% static '' %}images/elliot.jpg" )} />
-          <source media="(min-width: 768px)" srcSet="{% static '' %}images/elliot.jpg" )} />
-          <img srcSet="{% static '' %}images/elliot.jpg" )} alt="" />
-        </picture>
-        <picture id="stephen">
-          <source media="(min-width: 1024px)" srcSet="{% static '' %}images/stephen.jpg" )} />
-          <source media="(min-width: 768px)" srcSet="{% static '' %}images/stephen.jpg" )} />
-          <img srcSet="{% static '' %}images/stephen.jpg" )} alt="" />
-        </picture>
-        <picture>
-          <source media="(min-width: 1024px)" srcSet="{% static '' %}images/anthony.jpg" )} />
-          <source media="(min-width: 768px)" srcSet="{% static '' %}images/anthony.jpg" )} />
-          <img srcSet="{% static '' %}images/anthony.jpg" )} alt="" />
-        </picture>
-        <picture>
-          <source media="(min-width: 1024px)" srcSet="{% static '' %}images/jean-luc.jpg" )} />
-          <source media="(min-width: 768px)" srcSet="{% static '' %}images/jean-luc.jpg" )} />
-          <img srcSet="{% static '' %}images/jean-luc.jpg" )} alt="" />
-        </picture>
-      </div>
+    </hgroup>
+
+    <div class="musician__card">
+      <picture id="elliot">
+        <source media="(min-width: 1024px)" srcSet="{% static '' %}images/elliot.jpg" )} />
+        <source media="(min-width: 768px)" srcSet="{% static '' %}images/elliot.jpg" )} />
+        <img srcSet="{% static '' %}images/elliot.jpg" )} alt="" />
+      </picture>
+      <p>
+        Colorado native Michael Isabell is a guitarist, educator, and dedicated advocate for the traditions of gypsy jazz and swing. Recognized for his strong rhythmic foundation, and engaging musical presence, he has spent many years studying, performing, teaching and sharing the music inspired by Django Reinhardt and beyond.
+      </p>
+      <p>
+        A sought-after instructor and coach, Michael works with students across the United States and internationally through his private studio and GypsyAndJazz.com. His teaching emphasizes rhythm, musical fluency, creativity, and the deeper process of learning itself.
+      </p>
     </div>
-    <div class="musician">
-      Colorado native Michael Isabell is a guitarist, educator, and dedicated advocate for the traditions of gypsy jazz and swing. Recognized for his strong rhythmic foundation, and engaging musical presence, he has spent many years studying, performing, teaching and sharing the music inspired by Django Reinhardt and beyond.
+    
+    <div class="musician__card">
+      <picture id="stephen">
+        <source media="(min-width: 1024px)" srcSet="{% static '' %}images/stephen.jpg" )} />
+        <source media="(min-width: 768px)" srcSet="{% static '' %}images/stephen.jpg" )} />
+        <img srcSet="{% static '' %}images/stephen.jpg" )} alt="" />
+      </picture>
+      <p> 
+        Colorado native Michael Isabell is a guitarist, educator, and dedicated advocate for the traditions of gypsy jazz and swing. Recognized for his strong rhythmic foundation, and engaging musical presence, he has spent many years studying, performing, teaching and sharing the music inspired by Django Reinhardt and beyond.
+      </p>
+      <p>
+        A sought-after instructor and coach, Michael works with students across the United States and internationally through his private studio and GypsyAndJazz.com. His teaching emphasizes rhythm, musical fluency, creativity, and the deeper process of learning itself.
+      </p>
+      <p>
+        Beyond the classroom and stage, Michael is committed to building musical community. He hosts the long-running Hot Club of Olde Town jam session and founded the Rocky Mountain Swing Guitar Camp, bringing together musicians from diverse backgrounds to study, collaborate, and celebrate the enduring spirit of swing music and culture.
+      </p>
+      <p>
+        Whether performing, teaching, or facilitating workshops and events, Michael's work is guided by a simple belief: great music is not just something we play, but something we share.
+      </p>
+  
+    </div>   
+          
+    <div class="musician__card">
+      <picture>
+        <source media="(min-width: 1024px)" srcSet="{% static '' %}images/anthony.jpg" )} />
+        <source media="(min-width: 768px)" srcSet="{% static '' %}images/anthony.jpg" )} />
+        <img srcSet="{% static '' %}images/anthony.jpg" )} alt="" />
+      </picture>
+        <p>
+        Beyond the classroom and stage, Michael is committed to building musical community. He hosts the long-running Hot Club of Olde Town jam session and founded the Rocky Mountain Swing Guitar Camp, bringing together musicians from diverse backgrounds to study, collaborate, and celebrate the enduring spirit of swing music and culture.
+      </p>
+    </div>
 
-A sought-after instructor and coach, Michael works with students across the United States and internationally through his private studio and GypsyAndJazz.com. His teaching emphasizes rhythm, musical fluency, creativity, and the deeper process of learning itself.
-
-Beyond the classroom and stage, Michael is committed to building musical community. He hosts the long-running Hot Club of Olde Town jam session and founded the Rocky Mountain Swing Guitar Camp, bringing together musicians from diverse backgrounds to study, collaborate, and celebrate the enduring spirit of swing music and culture.
-
-Whether performing, teaching, or facilitating workshops and events, Michael's work is guided by a simple belief: great music is not just something we play, but something we share.
+    <div class="musician__card">
+      <picture>
+        <source media="(min-width: 1024px)" srcSet="{% static '' %}images/jean-luc.jpg" )} />
+        <source media="(min-width: 768px)" srcSet="{% static '' %}images/jean-luc.jpg" )} />
+        <img srcSet="{% static '' %}images/jean-luc.jpg" )} alt="" />
+      </picture>
+      <p>
+        Beyond the classroom and stage, Michael is committed to building musical community. He hosts the long-running Hot Club of Olde Town jam session and founded the Rocky Mountain Swing Guitar Camp, bringing together musicians from diverse backgrounds to study, collaborate, and celebrate the enduring spirit of swing music and culture.
+      </p>
     </div>
   </section>
-</div>
-
 {% endblock content %}

@@ -12,21 +12,23 @@ Gypsy Swing Revue | Performance
 <section class="panel">
 {% include 'core/partials/performance-datetime.html' with events=events %}
 
-  <h1 class="performance__title heading-1">
+  <h1 class="performance__title">
     {{event.event_name}}
   </h1>
 
   <dl class="performance__details">
-  {% include 'core/partials/performance-venue.html' with events=events %}
-
-    <dt>Musicians:</dt>
-    <dd>
-      <ul class="performance__musicians">
-        {% for musician in event.musicians.all %}
-        <li>{{musician.entity_name}}</li>
-        {% endfor %}
-      </ul>
-    </dd>
+    {% include 'core/partials/venue.html' with events=events %}
+    
+    <div class="performance-musicians">
+      <dt class="performance-musicians__term">Musicians:</dt>
+      <dd class="performance-musicians__description">
+        <ul class="performance-musicians__list">
+          {% for musician in event.musicians.all %}
+          <li>{{musician.entity_name}}</li>
+          {% endfor %}
+        </ul>
+      </dd>
+    </div>
   </dl>
 </section>
 {% endblock content %}

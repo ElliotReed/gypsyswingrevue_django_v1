@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Gypsy Swing Revue | Contact
+  Gypsy Swing Revue | Contact
 {% endblock title %}
 
 {% block content %}
-<section class="contact container panel">
+<section class="contact panel">
   <hgroup>
     <h2>Contact Us!</h2>
     <p>
@@ -29,18 +29,14 @@ Gypsy Swing Revue | Contact
   {% endfor %}
 
   {% else %}
-  <form class="form contact-form " action="" method="POST">
+  <form class="form contact__form" action="" method="POST">
     {% csrf_token %}
-
-
     {% include 'core/partials/form-fields.html' with form=contact_form %}
 
-    <button class="button" name="contact" type="submit">
-      Send message
+    <button class="contact__form-button" name="contact" type="submit">
+      Send Message
     </button>
-
   </form>
-
 </section>
 
 {% comment %} <div class="container">

@@ -1,0 +1,11 @@
+@use "../../backtalk/mixins";
+
+.contact {
+
+  .contact__form {
+
+    &-button {
+      width: 100%;
+    }
+  }
+}

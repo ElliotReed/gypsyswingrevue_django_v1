@@ -1,19 +1,17 @@
 @use "../../backtalk/mixins";
 
-#musicians {
-  @include mixins.stack;
-}
-
-.musician__card {
-
-  p:first-of-type {
-    margin-block-start: 0;
-  }
+.genre-content {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-md);
 
   picture {
     float: none;
     width: 100%;
-    margin-block-end: var(--space-md);
+
+    img {
+      @include mixins.radius;
+    }
 
     &::after {
       content: "";
@@ -23,11 +21,16 @@
   }
 
   @include mixins.respond-to("sm") {
+    display: block;
+
     picture {
       float: left;
-      width: 15rem;
+      width: 12rem;
       margin-block-end: unset;
       margin-inline-end: var(--space-md);
     }
   }
+
+
+
 }

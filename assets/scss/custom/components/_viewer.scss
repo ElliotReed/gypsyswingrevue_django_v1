@@ -1,9 +1,11 @@
 @use "../../backtalk/mixins";
 
-[data-viewer] {
+.viewer {
   position: relative;
-  @include mixins.border;
-  @include mixins.shadow(2);
+  @include mixins.radius;
+  @include mixins.shadow(1);
+  overflow: hidden;
+  max-height: min-content;
 
   :last-child {
     position: relative;
@@ -17,6 +19,11 @@
     position: absolute;
     width: 100%;
     opacity: 0;
+  }
+
+  img {
+    width: 100%;
+    @include mixins.radius;
   }
 }
 

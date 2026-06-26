@@ -15,12 +15,11 @@ Gypsy Swing Revue | Colorado's Premier Gypsy Jazz Swing Band! | Weddings and Eve
   <section class="panel feature">
     <h1>Colorado's Premier Gypsy Jazz Band</h1>
 
-      <div data-viewer class="viewer">
-        {% include 'core/partials/viewer.html' with image_prefixes=image_prefixes %}
-      </div>
-      <div data-testimonial>
-        {% include 'core/partials/testimonials.html' with testimonials=testimonials %}
-      </div>
+      {% include 'core/partials/viewer.html' with image_prefixes=image_prefixes id="front-page-band-viewer" %}
+      
+  
+      {% include 'core/partials/testimonials.html' with testimonials=testimonials id="front-page-testimonials" %}
+    
   </section>
 
   <!--SCHEDULE-->

@@ -6,15 +6,20 @@ Gypsy Swing Revue | The Music
 {% endblock title %}
 
 {% block content %}
+    <p class="panel">
+      Check out our <a href="/songs">song list</a>!
+    </p>
 
-<div id="genre" class="container">
-  <div class="panel">
-    <a href="/songs">Song List</a>
-  </div>
+  <section class="panel genre">
+    <h1 class="title" name="genre">The Genre</h1>
 
-  <section class="panel">
-    <h4 name="genre">The Genre</h4>
-    <div class="genre__grid">
+    <div class="genre-content">
+      <picture>
+        <source media="(min-width: 1024px)" srcSet="{% static '' %}images/hot-club-600x600.jpg" />
+          <source media="(min-width: 768px)" srcSet="{% static '' %}images/hot-club-600x600.jpg" />
+        <img srcSet="{% static '' %}images/hot-club-600x600.jpg" )} alt="" />
+      </picture>
+      
       <p>Django Reinhardt and Stephane Grappelli were working musicians
         in Paris in the mid 1930's. They were working as side men in Louis
         Vola's band, but between sets, they would jam on the new swing music
@@ -23,16 +28,8 @@ Gypsy Swing Revue | The Music
         their own versions of the music that was becoming popular in the
         States, but had yet to make inroads in France and Europe in general.
       </p>
-      <div id="genre-image__container" class="image-wrapper">
-        <picture>
-          <source media="(min-width: 1024px)" srcSet="{% static '' %}images/hot-club-600x600.jpg" />
-          <source media="(min-width: 768px)" srcSet="{% static '' %}images/hot-club-600x600.jpg" />
-          <img srcSet="{% static '' %}images/hot-club-600x600.jpg" )} alt="" />
-        </picture>
-      </div>
     </div>
   </section>
-</div>
 <!--END GENRE-->
 
 {% endblock content %}
