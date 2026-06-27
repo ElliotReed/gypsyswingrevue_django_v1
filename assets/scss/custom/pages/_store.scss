@@ -23,6 +23,7 @@
 .paypal__form-wrapper {
   display: flex;
   flex-direction: column;
+  // flex-wrap: wrap;
   gap: var(--space-md);
 }
 
