@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from "vite"
 import path from "path"
 
@@ -16,8 +15,8 @@ export default defineConfig({
         app: "js/app.js",  // Your entry point
 
         frontPage: "js/pages/frontPage.js",
-        store: "js/pages/storePage.js",
-        band: "js/pages/bandPage.js",
+        storePage: "js/pages/storePage.js",
+        bandPage: "js/pages/bandPage.js",
       }
     },
   },
