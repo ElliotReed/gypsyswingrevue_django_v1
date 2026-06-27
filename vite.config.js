@@ -17,6 +17,7 @@ export default defineConfig({
 
         frontPage: "js/pages/frontPage.js",
         store: "js/pages/store.js",
+        band: "js/pages/band.js",
       }
     },
   },
