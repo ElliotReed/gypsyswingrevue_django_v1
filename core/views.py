@@ -18,8 +18,12 @@ def band(request):
         "snug",
         "snug-basement",
     ]
+
     # TODO: implement
-    context = {"image_prefixes": image_prefixes,}
+    context = {
+        "image_prefixes": image_prefixes,
+    }
+
     return render(request, "core/band.html", context)
 
 

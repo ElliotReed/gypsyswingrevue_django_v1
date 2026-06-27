@@ -16,8 +16,8 @@ export default defineConfig({
         app: "js/app.js",  // Your entry point
 
         frontPage: "js/pages/frontPage.js",
-        store: "js/pages/store.js",
-        band: "js/pages/band.js",
+        store: "js/pages/storePage.js",
+        band: "js/pages/bandPage.js",
       }
     },
   },
