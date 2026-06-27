@@ -1,3 +1,20 @@
+.ilp__presents {
+  text-transform: uppercase;
+}
+
+.ilp__video-title {
+  span:first-of-type {
+    display: block;
+    font-size: var(--text-xl);
+  }
+
+  span:last-of-type {
+    font-size: var(--text-xl);
+    font-style: italic;
+  }
+}
+
+// Implement viewer
 .picture-container {
   border: 3px solid black;
   overflow: hidden;
@@ -23,31 +40,13 @@
   }
 }
 
-/* ratio of 56.26% (height 9 ÷ width 16) because this is the default ratio for
- YouTube videos. However, other ratios can be used as well. */
-.video__container {
-  // position: relative;
-  // overflow: hidden;
-  // border: var(--border);
-  // padding-top: 56.25%;
-  // box-shadow: var(--boxShadow);
+.ilp__song-list {
+  li {
+    font-weight: 500;
+    padding-left: var(--space-xs);
 
-  &>iframe {
-    border: 1px solid transparent;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    &::marker {
+      font-size: var(--text-xs);
+    }
   }
-}
-
-iframe {
-  border: 1px solid transparent;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  width: 100%;
-  height: 100%;
 }

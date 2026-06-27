@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load django_vite %}
 
 {% block title %}
-Gypsy Swing Revue | Store
+  Gypsy Swing Revue | Store
 {% endblock title %}
 
 {% block script %}
-<script defer src="{% static 'js/store.js' %}"></script>
+  {% vite_asset 'js/pages/store.js' %}
 {% endblock script %}
 
 {% block content %}
 
-<div class="container">
   <div class="panel">
     <div class="row">
       <p>Purchases use secure, encrypted PayPal or credit card!<br>
@@ -26,11 +26,9 @@ Gypsy Swing Revue | Store
       </form>
     </div>
   </div>
-</div>
 
 {% for album in albums %}
 
-<div class="container">
   <div class="AlbumSale panel">
     <div class="album-sale__heading">
       <h2 class="heading-2">{{album.title}}</h2>
@@ -60,7 +58,6 @@ Gypsy Swing Revue | Store
     </ol>
     {% include 'core/partials/paypal.html' with album=album %}
   </div>
-</div>
 {% endfor %}
 
 {% endblock content %}

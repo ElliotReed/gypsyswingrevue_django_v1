@@ -1,17 +1,6 @@
-/* ratio of 56.26% (height 9 ÷ width 16) because this is the default ratio for
- YouTube videos. However, other ratios can be used as well. */
-.video__container {
-  position: relative;
-  overflow: hidden;
-  border: var(--border);
-  padding-top: 56.25%;
-  box-shadow: var(--boxShadow);
-}
+@use "../../backtalk/mixins";
 
 .video__iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  @include mixins.radius;
+  @include mixins.shadow(1);
 }

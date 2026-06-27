@@ -7,11 +7,9 @@ Gypsy Swing Revue | I Love Paris!
 {% endblock title %}
 
 {% block content %}
-
-<div class="container">
-  <div class="panel">
-    <div>
-      <p class="heading-5 uppercase">Gypsy Swing Revue presents</h5>
+  <section class="panel">
+    <hgroup>
+      <p class="heading-4 ilp__presents">Gypsy Swing Revue presents</h5>
       <h1>"I Love Paris!"
         <span class="heading-3">featuring Kristi Stice</span>
       </h1>
@@ -28,36 +26,25 @@ Gypsy Swing Revue | I Love Paris!
       by Edith Piaff, "Undecided" and "C'est Si Bon" among others. This show is sure to leave you saying "Oui,
       oui, oui!".
     </p>
-  </div>
-</div>
+  </section>
 
-<div class="row">
-  <div class="medium-12 columns">
-    <div class="panel mypanel" data-equalizer-watch>
-      <h5>Gypsy Swing Revue's "I Love Paris" ft. Kristi Stice</h5>
-      <p class="video__container">
-        {% include "core/partials/iframe.html" with filename=vid %}
-      </p>
-
-    </div>
-  </div>
-</div>
-
-<div class="container">
   <div class="panel">
+    <h2 class="heading-2 ilp__video-title">
+      <span>Gypsy Swing Revue's</span>
+          "Beyond The Sea" 
+      <span>ft. Kristi Stice</span>
+    </h2>
+    {% include "core/partials/iframe.html" with filename=vid title="La Mer from Blue Roots Denver" %}
+  </div>
 
-    <h1>"I Love Paris" Song List</h1>
 
-    <ol>
+  <div class="panel">
+    <h2>"I Love Paris" Song List</h2>
+
+    <ol class="ilp__song-list">
       {% for song in song_list %}
-
-      <li>{{song.song.title}}</li>
-
+        <li>{{song.song.title}}</li>
       {% endfor %}
     </ol>
-
   </div>
-</div>
-</div>
-
 {% endblock content %}

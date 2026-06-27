@@ -1,0 +1,1 @@
+import{n as e,t}from"./chunk-1VNLd2iN.js";var n=e((()=>{})),r=t((()=>{n();var e=document.querySelector(`[data-main-scroll]`),t=document.querySelector(`[data-site-header]`);function r(){let n=e.scrollTop;t.clientWidth<900&&n>100?t.style.fontSize=`.76rem`:t.style.fontSize=`1rem`}e.onscroll=()=>r()}));export default r();

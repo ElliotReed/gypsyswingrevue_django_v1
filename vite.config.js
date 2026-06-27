@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     manifest: true,       // Generates manifest.json Django needs
     outDir: path.resolve("./static"),  // Where compiled assets go
-    emptyOutDir: true,
+    emptyOutDir: false,
     rollupOptions: {
       input: {
         app: "js/app.js",  // Your entry point

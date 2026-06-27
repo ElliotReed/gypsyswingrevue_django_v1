@@ -1,0 +1,36 @@
+{
+  "_chunk-1VNLd2iN.js": {
+    "file": "assets/chunk-1VNLd2iN.js",
+    "name": "chunk"
+  },
+  "js/app.js": {
+    "file": "assets/app-_3EW4ULc.js",
+    "name": "app",
+    "src": "js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_chunk-1VNLd2iN.js"
+    ],
+    "css": [
+      "assets/app-Cke97IBj.css"
+    ]
+  },
+  "js/pages/frontPage.js": {
+    "file": "assets/frontPage-Dl7H6Zk3.js",
+    "name": "frontPage",
+    "src": "js/pages/frontPage.js",
+    "isEntry": true,
+    "imports": [
+      "_chunk-1VNLd2iN.js"
+    ]
+  },
+  "js/pages/store.js": {
+    "file": "assets/store-B1Vi-wBA.js",
+    "name": "store",
+    "src": "js/pages/store.js",
+    "isEntry": true,
+    "imports": [
+      "_chunk-1VNLd2iN.js"
+    ]
+  }
+}
