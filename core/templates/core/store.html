@@ -7,40 +7,54 @@
 {% endblock title %}
 
 {% block script %}
-  {% vite_asset 'js/pages/store.js' %}
+  {% vite_asset 'js/pages/storePage.js' %}
 {% endblock script %}
 
 {% block content %}
-
+  <h1 class="visually-hidden">Gypsy Swing Revue Store</h1>
+  
   <div class="panel">
-    <div class="row">
-      <p>Purchases use secure, encrypted PayPal or credit card!<br>
-        Only available in the United States.
-      </p>
+  <p>Purchases use secure, encrypted PayPal or credit card!<br>
+    Only available in the United States.
+  </p>
 
-      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-            ">
-        <button type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">View Cart</button>
-      </form>
-    </div>
-  </div>
+  <form 
+    target="paypal" 
+    action="https://www.paypal.com/cgi-bin/webscr" 
+    method="post"
+  >
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----"
+    >
+
+    <button 
+      type="submit" 
+      name="submit" 
+      alt="PayPal - The safer, easier way to pay online!"
+    >
+      View Cart
+    </button>
+  </form>
+</div>
 
 {% for album in albums %}
-
   <div class="AlbumSale panel">
     <div class="album-sale__heading">
       <h2 class="heading-2">{{album.title}}</h2>
     </div>
-    <div class="album-sale__cover">
-      <a href="https://open.spotify.com/album/1dCYboJr34Mst3dp383NWL?si=XW6Aq_DbTb-J5xRdU--Lnw">Spotify</a>
-      <picture>
-        <img src="{% static 'images' %}/{{album.cover.mobile}}" alt="" />
-      </picture>
+    
+    <div class="album__cover--container">
+      <div class="album-sale__cover">
+        <picture>
+          <img src="{% static 'images' %}/{{album.cover.mobile}}" alt="" />
+        </picture>
+      </div>
     </div>
+
+
+    
     <ol class="track__list">
-      {% for track in album.songs %}
+    {% for track in album.songs %}
       <li data-album="{{album.identifier}}">
         <button data-title class="track__title"><span>{{track.title}}</span>
           {% if track.source|length > 0 %}
@@ -49,14 +63,23 @@
         </button>
         {% if track.source|length > 0 %}
         <div data-track="{{track.track}}" class="track__player">
-          <audio controls src="{% static 'audio' %}/{{track.source}}">
-          </audio>
+          <audio 
+            controls 
+            src="{% static 'audio' %}/{{track.source}}"
+          ></audio>
         </div>
         {% endif %}
       </li>
-      {% endfor %}
+    {% endfor %}
     </ol>
     {% include 'core/partials/paypal.html' with album=album %}
+
+    <div class="purchase-links">
+      <p>Listen on <a href="https://open.spotify.com/album/1dCYboJr34Mst3dp383NWL?si=XW6Aq_DbTb-J5xRdU--Lnw">
+        Spotify
+        </a>
+      </p>
+    </div>
   </div>
 {% endfor %}
 
