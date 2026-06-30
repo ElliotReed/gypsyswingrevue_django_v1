@@ -3,9 +3,8 @@
     "title": "I Love Paris",
     "artist": "Gypsy Swing Revue ft. Kristi Stice",
     "cover": {
-      "mobile": "CD-ILoveParis-170-170.jpg",
-      "tablet": "CD-ILoveParis-270-270.jpg",
-      "desktop": "CD-ILoveParis.jpg"
+      "filename": "i-love-paris_cover",
+      "description": "A painting of a parisian street cafe, with musicans and dancers, the Eifel tower in the background."
     },
     "price": "$15.00",
     "paypalAddToCart": "LT4ZSCYCFQGQ6",
@@ -82,9 +81,8 @@
     "title": "Puttin' On The Ritz",
     "artist": "Gypsy Swing Revue",
     "cover": {
-      "mobile": "CD-PuttinOnTheRitz.jpg",
-      "tablet": "CD-PuttinOnTheRitz.jpg",
-      "desktop": "CD-PuttinOnTheRitz.jpg"
+      "filename": "puttin-on-the-ritz_cover",
+      "description": "A painting of a parisian street cafe, with musicans and dancers, the Eifel tower in the background."
     },
     "price": "$15.00",
     "paypalAddToCart": "CUTSUUYBYSZMG",
@@ -151,9 +149,8 @@
     "title": "Some Of These Days",
     "artist": "Gypsy Swing Revue",
     "cover": {
-      "mobile": "CD-SomeOfTheseDays.jpg",
-      "tablet": "CD-SomeOfTheseDays.jpg",
-      "desktop": "CD-SomeOfTheseDays.jpg"
+      "filename": "some-of-these-days_cover",
+      "description": "A painting of a parisian street cafe, with musicans and dancers, the Eifel tower in the background."
     },
     "price": "$15.00",
     "paypalAddToCart": "4S7C74RE6JH94",
@@ -235,9 +232,8 @@
     "title": "Under Paris Skies",
     "artist": "Lannie Garrett with Gypsy Swing Revue",
     "cover": {
-      "mobile": "CD-ILoveParis-170-170.jpg",
-      "tablet": "CD-ILoveParis-270-270.jpg",
-      "desktop": "CD-ILoveParis.jpg"
+      "filename": "under-paris-skies_cover",
+      "description": "A painting of a parisian street cafe, with musicans and dancers, the Eifel tower in the background."
     },
     "price": "Out of print.",
     "paypalAddToCart": "",

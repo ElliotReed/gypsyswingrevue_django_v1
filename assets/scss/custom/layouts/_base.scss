@@ -13,6 +13,7 @@
 
 body {
   font-family: var(--font-body);
+  color: var(--color-text);
   @include appFixedContainer;
   max-height: 100dvh;
 }
@@ -23,16 +24,13 @@ body {
   @include mixins.content-grid;
   @include mixins.scroll-container(y);
   @include mixins.scrollbar-themed;
-  @include mixins.flow;
+  // @include mixins.flow;
 
   @include mixins.respond-to("md") {
     grid-column: 2 / -1;
-    display: block;
-    padding-inline: var(--space-md);
 
     &>* {
-      margin-inline-end: auto;
-      max-width: 70ch;
+      // max-width: 70ch;
     }
   }
 

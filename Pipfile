@@ -5,15 +5,16 @@ name = "pypi"
 
 [packages]
 django = "*"
-whitenoise = "*"
-python-decouple = "*"
-fontawesomefree = "==6"
 django-embed-video = "*"
-requests = "*"
-gunicorn = "*"
-psycopg2-binary = "*"
 django-stubs = "*"
 django-vite = "*"
+fontawesomefree = "==6"
+gunicorn = "*"
+pillow = "*"
+psycopg2-binary = "*"
+python-decouple = "*"
+requests = "*"
+whitenoise = "*"
 
 [dev-packages]
 
