@@ -1,43 +1,81 @@
 @use "../../backtalk/mixins";
 
-@mixin appFixedContainer {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
-  overflow: hidden;
-
-  @include mixins.respond-to("md") {
-    grid-template-columns: 1fr 1.618fr;
-  }
-}
-
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  @include appFixedContainer;
-  max-height: 100dvh;
 }
 
-.main {
-  grid-row: 2;
-  grid-column: 1;
-  @include mixins.content-grid;
-  @include mixins.scroll-container(y);
-  @include mixins.scrollbar-themed;
-  // @include mixins.flow;
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  max-height: 100dvh;
+  overflow: hidden;
 
-  @include mixins.respond-to("md") {
-    grid-column: 2 / -1;
+  .main {
+    grid-row: 2;
+    grid-column: 1;
 
-    &>* {
-      // max-width: 70ch;
+    .page-menu {
+      display: none;
     }
   }
 
-
-  &>:first-child {
-    margin-block-start: var(--space-md);
+  .app__footer {
+    z-index: 1;
+    grid-column: 1 / -1;
+    grid-row: 3;
   }
+
+  @include mixins.respond-to("md") {
+    .page-menu {
+      display: none;
+    }
+
+    .main {
+      .page-menu {
+        display: flex;
+        grid-column: full;
+      }
+    }
+  }
+
+  @include mixins.respond-to("lg") {
+    grid-template-columns: 1fr 1.618fr;
+
+    .main {
+      grid-row: 2;
+      grid-column: 2 / -1;
+
+      .page-menu {
+        display: none;
+      }
+    }
+
+    .app__footer {
+      grid-row: 3;
+    }
+  }
+}
+
+.main {
+  align-content: start;
+  @include mixins.content-grid;
+  @include mixins.scroll-container(y);
+  @include mixins.scrollbar-themed;
+
+  &>.panel:not(.panel ~ .panel) {
+    margin-block-start: var(--space-md);
+
+    @include mixins.respond-to("md") {
+      margin-block-start: unset;
+    }
+
+    @include mixins.respond-to("lg") {
+      margin-block-start: var(--space-md);
+    }
+  }
+
 
   &> :last-child {
     margin-block-end: var(--space-md);

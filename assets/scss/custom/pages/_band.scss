@@ -10,9 +10,9 @@
     margin-block-start: 0;
   }
 
-  picture {
+  .picture__musician {
     float: none;
-    width: 100%;
+    // width: 100%;
     margin-block-end: var(--space-md);
 
     &::after {
@@ -23,7 +23,7 @@
   }
 
   @include mixins.respond-to("sm") {
-    picture {
+    .picture__musician {
       float: left;
       width: 15rem;
       margin-block-end: unset;

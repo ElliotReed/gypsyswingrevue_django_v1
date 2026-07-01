@@ -45,7 +45,7 @@
     </style>
 </head>
 
-<body class="site-background">
+<body class="site-background" id="app">
 
   {% include 'header.html' %}
 
@@ -63,6 +63,7 @@
   {% endif%}
 
   <main class="main" data-main-scroll>
+    {% include 'partials/page_menu.html' %}
     {% block content %}
     {% endblock content %}
   </main>

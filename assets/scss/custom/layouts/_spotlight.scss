@@ -12,7 +12,7 @@
   // mix-blend-mode: darken;
   z-index: -1;
 
-  @include mixins.respond-to("md") {
+  @include mixins.respond-to("lg") {
     top: 0;
   }
 

@@ -1,15 +1,19 @@
 @use "../../backtalk/mixins";
 @use 'sass:math';
 
-.page-menu {
+#app>.page-menu {
   display: none;
-  margin-block: var(--space-md);
-  padding-inline-start: var(--space-md);
   perspective: 500px;
   perspective-origin: 50% 50%;
 
-  @include mixins.respond-to("md") {
+  @include mixins.respond-to("lg") {
     display: block;
+    margin-block-start: var(--space-md);
+    @include mixins.content-grid;
+
+    .marquee {
+      grid-column-end: full-width;
+    }
   }
 }
 
@@ -17,18 +21,10 @@
   $marquee-border: 1px solid var(--color-brown-500);
   position: relative;
   transform-style: preserve-3d;
-  transform: translateX(2rem) rotateY(10deg);
-  margin-left: auto;
-  max-width: min-content;
+  // transform: translateX(2rem) rotateY(10deg);
+  width: 100%;
+  min-width: max-content;
   transform-origin: left top;
-
-  .logo {
-    font-size: var(--text-sm);
-
-    @include mixins.respond-to("lg") {
-      font-size: var(--text-md);
-    }
-  }
 
   .marquee__front {
     text-align: center;
@@ -37,10 +33,46 @@
     border: $marquee-border;
     @include mixins.radius;
     overflow: hidden;
+
+    .marquee__head {
+      display: none;
+    }
+
+    @include mixins.respond-to("md") {
+      .marquee__head {
+        display: none;
+      }
+
+      .marquee__body {
+        width: 100%;
+      }
+
+      .marquee__body .page-menu__nav .nav__ul {
+        display: flex;
+
+        .nav__item {
+          flex: 1 0;
+        }
+      }
+    }
+
+    @include mixins.respond-to("lg") {
+      max-width: 26rem;
+      margin-inline-start: auto;
+
+      .marquee__head {
+        display: block;
+      }
+
+      .marquee__body .page-menu__nav .nav__ul {
+        display: block;
+      }
+    }
   }
 
   .marquee__spine {
     display: flex;
+    display: none;
     border: $marquee-border;
     position: absolute;
     top: 0;
@@ -55,10 +87,23 @@
 
 .heading-wrapper {
   position: relative;
-  font-size: var(--text-md);
-  min-width: max-content;
   @include mixins.padding-box;
   z-index: 0;
+
+  .logo {
+    flex-wrap: wrap;
+    font-size: var(--text-sm);
+    flex-direction: column;
+
+    img {
+      // flex: 0 1 100%;
+    }
+
+    @include mixins.respond-to("lg") {
+      flex-direction: row;
+      // font-size: var(--text-md);
+    }
+  }
 }
 
 .light-rack__instalation {
@@ -94,6 +139,14 @@
 
   &.light-rack-verticle {
     flex-direction: row;
+
+    :first-child {
+      display: none;
+
+      @include mixins.respond-to("lg") {
+        display: block;
+      }
+    }
 
     .light-rack__bulb {
       width: $_bulb-thickness;

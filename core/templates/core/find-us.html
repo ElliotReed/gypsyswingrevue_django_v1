@@ -10,20 +10,32 @@ Gypsy Swing Revue | Find Us
 
   <section class="panel">
     <h1>Find Us</h1>
-      <ul class="find-us-list">
+      <h2>Site Links</h2>
+      <ul class="find-us__site">
         <li>
-          <a class="" href="/schedule">Schedule</a>
-        </li>
-        <li>
-          <a class="" href="/contact">Contact</a>
-        </li>
-        {% for link in social_links%}
-        <li>
-          <a class="" href={{link.url}}>
-          <i class="fa-brands {{ link.icon }}"></i>
-            {{link.content}}
+          <a class="" href="/schedule">
+            Schedule
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </li>
+        <li>
+          <a class="" href="/contact">
+            Contact
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </li>
+      </ul> 
+        
+      <h2>Web Links</h2>
+        <ul class="find-us__web">
+        {% for link in social_links%}
+          <li>
+            <a class="" href={{link.url}}>
+              <i class="fa-brands {{ link.icon }}"></i>
+              {{link.content}}
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </li>
         {% endfor %}
       </ul> 
   </section>

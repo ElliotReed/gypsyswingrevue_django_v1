@@ -8,17 +8,17 @@ CONFIGS = {
         "sizes": [200, 400, 800],
         "formats": ["webp", "jpg"],
     },
-    "carousel": {
-        "source": Path("source-images/carousel"),
-        "output": Path("static/images/carousel"),
-        "sizes": [800, 1200, 1600],
+    "musicians": {
+        "source": Path("source-images/musicians"),
+        "output": Path("static/images/musicians"),
+        "sizes": [200, 400, 800],
         "formats": ["webp", "jpg"],
     },
-    "thumbnails": {
-        "source": Path("source-images/thumbnails"),
-        "output": Path("static/images/thumbnails"),
-        "sizes": [150, 300],
-        "formats": ["webp"],
+    "group": {
+        "source": Path("source-images/group"),
+        "output": Path("static/images/group"),
+        "sizes": [400, 800, 1600],
+        "formats": ["webp", "jpg"],
     },
 }
 

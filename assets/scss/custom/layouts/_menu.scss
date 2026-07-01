@@ -44,7 +44,14 @@
 }
 
 .page-menu__nav .nav__heading .marquee__text {
-  font-size: var(--text-2xl);
+
+  @include mixins.respond-to("md") {
+    font-size: var(--text-xl);
+  }
+
+  @include mixins.respond-to("lg") {
+    font-size: var(--text-2xl);
+  }
 }
 
 
