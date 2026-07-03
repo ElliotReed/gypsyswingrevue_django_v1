@@ -46,11 +46,6 @@
 </head>
 
 <body class="site-background" id="app">
-
-  {% include 'header.html' %}
-
-  {% include 'partials/page_menu.html' %}
-
   {% if request.path == "/" %}
     <div class="curtain">
     <div class="curtain__panel curtain__panel-left">
@@ -62,10 +57,18 @@
   </div> 
   {% endif%}
 
+  {% include 'header.html' %}
+
+  {% include 'partials/page_menu.html' with id="page-menu" %}
+
   <main class="main" data-main-scroll>
-    {% include 'partials/page_menu.html' %}
+    {# duplicate menu for iPad sizes (md) #}
+    {% include 'partials/page_menu.html' with id="main-menu" %}
+
     {% block content %}
     {% endblock content %}
+
+    {% include "core/partials/django-badge.html" %}
   </main>
 
   {% include 'footer.html' %}

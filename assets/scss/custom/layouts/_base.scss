@@ -12,11 +12,15 @@ body {
   max-height: 100dvh;
   overflow: hidden;
 
+  #page-menu {
+    display: none;
+  }
+
   .main {
     grid-row: 2;
     grid-column: 1;
 
-    .page-menu {
+    #main-menu {
       display: none;
     }
   }
@@ -28,12 +32,12 @@ body {
   }
 
   @include mixins.respond-to("md") {
-    .page-menu {
+    #page-menu {
       display: none;
     }
 
     .main {
-      .page-menu {
+      #main-menu {
         display: flex;
         grid-column: full;
       }
@@ -43,11 +47,15 @@ body {
   @include mixins.respond-to("lg") {
     grid-template-columns: 1fr 1.618fr;
 
+    #page-menu {
+      display: grid;
+    }
+
     .main {
       grid-row: 2;
       grid-column: 2 / -1;
 
-      .page-menu {
+      #main-menu {
         display: none;
       }
     }

@@ -1,0 +1,9 @@
+    <div class="performance__time">
+      <time class="performance__time-start" datetime={{event.event_start|time:"g:i"}}>
+        {{event.event_start|time:"g:i a"}}
+      </time>
+      <span class="performance__time-to">&nbsp;to&nbsp;</span>
+      <time class="performance__time-end" datetime={{event.event_start|time:"g:i"}}>
+        {{event.event_end|time:"g:i a"}}
+      </time>
+    </div>

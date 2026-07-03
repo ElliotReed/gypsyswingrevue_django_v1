@@ -148,14 +148,22 @@ def newsletter(request):
 
 
 def schedule(request):
-    dev_start_date = date(2020, 1, 1)
+    dev_start_date = date(2021, 1, 1)
     #  .filter(event_date__gte=datetime.today())
+
+    # id	event_status
+    # 1	Inquiry
+    # 3	Hold
+    # 5	Confirmed
+    # 6	Cancelled
+    # 7	Completed
 
     events = (
         Event.objects.select_related("event_type_relation")
         .prefetch_related("venues__state_relation")
         .filter(project_id=6, event_date__gte=dev_start_date)
         .exclude(event_type_relation__id__in=[3, 7, 8])
+        .exclude(event_status_relation__id__in=[1, 3, 6])
         .order_by("event_date", "event_start")
     )
     context = {"events": events}

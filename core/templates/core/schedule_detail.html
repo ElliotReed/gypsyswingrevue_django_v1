@@ -9,13 +9,15 @@ Gypsy Swing Revue | Performance
   <a href="{% url 'core:schedule' %}">Back to schedule</a>
 </div>
 
-<section class="panel">
-{% include 'core/partials/performance-datetime.html' with events=events %}
+<section class="panel performance">
+  {% include 'core/partials/date.html' with events=events %}
 
   <h1 class="performance__title">
     {{event.event_name}}
   </h1>
 
+  {% include 'core/partials/performance-time.html' with events=events %}
+  
   <dl class="performance__details">
     {% include 'core/partials/venue.html' with events=events %}
     

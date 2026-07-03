@@ -1,13 +1,11 @@
 @use "../../backtalk/mixins";
 @use 'sass:math';
 
-#app>.page-menu {
-  display: none;
-  perspective: 500px;
-  perspective-origin: 50% 50%;
+.page-menu {
+  perspective: 800px;
+  perspective-origin: 0% 0%;
 
   @include mixins.respond-to("lg") {
-    display: block;
     margin-block-start: var(--space-md);
     @include mixins.content-grid;
 
@@ -20,11 +18,17 @@
 .marquee {
   $marquee-border: 1px solid var(--color-brown-500);
   position: relative;
+  @include mixins.border-ghost;
   transform-style: preserve-3d;
   // transform: translateX(2rem) rotateY(10deg);
   width: 100%;
+  height: max-content;
   min-width: max-content;
   transform-origin: left top;
+
+  &:hover {
+    // transform: rotateY(2deg);
+  }
 
   .marquee__front {
     text-align: center;
@@ -72,7 +76,7 @@
 
   .marquee__spine {
     display: flex;
-    display: none;
+    // display: none;
     border: $marquee-border;
     position: absolute;
     top: 0;
@@ -80,7 +84,7 @@
     width: 2rem;
     height: 100%;
     background-color: var(--color-brown-900);
-    transform: rotateY(-60deg);
+    transform: rotateY(-90deg);
     transform-origin: right center;
   }
 }

@@ -1,24 +1,40 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Gypsy Swing Revue | Schedule
+  Gypsy Swing Revue | Schedule
 {% endblock title %}
 
 {% block content %}
-
-<div class="container schedule">
+<div class="schedule">
   <section class="panel">
 
-    <div class="heading-link-container">
+    <hgroup class="heading-link-container">
       <h1>Performances</h1>
     <!--     <a href="{% url 'core:schedule_history' %}">
           View history 
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a> -->
-    </div>
+    </hgroup>
 
-    <ul class="event-list">
-      {% include 'core/partials/event.html' with events=events %}
+    <ul class="performance-list">
+      {% for event in events %}
+      <li class="performance">
+        {% include 'core/partials/date.html' with events=events %}
+        
+        <h2 class="performance__title heading-3">
+          <a href="{% url 'core:schedule_detail' event.id %}">
+            {{event.event_name}}
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </h2>
+        
+        {% include 'core/partials/performance-time.html' with events=events %}
+
+        <dl class="performance__details">
+          {% include 'core/partials/venue.html' with events=events %}
+        </dl>
+      </li>
+      {% endfor %}
     </ul>
 
   </section>

@@ -1,0 +1,31 @@
+@use "../../backtalk/mixins";
+
+.performance {
+  &__title {
+    a {
+      color: inherit;
+    }
+  }
+
+  &__details {
+    display: block;
+    font-weight: 600;
+    @include mixins.flow;
+  }
+}
+
+.performance-musicians__term {
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+.performance-musicians__description {
+  margin-block-start: var(--space-sm);
+  color: var(--color-primary-500);
+}
+
+.performance-musicians__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
