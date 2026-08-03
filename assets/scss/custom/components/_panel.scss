@@ -1,10 +1,14 @@
 @use "../../backtalk/mixins";
 
-.panel {
-  @include mixins.box-card;
+@mixin translucent {
   background: color-mix(in srgb, white 85%, transparent);
   background-blend-mode: color-dodge;
   backdrop-filter: blur(3px);
+}
+
+.panel {
+  @include mixins.box-card;
+  @include translucent;
   @include mixins.shadow(3);
   @include mixins.flow();
   max-height: fit-content;

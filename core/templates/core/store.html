@@ -80,62 +80,16 @@
       </h2>
       <a href="#album-links">Back to albums</a>
     </div>
-    
-    <div class="album__cover--container">
-      <div class="album-sale__cover">
-        <picture>
-          <source
-            type="image/webp"
-            srcset="
-              {% static 'images' %}/album-covers/{{album.cover.filename}}-400w.webp 1x,
-               {% static 'images' %}/album-covers/{{album.cover.filename}}-800w.webp 2x
-            "
-          >
-          <source
-            type="image/jpg"
-            srcset="
-              {% static 'images' %}/album-covers/{{album.cover.filename}}-400w.jpg 1x,
-               {% static 'images' %}/album-covers/{{album.cover.filename}}-800w.jpg 2x
-            "
-          >
-          <img 
-            src="{% static 'images' %}/album-covers/{{album.cover.filename}}-400w.jpg" 
-            alt="{{album.cover.description}}"
-            width="20rem" 
-            height="20rem"
-            loading="lazy" 
-          />
-        </picture>
-      </div>
-    </div>
-    
-    <ol class="track__list">
-    {% for track in album.songs %}
-      <li data-album="{{album.identifier}}">
-        <button data-title class="track__title"><span>{{track.title}}</span>
-          {% if track.source|length > 0 %}
-          <i class="fa-solid fa-play"></i>
-          {% endif %}
-        </button>
-        {% if track.source|length > 0 %}
-        <div data-track="{{track.track}}" class="track__player">
-          <audio 
-            controls 
-            src="{% static 'audio' %}/{{track.source}}"
-          ></audio>
-        </div>
-        {% endif %}
-      </li>
-    {% endfor %}
-    </ol>
+
+    {% include 'core/partials/album-player.html' with album=album %}
+
     {% include 'core/partials/paypal.html' with album=album %}
 
     <div class="purchase-links">
-      <p>Listen on <a href="https://open.spotify.com/album/1dCYboJr34Mst3dp383NWL?si=XW6Aq_DbTb-J5xRdU--Lnw">
-        Spotify
-        </a>
+      <p>Listen on <a href="https://open.spotify.com/album/1dCYboJr34Mst3dp383NWL?si=XW6Aq_DbTb-J5xRdU--Lnw">Spotify</a>
       </p>
     </div>
+  </div>
   </div>
   {% endfor %}
 {% endblock content %}

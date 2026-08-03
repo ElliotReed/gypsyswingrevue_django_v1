@@ -30,6 +30,14 @@ $font-overrides: (
 
 // replaces defaults entirely — only list weights your font actually loads
 $font-weight-overrides: (
+  "extralight": 200,
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+  "extrabold": 800,
+  "black": 900,
   ) !default;
 
 // null uses default — ratios: 1.125 subtle / 1.25 default / 1.333 expressive

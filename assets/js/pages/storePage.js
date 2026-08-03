@@ -1,43 +1,45 @@
-const ICON_TRANSFORM = 'rotate(90deg)';
-const SHOW_PLAYER_CLASS = 'show-player';
+import "../lib/albumPlayer.js";
 
-const audioTrackList = document.querySelectorAll('[data-album]');
-const titleButtons = document.querySelectorAll('[data-title]');
-const audioPlayers = document.querySelectorAll('[data-track]');
+// const ICON_TRANSFORM = 'rotate(90deg)';
+// const SHOW_PLAYER_CLASS = 'show-player';
 
-titleButtons.forEach(
-  titleButton=> titleButton.addEventListener('click', toggleAudioPlayer)
-  );
+// const audioTrackList = document.querySelectorAll('[data-album]');
+// const titleButtons = document.querySelectorAll('[data-title]');
+// const audioPlayers = document.querySelectorAll('[data-track]');
 
-function toggleAudioPlayer(e) {
-  const titleButton = e.target;
-  const audioPlayer = titleButton.nextElementSibling;
-  const isCurrentPlayer = audioPlayer?.classList.contains(SHOW_PLAYER_CLASS);
-  hideAllPLayers();
-  resetAllIconsPosition();
+// titleButtons.forEach(
+//   titleButton => titleButton.addEventListener('click', toggleAudioPlayer)
+// );
 
-  if (isCurrentPlayer) return; // has been reset, we're done!
+// function toggleAudioPlayer(e) {
+//   const titleButton = e.target;
+//   const audioPlayer = titleButton.nextElementSibling;
+//   const isCurrentPlayer = audioPlayer?.classList.contains(SHOW_PLAYER_CLASS);
+//   hideAllPLayers();
+//   resetAllIconsPosition();
 
-  if (audioPlayer) {
-      const icon = titleButton.querySelector('i');
-      icon.style.transform = ICON_TRANSFORM;
-      audioPlayer.classList.add(SHOW_PLAYER_CLASS);
-  }
-}
+//   if (isCurrentPlayer) return; // has been reset, we're done!
 
-function hideAllPLayers() {
-  audioPlayers.forEach(audioPlayer => {
-    if (audioPlayer.classList.contains(SHOW_PLAYER_CLASS)) {
-      audioPlayer.classList.remove(SHOW_PLAYER_CLASS);
-    }
-  });
-}
+//   if (audioPlayer) {
+//     const icon = titleButton.querySelector('i');
+//     icon.style.transform = ICON_TRANSFORM;
+//     audioPlayer.classList.add(SHOW_PLAYER_CLASS);
+//   }
+// }
 
-function resetAllIconsPosition() {
-  titleButtons.forEach(titleButton => {
-  const icon = titleButton.querySelector('i');
-    if (icon?.style.transform == ICON_TRANSFORM) {
-      icon.style.transform = 'rotate(0deg)';
-    }
-  })
-}
+// function hideAllPLayers() {
+//   audioPlayers.forEach(audioPlayer => {
+//     if (audioPlayer.classList.contains(SHOW_PLAYER_CLASS)) {
+//       audioPlayer.classList.remove(SHOW_PLAYER_CLASS);
+//     }
+//   });
+// }
+
+// function resetAllIconsPosition() {
+//   titleButtons.forEach(titleButton => {
+//     const icon = titleButton.querySelector('i');
+//     if (icon?.style.transform == ICON_TRANSFORM) {
+//       icon.style.transform = 'rotate(0deg)';
+//     }
+//   })
+// }

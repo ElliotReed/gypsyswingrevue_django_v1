@@ -16,3 +16,13 @@ npm run dev
 ```
 
 Use py scripts/generate_images.py to generate images. (Overwrites)
+
+## Vectors
+
+Attribution
+
+<a href="https://www.vecteezy.com/free-vector/vinyl">Vinyl Vectors by Vecteezy</a>
+
+page link
+
+https://www.vecteezy.com/vector-art/36651635-vinyl-record-disc

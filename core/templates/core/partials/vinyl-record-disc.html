@@ -1,0 +1,56 @@
+{% load static %}
+
+<svg viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- soft sheen so it still reads as a vinyl disc, not flat -->
+    <radialGradient id="sheen" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- clip the album art to a perfect circle -->
+    <clipPath id="labelClip">
+      <circle cx="200" cy="200" r="78"/>
+    </clipPath>
+  </defs>
+
+  <!-- outer vinyl disc -->
+  <circle cx="200" cy="200" r="190" fill="#19191a" stroke="#141414" stroke-width="2"/>
+
+  <!-- concentric grooves -->
+  <g fill="none" stroke="#414042" stroke-width="0.6" opacity="0.8">
+    <circle cx="200" cy="200" r="184"/>
+    <circle cx="200" cy="200" r="176"/>
+    <circle cx="200" cy="200" r="168"/>
+    <circle cx="200" cy="200" r="160"/>
+    <circle cx="200" cy="200" r="152"/>
+    <circle cx="200" cy="200" r="144"/>
+    <circle cx="200" cy="200" r="136"/>
+    <circle cx="200" cy="200" r="128"/>
+    <circle cx="200" cy="200" r="120"/>
+    <circle cx="200" cy="200" r="112"/>
+    <circle cx="200" cy="200" r="104"/>
+    <circle cx="200" cy="200" r="96"/>
+    <circle cx="200" cy="200" r="88"/>
+  </g>
+
+  <!-- light sheen overlay -->
+  <circle cx="200" cy="200" r="190" fill="url(#sheen)"/>
+
+  <!-- label ring -->
+  <circle cx="200" cy="200" r="80" fill="#0000003f" stroke="#000000" stroke-width="2"/>
+
+  <!-- ===== ALBUM ART GOES HERE ===== -->
+  <!-- swap the href below for your image URL / data URI -->
+  <image
+    href="{% static 'images/album-covers/'|add:album.cover.filename %}-200w.jpg"
+    x="122" y="122" width="156" height="156"
+    clip-path="url(#labelClip)"
+    preserveAspectRatio="xMidYMid slice"/>
+  <!-- if the image is missing this shows through instead -->
+  <circle cx="200" cy="200" r="78" fill="none" stroke="#9e0b0f" stroke-width="1" opacity="0.3"/>
+
+  <!-- center spindle hole -->
+  <circle cx="200" cy="200" r="6" fill="#141414"/>
+</svg>

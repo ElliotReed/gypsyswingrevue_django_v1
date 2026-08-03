@@ -1,0 +1,120 @@
+{% load static %}
+
+<div
+  data-id="{{ album.identifier }}"
+  data-component="player"
+  class="album-player"
+>
+  <div class="sticky player">
+
+    <div class="album-cover">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="
+            {% static 'images/album-covers/'|add:album.cover.filename|add:'-400w.webp' %} 1x,
+            {% static 'images/album-covers/'|add:album.cover.filename|add:'-800w.webp' %} 2x
+          "
+        >
+        <source
+          type="image/jpg"
+          srcset="
+            {% static 'images/album-covers/'|add:album.cover.filename|add:'-400w.jpg' %} 1x,
+            {% static 'images/album-covers/'|add:album.cover.filename|add:'-800w.jpg' %} 2x
+          "
+        >
+        <img
+          src="{% static 'images/album-covers/'|add:album.cover.filename|add:'-400w.jpg' %}"
+          alt="{{ album.cover.description }}"
+          width="20rem"
+          height="20rem"
+          loading="lazy"
+        />
+      </picture>
+
+      <div
+        data-id="{{ album.identifier }}"
+        data-component="record"
+        class="record-wrapper"
+      >
+        {% include "core/partials/vinyl-record-disc.html" with album=album %}
+      </div>
+    </div><!-- /.album-cover -->
+
+    <div class="audio-controls">
+
+      <div class="control-container">
+
+        <div class="primary-controls">
+          <button data-component="previous-button" title="Previous track">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+
+          <button
+            data-component="play-pause-button"
+            class="play-pause"
+            title="Play"
+          >
+            <i class="fa-solid fa-play icon-play"></i>
+            <i class="fa-solid fa-pause icon-pause"></i>
+          </button>
+
+          <button data-component="next-button" title="Next track">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div><!-- /.primary-controls -->
+
+        <div class="secondary-controls">
+          <button data-component="repeat-button" title="Play continuously">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+        </div><!-- /.secondary-controls -->
+
+      </div><!-- /.control-container -->
+
+      <div class="progress-container">
+        <span data-component="current-time">0:00</span>
+
+        <div
+          data-component="progress-bar"
+          class="progress-bar"
+          role="slider"
+          aria-label="Seek"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          tabindex="0"
+        >
+          <div data-component="progress-fill" class="progress-fill"></div>
+        </div><!-- /.progress-bar -->
+
+        <span data-component="duration">0:00</span>
+      </div><!-- /.progress-container -->
+
+    </div><!-- /.audio-controls -->
+
+    <span data-component="current-title"></span>
+
+  </div><!-- /.sticky.player -->
+
+  <ol class="track__list">
+    {% for track in album.songs %}
+      <li data-album="{{ album.identifier }}">
+        <button
+          class="track__title track-button"
+          data-component="track-button"
+          {% if track.source %}data-src="{% static 'audio/'|add:track.source %}"{% endif %}
+          data-title="{{ track.title }}"
+          {% if not track.source %}disabled{% endif %}
+        >
+          <span class="title">{{ track.title }}</span>
+
+          {% if track.source %}
+            <i class="fa-solid fa-play"></i>
+          {% endif %}
+        </button>
+      </li>
+    {% endfor %}
+  </ol><!-- /.track__list -->
+
+</div><!-- /.album-player -->

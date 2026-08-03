@@ -71,6 +71,7 @@ body {
   @include mixins.content-grid;
   @include mixins.scroll-container(y);
   @include mixins.scrollbar-themed;
+  position: relative;
 
   &>.panel:not(.panel ~ .panel) {
     margin-block-start: var(--space-md);
