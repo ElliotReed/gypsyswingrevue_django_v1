@@ -135,3 +135,5 @@ sqlite3.exe
 _resources
 /staticfiles
 credentials.md
+static/.vite/ 
+static/assets/
