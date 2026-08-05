@@ -135,5 +135,7 @@ sqlite3.exe
 _resources
 /staticfiles
 credentials.md
+
+# These get rebuilt on deploy, if commited they will cause the build to fail (won't overwrite)
 static/.vite/ 
 static/assets/

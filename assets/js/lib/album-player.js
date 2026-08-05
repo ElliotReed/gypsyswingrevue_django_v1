@@ -1,49 +1,8 @@
-/* =========================================================================
-   NOTES
-   - AudioController owns its own `new Audio()` — there's no <audio> tag
-     in the DOM at all. loadSrc(url) swaps the source directly.
-   - No "mode" concept, no seek-by-seconds buttons. Seeking happens by
-     clicking the progress bar, which calls AudioController.seekTo().
-   - Controls are looked up via data-component attributes, scoped inside
-     each [data-component="player"] root — not by class, not globally.
-     This includes [data-component="record"] and
-     [data-component="current-title"] (the now-playing display, distinct
-     from each track row's own title text — track rows keep their own
-     song name untouched), plus "play-pause-button", "previous-button",
-     "next-button", "repeat-button", "progress-bar", "progress-fill",
-     "current-time", "duration". Track rows use .track-button with
-     data-src / data-title —
-     a track with no preview simply has no data-src and is filtered out
-     of the playable sequence entirely (see `this.tracks` in AlbumPlayer).
-   - No shuffle: previews are short browsing clips, not a listening
-     session, so shuffling the order doesn't add much. Easy to reintroduce
-     later if that changes.
-   - pause() vs stop(): pause() (user clicked pause) only stops the record
-     spinning — it stays slid out. stop() (track ended with nothing to
-     continue to, or another album became active) stops spinning AND
-     retracts the record. Retraction always happens at a track's end,
-     even mid-album — the record slides in, then right back out for the
-     next track if one follows.
-   - "albumMode" distinguishes how playback started:
-     - clicking a specific track  -> albumMode: false, plays just that
-       track; repeat (if on) loops that same track.
-     - clicking the main play button, or next/previous -> albumMode: true,
-       plays through the album's available previews in sequence; repeat
-       (if on) loops back to the first track after the last one ends.
-   ========================================================================= */
-
 function formatTime(timeInSeconds) {
   const minutes = Math.floor(timeInSeconds / 60);
   const seconds = String(Math.floor(timeInSeconds) % 60).padStart(2, '0');
   return `${minutes}:${seconds}`;
 }
-
-/* -------------------------------------------------------------------------
-   AudioController
-   Owns its own `new Audio()` instance (nothing in the DOM) — src is set
-   directly from a URL you already built server-side (e.g. the Django
-   % static % track path). No mode/track-key logic; just loadSrc(url).
-   ------------------------------------------------------------------------- */
 class AudioController {
   constructor({ onLoaded, onTimeUpdate, onEnded } = {}) {
     this.audio = new Audio();
@@ -98,10 +57,6 @@ class AudioController {
   }
 }
 
-/* -------------------------------------------------------------------------
-   Record
-   Unchanged from before — pure visual, no audio/DOM-text knowledge.
-   ------------------------------------------------------------------------- */
 class Record {
   constructor(element, { slideMs = 1000, degPerSec = 180 } = {}) {
     this.element = element;
@@ -222,7 +177,8 @@ class AlbumPlayer {
 
     // only tracks with an actual preview src are part of the playable
     // sequence — others exist in the DOM (e.g. disabled) but are skipped
-    this.trackButtons = Array.from(rootElement.querySelectorAll('.track-button'));
+    this.trackButtons = Array.from(rootElement
+      .querySelectorAll('[data-component="track-button"]'));
     this.tracks = this.trackButtons.filter((button) => Boolean(button.dataset.src));
 
     this.currentTrackIndex = -1;
@@ -422,9 +378,7 @@ class PlayerManager {
   }
 }
 
-/* -------------------------------------------------------------------------
-   Wiring
-   ------------------------------------------------------------------------- */
+// initialize
 const manager = new PlayerManager();
 
 document.querySelectorAll("[data-component='player']").forEach((rootElement) => {

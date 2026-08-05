@@ -4,20 +4,11 @@
   .sticky {
     position: sticky;
     top: 0;
-    z-index: 10;
   }
 
   .player {
-    background: #f1f1f1;
     @include mixins.box-modal;
-
-    [data-component="current-title"] {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      font-weight: var(--font-weight-bold);
-      color: var(--color-text);
-    }
+    background: #f1f1f1;
   }
 
   .player .album-cover {
@@ -52,6 +43,7 @@
 
     .control-container {
       display: flex;
+      gap: var(--space-md);
       justify-content: space-between;
     }
 
@@ -62,8 +54,8 @@
 
     .primary-controls {
       display: flex;
-      justify-content: space-evenly;
       gap: var(--space-md);
+      justify-content: space-evenly;
 
       .play-pause {
         .icon-pause {
@@ -80,50 +72,74 @@
       }
     }
 
+    .repeat-button {
+      --active-color: var(--color-primary-50);
+
+      &:hover:not(:disabled) {
+        background: var(--color-neutral-100);
+      }
+
+      &.is-active {
+        background: var(--active-color);
+
+        &:hover:not(:disabled) {
+          background: var(--active-color);
+        }
+      }
+    }
+
     .progress-container {
-      position: relative;
       display: flex;
       align-items: center;
       gap: var(--space-xs);
       font-family: var(--font-ui);
-      font-weight: var(--font-weight-semibold);
       font-size: var(--text-sm);
+      font-weight: var(--font-weight-semibold);
     }
 
     .progress-bar {
-      position: relative;
       display: flex;
-      @include mixins.radius(xl);
       flex-basis: 100%;
       height: var(--space-sm);
       background: var(--color-neutral-300);
+      @include mixins.radius(xl);
       cursor: pointer;
-      transition: height 0.25s;
     }
 
     .progress-fill {
+      background: var(--color-primary-600);
       @include mixins.radius(xl);
-      background: var(--color-accent-500);
       pointer-events: none;
     }
   }
 
+  .player .current-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+  }
+
   .track__list {
-    .track__title {
-      color: var(--color-text);
+    .track__title-button {
       display: flex;
-      width: fit-content;
-      padding-inline-start: 0;
-      border: none;
-      background: transparent;
+      align-items: center;
       gap: var(--space-md);
+      width: fit-content;
+      padding-block: var(--space-sm);
+      padding-inline-start: 0;
+      color: var(--color-text);
+      font-family: var(--font-ui);
+      font-weight: var(--font-weight-semibold);
       text-align: start;
+      background: transparent;
+      border: none;
 
       &:disabled {
         color: inherit;
-        opacity: 1;
-        cursor: default;
         font-style: inherit;
+        cursor: default;
+        opacity: 1;
       }
     }
   }

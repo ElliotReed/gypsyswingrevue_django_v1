@@ -6,7 +6,6 @@
   class="album-player"
 >
   <div class="sticky player">
-
     <div class="album-cover">
       <picture>
         <source
@@ -33,39 +32,47 @@
       </picture>
 
       <div
-        data-id="{{ album.identifier }}"
-        data-component="record"
         class="record-wrapper"
+        data-component="record"
+        data-id="{{ album.identifier }}"
       >
         {% include "core/partials/vinyl-record-disc.html" with album=album %}
       </div>
     </div><!-- /.album-cover -->
 
     <div class="audio-controls">
-
       <div class="control-container">
-
         <div class="primary-controls">
-          <button data-component="previous-button" title="Previous track">
+          <button 
+            data-component="previous-button" 
+            title="Previous track"
+          >
             <i class="fa-solid fa-backward-step"></i>
           </button>
 
           <button
-            data-component="play-pause-button"
             class="play-pause"
+            data-component="play-pause-button"
             title="Play"
           >
             <i class="fa-solid fa-play icon-play"></i>
             <i class="fa-solid fa-pause icon-pause"></i>
           </button>
 
-          <button data-component="next-button" title="Next track">
+          <button 
+            data-component="next-button" 
+            title="Next track"
+          >
             <i class="fa-solid fa-forward-step"></i>
           </button>
         </div><!-- /.primary-controls -->
 
         <div class="secondary-controls">
-          <button data-component="repeat-button" title="Play continuously">
+          <button 
+            class="repeat-button" 
+            data-component="repeat-button" 
+            title="Play continuously"
+          >
             <i class="fa-solid fa-repeat"></i>
           </button>
         </div><!-- /.secondary-controls -->
@@ -90,22 +97,24 @@
 
         <span data-component="duration">0:00</span>
       </div><!-- /.progress-container -->
-
     </div><!-- /.audio-controls -->
 
-    <span data-component="current-title"></span>
-
+    <span data-component="current-title" class="current-title"></span>
   </div><!-- /.sticky.player -->
 
   <ol class="track__list">
     {% for track in album.songs %}
       <li data-album="{{ album.identifier }}">
         <button
-          class="track__title track-button"
+          class="track__title-button"
           data-component="track-button"
-          {% if track.source %}data-src="{% static 'audio/'|add:track.source %}"{% endif %}
+          {% if track.source %}
+            data-src="{% static 'audio/'|add:track.source %}"
+          {% endif %}
           data-title="{{ track.title }}"
-          {% if not track.source %}disabled{% endif %}
+          {% if not track.source %}
+            disabled
+          {% endif %}
         >
           <span class="title">{{ track.title }}</span>
 
@@ -116,5 +125,4 @@
       </li>
     {% endfor %}
   </ol><!-- /.track__list -->
-
 </div><!-- /.album-player -->
