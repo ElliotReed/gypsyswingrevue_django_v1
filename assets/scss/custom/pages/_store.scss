@@ -36,11 +36,15 @@
 }
 
 .album-links {
+  --total-time: 1s;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   gap: var(--space-md);
 
   .album-link {
+    @include mixins.fade-in-right;
+    animation-delay: calc((var(--total-time) / sibling-count()) * (sibling-index() - 1));
+
     img {
       width: 100%;
       aspect-ratio: 1/1;

@@ -1,7 +1,13 @@
+@use "../../backtalk/mixins";
+
 .songlist {
+  --total-time: 1s;
+
   li {
     font-weight: 500;
     padding-left: var(--space-xs);
+    @include mixins.fade-up;
+    animation-delay: calc((var(--total-time) / sibling-count()) * (sibling-index() - 1));
 
     &::marker {
       font-size: var(--text-xs);

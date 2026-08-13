@@ -11,7 +11,7 @@
     ]
   },
   "js/app.js": {
-    "file": "assets/app-UXEYUuwX.js",
+    "file": "assets/app-DCWdFLOQ.js",
     "name": "app",
     "src": "js/app.js",
     "isEntry": true,
@@ -19,7 +19,7 @@
       "_chunk-1VNLd2iN.js"
     ],
     "css": [
-      "assets/app-C8lmwUu_.css"
+      "assets/app-MZTAdFa-.css"
     ]
   },
   "js/pages/bandPage.js": {
@@ -43,7 +43,7 @@
     ]
   },
   "js/pages/storePage.js": {
-    "file": "assets/storePage-7ppOA7h4.js",
+    "file": "assets/storePage-sjxFq7Ap.js",
     "name": "storePage",
     "src": "js/pages/storePage.js",
     "isEntry": true,
