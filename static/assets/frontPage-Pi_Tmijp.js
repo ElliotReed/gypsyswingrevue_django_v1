@@ -1,1 +1,0 @@
-import{t as e}from"./chunk-1VNLd2iN.js";import{n as t,t as n}from"./viewer-Cxt05UNi.js";var r=e((()=>{t(),n(`front-page-band-viewer`,5e3),n(`front-page-testimonials`,6e3)}));export default r();
