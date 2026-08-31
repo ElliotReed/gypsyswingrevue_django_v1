@@ -65,7 +65,7 @@
         name="submit" 
         alt="PayPal - The safer, easier way to pay online!"
       >
-        <i class="fas fa-shopping-cart"></i> View Cart
+        <i aria-hidden="true" class="fas fa-shopping-cart"></i> View Cart
       </button>
     </form>
   </div>
@@ -84,12 +84,8 @@
     {% include 'core/partials/album-player.html' with album=album %}
 
     {% include 'core/partials/paypal.html' with album=album %}
-
-    <div class="purchase-links">
-      <p>Listen on <a href="https://open.spotify.com/album/1dCYboJr34Mst3dp383NWL?si=XW6Aq_DbTb-J5xRdU--Lnw">Spotify</a>
-      </p>
-    </div>
-  </div>
+    
+    {% include 'core/partials/external-album-links.html' with album=album %}
   </div>
   {% endfor %}
 {% endblock content %}

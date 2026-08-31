@@ -15,13 +15,19 @@ Gypsy Swing Revue | Find Us
         <li>
           <a class="" href="/schedule">
             Schedule
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i 
+              aria-hidden="true" 
+              class="fa-solid fa-arrow-up-right-from-square fa-xs"
+            ></i>
           </a>
         </li>
         <li>
           <a class="" href="/contact">
             Contact
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i 
+              aria-hidden="true" 
+              class="fa-solid fa-arrow-up-right-from-square fa-xs"
+            ></i>
           </a>
         </li>
       </ul> 
@@ -31,9 +37,16 @@ Gypsy Swing Revue | Find Us
         {% for link in social_links%}
           <li>
             <a class="" href={{link.url}}>
-              <i class="fa-brands {{ link.icon }}"></i>
+              <i 
+                aria-hidden="true" 
+                class="fa-brands {{ link.icon }} fa-lg"
+            ></i>
               {{link.content}}
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <i 
+                aria-hidden="true" 
+                class="fa-solid fa-arrow-up-right-from-square fa-xs"
+              ></i>
+              <span class="visually-hidden">(opens in new tab)</span>
             </a>
           </li>
         {% endfor %}

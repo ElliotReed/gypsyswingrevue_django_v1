@@ -12,7 +12,10 @@
       <h1>Performances</h1>
     <!--     <a href="{% url 'core:schedule_history' %}">
           View history 
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <i 
+            aria-hidden="true" 
+            class="fa-solid fa-arrow-up-right-from-square fa-xs"
+          ></i>
         </a> -->
     </hgroup>
 
@@ -24,7 +27,7 @@
         <h2 class="performance__title heading-3">
           <a href="{% url 'core:schedule_detail' event.id %}">
             {{event.event_name}}
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </h2>
         

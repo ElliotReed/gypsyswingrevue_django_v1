@@ -2,7 +2,7 @@
 <div class="nav__item-header">
   {% if type == 'footer' %}
         <a class="nav__heading nav__wrap" href="{{ href }}">
-          <i class="fa-solid {{ icon }}"></i>
+          <i aria-hidden="true" class="fa-solid {{ icon }}"></i>
           {{ label }}
         </a>
         {% elif type == 'page' %}

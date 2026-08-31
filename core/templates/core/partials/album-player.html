@@ -47,7 +47,7 @@
             data-component="previous-button" 
             title="Previous track"
           >
-            <i class="fa-solid fa-backward-step"></i>
+            <i aria-hidden="true" class="fa-solid fa-backward-step"></i>
           </button>
 
           <button
@@ -55,15 +55,15 @@
             data-component="play-pause-button"
             title="Play"
           >
-            <i class="fa-solid fa-play icon-play"></i>
-            <i class="fa-solid fa-pause icon-pause"></i>
+            <i aria-hidden="true" class="fa-solid fa-play icon-play"></i>
+            <i aria-hidden="true" class="fa-solid fa-pause icon-pause"></i>
           </button>
 
           <button 
             data-component="next-button" 
             title="Next track"
           >
-            <i class="fa-solid fa-forward-step"></i>
+            <i aria-hidden="true" class="fa-solid fa-forward-step"></i>
           </button>
         </div><!-- /.primary-controls -->
 
@@ -73,7 +73,7 @@
             data-component="repeat-button" 
             title="Play continuously"
           >
-            <i class="fa-solid fa-repeat"></i>
+            <i aria-hidden="true" class="fa-solid fa-repeat"></i>
           </button>
         </div><!-- /.secondary-controls -->
 
@@ -119,7 +119,7 @@
           <span class="title">{{ track.title }}</span>
 
           {% if track.source %}
-            <i class="fa-solid fa-play"></i>
+            <i aria-hidden="true" class="fa-solid fa-play"></i>
           {% endif %}
         </button>
       </li>

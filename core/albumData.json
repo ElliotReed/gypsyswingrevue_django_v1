@@ -9,6 +9,23 @@
     "price": "$15.00",
     "paypalAddToCart": "LT4ZSCYCFQGQ6",
     "identifier": "i_love_paris",
+    "links": [
+      {
+        "label": "Apple Music",
+        "link": "https://music.apple.com/us/album/i-love-paris/1200975407",
+        "icon": "fa-apple"
+      },
+      {
+        "label": "Spotify",
+        "link": "https://open.spotify.com/album/1dCYboJr34Mst3dp383NWL",
+        "icon": "fa-spotify"
+      },
+      {
+        "label": "YouTube",
+        "link": "https://www.youtube.com/watch?v=JWVIMh0e2PE&list=OLAK5uy_kSszU8nLLVvP-dZ-f311JhOVZTBGfdwmM",
+        "icon": "fa-youtube"
+      }
+    ],
     "songs": [
       {
         "track": 1,
@@ -87,6 +104,23 @@
     "price": "$15.00",
     "paypalAddToCart": "CUTSUUYBYSZMG",
     "identifier": "puttin_on_the_ritz",
+    "links": [
+      {
+        "label": "Apple Music",
+        "link": "https://music.apple.com/us/album/puttin-on-the-ritz/268671016",
+        "icon": "fa-apple"
+      },
+      {
+        "label": "Spotify",
+        "link": "https://open.spotify.com/album/2GhFpYVZdVZ1PnVkphY0OU",
+        "icon": "fa-spotify"
+      },
+      {
+        "label": "YouTube",
+        "link": "https://www.youtube.com/watch?v=i3lKdiVzF8Y&list=OLAK5uy_lOQnfQG3l75vE7T1gkCW1mFDDURSREiTk",
+        "icon": "fa-youtube"
+      }
+    ],
     "songs": [
       {
         "track": 1,
@@ -155,6 +189,7 @@
     "price": "$15.00",
     "paypalAddToCart": "4S7C74RE6JH94",
     "identifier": "some_of_these_days",
+    "links": [],
     "songs": [
       {
         "track": 1,
@@ -238,6 +273,7 @@
     "price": "Out of print.",
     "paypalAddToCart": "",
     "identifier": "under_paris_skies",
+    "links": [],
     "songs": [
       {
         "track": 1,

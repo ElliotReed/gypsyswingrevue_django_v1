@@ -1,0 +1,27 @@
+@use "../../backtalk/mixins";
+
+.external-album-links {
+  list-style: none;
+  padding-inline-start: 0;
+  // ::marker {
+  //   content: "👂🏼 "
+  // }
+
+  a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    text-decoration: none;
+    @include mixins.padding-box("xs");
+    padding-inline-start: 0;
+
+    @include mixins.respond-from-lg {
+      padding-block: 0;
+
+    }
+
+    &:visited {
+      color: currentColor;
+    }
+  }
+}

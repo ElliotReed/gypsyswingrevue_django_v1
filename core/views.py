@@ -29,7 +29,11 @@ def band(request):
 
 def find_us(request):
     social_links = [
-        # {"url": "https//:facebook.com", "content": "Facebook"},
+        {
+            "url": "https://www.facebook.com/gypsyswingrevue/",
+            "content": "Facebook",
+            "icon": "fa-facebook",
+        },
         {
             "url": "https://www.youtube.com/@GypsyswingrevueMusic",
             "content": "Youtube",

@@ -1,0 +1,19 @@
+<ul class="external-album-links">
+  {% for link in album.links %}
+  <li>
+    <a href="{{ link.link }}" target="_blank" rel="noopener noreferrer">
+      Listen on 
+      <i 
+      aria-hidden="true" 
+      class="fa-brands {{ link.icon }} fa-lg"
+    ></i>
+    {{ link.label }}
+      <i 
+        aria-hidden="true" 
+        class="fa-solid fa-arrow-up-right-from-square fa-xs"
+      ></i>
+      <span class="visually-hidden">(opens in new tab)</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
