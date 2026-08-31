@@ -7,6 +7,7 @@ urlpatterns = [
     path("find-us", views.find_us, name="find_us"),
     path("band", views.band, name="band"),
     path("songs", views.songs, name="songs"),
+    path("media-kit", views.media_kit, name="media_kit"),
     path("music", views.music, name="music"),
     path("i-love-paris", views.i_love_paris, name="i_love_paris"),
     path("contact", views.contact, name="contact"),

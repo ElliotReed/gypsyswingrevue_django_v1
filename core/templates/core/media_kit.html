@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Gypsy Swing Revue | Find Us
+{% endblock title %}
+
+{% block content %}
+
+<section class="panel">
+  <h2>Notable festivals and events</h2>
+  
+  <ul>
+    <li>Opera Colorado 2019 Gala</li>
+    <li>KUVO 89.3 FM Broadcast</li>
+    <li>Bohemian Nights</li>
+    <li>Five Points Jazz Festival</li>
+    <li>Evergreen Jazz Festival</li>
+    <li>Beaver Creek Wine & Spirits Festival</li>
+    <li>Under Paris Skies</li>
+  </ul>
+</section>
+
+<section class="stage-plot panel">
+  <h2>Stage Plot</h2>
+    <span class="audience-view">Audience View: Left to Right</span>
+    <ul class="plot-list">
+      {% for plot in stage_plots %}
+      <li class="plot-list-item" id="{{ plot.id }}">
+        <span class="musician">{{ plot.musician }}</span>
+        {% for instrument in plot.instruments %}
+          <span class="instruments">{{ instrument.instrument }}</span>
+        {% endfor %}
+          
+        <ul class="instrument-list">
+        {% for instrument in plot.instruments %}
+          <li>
+            <span class="instrument">{{ instrument.instrument }}</span>
+            <span class="output">
+              <span class="output-label">Output:</span>
+               <span class="output-value">{{ instrument.output }}</span>
+              </span>
+          </li>
+            {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+    </ul>
+
+    <p class="audience">Audience</p>
+</section> 
+
+<section class="panel">
+  <h2>Testimonials</h2>
+          {% include 'core/partials/testimonials.html' with testimonials=testimonials id="media-kit-testimonials" %}
+</section> 
+
+<section class="panel">
+  <h2>Song List</h2>
+  Check out our <a href="/songs">song list</a>!
+</section> 
+
+<section class="panel">
+  <h2>3 to 5 Pictures</h2>
+</section> 
+
+<section class="panel">
+  <h2>Bio</h2>
+</section> 
+
+<section class="panel">
+  <h2>1 or 2 videos or youtube channel</h2>
+</section> 
+
+<section class="panel">
+  <h2>Your link to your facebook page</h2>
+</section> 
+
+{% endblock content %}
+
+
+
+
+
+

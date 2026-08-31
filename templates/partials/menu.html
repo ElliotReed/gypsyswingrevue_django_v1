@@ -23,11 +23,22 @@
       {% include "partials/_nav-item-header.html" with type=type label="The Band" href=band_url icon="fa-users" %}
       
       <ul class="nav__item-list">
-        {% comment %} <li>
-          <a class="link marquee__text" href="{% url 'core:band' %}">the Band</a>
-        </li> {% endcomment %}
+        {% comment %} 
         <li>
-          <a class="link marquee__text" href="{% url 'core:band' %}#musicians">the Musicians</a>
+          <a class="link marquee__text" href="{% url 'core:band' %}"
+          >the Band</a>
+        </li> 
+        {% endcomment %}
+        <li>
+          <a 
+            class="link marquee__text" 
+            href="{% url 'core:band' %}#musicians"
+          >the Musicians</a>
+        </li>
+        <li>
+          <a 
+            class="link marquee__text" 
+          href="{% url 'core:media_kit' %}">Media Kit</a>
         </li>
       </ul>
     </section>

@@ -7,6 +7,29 @@ from datetime import datetime, date
 import json
 
 # TODO: incorporate newsletter confirmation
+testimonials = [
+    {
+        "quote": "Gypsy Swing Revue is ABSOLUTELY the best django/gypsy jazz/parisian jazz/hot club band in Colorado…",
+        "citation": "Dazzle Jazz",
+        "order": 1,
+    },
+    {
+        "quote": "...the band is ridiculously talented... ",
+        "citation": "Denver Post",
+        "order": 2,
+    },
+    {"quote": "...sweet and brilliant...", "citation": "KUVO 89.3 FM", "order": 3},
+    {
+        "quote": "...favorite band...in the style of Django Reinhardt and Stéphane Grappelli...",
+        "citation": "Fox News",
+        "order": 4,
+    },
+    {
+        "quote": "Thank you so much for the beautiful and highly entertaining music you and the Gypsy Swing Revue ensemble played on Saturday night. We received multiple compliments on your performance...It truly capped off a memorable evening celebrating Opera Colorado’s 35th anniversary.",
+        "citation": "Ben Newman, Executive and Special Projects Coordinator, Opera Colorado",
+        "order": 5,
+    },
+]
 
 
 def band(request):
@@ -74,29 +97,6 @@ def front_page(request):
 
     # TODO: Implement someday
     # testimonials = Testimonial.objects.all().order_by("order")
-    testimonials = [
-        {
-            "quote": "Gypsy Swing Revue is ABSOLUTELY the best django/gypsy jazz/parisian jazz/hot club band in Colorado…",
-            "citation": "Dazzle Jazz",
-            "order": 1,
-        },
-        {
-            "quote": "...the band is ridiculously talented... ",
-            "citation": "Denver Post",
-            "order": 2,
-        },
-        {"quote": "..sweet and brilliant..", "citation": "KUVO 89.3 FM", "order": 3},
-        {
-            "quote": "..favorite band...in the style of Django Reinhardt and Stéphane Grappelli..",
-            "citation": "Fox News",
-            "order": 4,
-        },
-        {
-            "quote": "Thank you so much for the beautiful and highly entertaining music you and the Gypsy Swing Revue ensemble played on Saturday night. We received multiple compliments on your performance...It truly capped off a memorable evening celebrating Opera Colorado’s 35th anniversary.",
-            "citation": "Ben Newman, Executive and Special Projects Coordinator, Opera Colorado",
-            "order": 5,
-        },
-    ]
 
     if request.method == "POST":
         # subscriber_email = request.POST.get("subscriber_email")
@@ -131,6 +131,53 @@ def i_love_paris(request):
 def media(request):
     # TODO: implement
     pass
+
+
+def media_kit(request):
+    stage_plots = [
+        {
+            "musician": "Eric Fellenstein",
+            "id": "eric",
+            "instruments": [
+                {"instrument": "Violin", "output": "XLR"},
+            ],
+        },
+        {
+            "musician": "Robert Kerly",
+            "id": "robert",
+            "instruments": [
+                {"instrument": "Accordion", "output": "1/4 inch"},
+            ],
+        },
+        {
+            "musician": "Elliot Reed",
+            "id": "elliot",
+            "instruments": [
+                {"instrument": "Guitar", "output": "XLR"},
+                {"instrument": "Vocals", "output": "XLR"},
+            ],
+        },
+        {
+            "musician": "Jean-luc Davis",
+            "id": "jean-luc",
+            "instruments": [
+                {"instrument": "Bass", "output": "XLR"},
+            ],
+        },
+        {
+            "musician": "Michael Isabell",
+            "id": "michael",
+            "instruments": [
+                {"instrument": "Guitar", "output": "XLR"},
+            ],
+        },
+    ]
+
+    context = {
+        "stage_plots": stage_plots,
+        "testimonials": testimonials,
+    }
+    return render(request, "core/media_kit.html", context)
 
 
 def newsletter(request):
