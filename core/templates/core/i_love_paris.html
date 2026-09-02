@@ -37,7 +37,9 @@ Gypsy Swing Revue | I Love Paris!
       <span>ft. Kristi Stice</span>
     </h2>
     <div class="ilp__video-container">
-      {% include "core/partials/iframe.html" with filename=vid title="La Mer from Blue Roots Denver" %}
+      {% for video in youtube_videos %}
+        {% include "core/partials/iframe.html" with filename=video.filename title=video.title %}
+      {% endfor %}
     </div>
   </div>
 

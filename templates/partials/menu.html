@@ -33,12 +33,17 @@
           <a 
             class="link marquee__text" 
             href="{% url 'core:band' %}#musicians"
-          >the Musicians</a>
+          >
+            the Musicians
+          </a>
         </li>
         <li>
           <a 
             class="link marquee__text" 
-          href="{% url 'core:media_kit' %}">Media Kit</a>
+            href="{% url 'core:band' %}#videos"
+          >
+            Videos
+          </a>
         </li>
       </ul>
     </section>
@@ -49,9 +54,15 @@
       {% url 'core:music' as music_url %}
       {% include "partials/_nav-item-header.html" with type=type label="The Music" href=music_url icon="fa-music" %}
       <ul class="nav__item-list">
-        {% comment %} <li>
-          <a class="link marquee__text" href="{% url 'core:music' %}#genre">the Genre</a>
-        </li> {% endcomment %}
+        <li>
+          <a 
+            class="link marquee__text" 
+            href="{% url 'core:music' %}#genre"
+          >
+            the Genre
+          </a>
+        </li> 
+        
         <li>
           <a 
           class="link marquee__text" 
@@ -73,17 +84,16 @@
     <section>
       <!-- button or anchor tag, class="nav__item-header" -->
       {% include "partials/_nav-item-header.html" with type=type label="Store" href="/store" icon="fa-store" %}
-      {% comment %} <ul class="nav__item-list nav__item-right"></ul> {% endcomment %}
-      <ul class="nav__item-list nav__item-right">
-        {% comment %} <li>
-          <a class="link marquee__text" href="/schedule">Schedule</a>
-        </li>
+      <ul class="nav__item-list">
         <li>
-          <a class="link marquee__text" href="/contact">Contact</a>
-        </li> {% endcomment %}
-        {% comment %} <li>
-          <a class="link marquee__text" href="/contact">Subscribe to our newsletter</a>
-        </li> {% endcomment %}
+          <a 
+            class="link marquee__text" 
+            href="{% url 'core:media_kit' %}"
+          >
+            Media Kit
+          </a>
+        </li>
+      </ul> 
       </section>
     </ul>
   </li>

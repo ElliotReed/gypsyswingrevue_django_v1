@@ -63,18 +63,42 @@ Gypsy Swing Revue | Find Us
 
 <section class="panel">
   <h2>3 to 5 Pictures</h2>
+  
+    <img loading="lazy" srcSet="{% static '' %}images/imageHook/starlight_1024.jpg" alt="" />
+    <img loading="lazy" srcSet="{% static '' %}images/imageHook/snug_1024.jpg" alt="" />
+    <img loading="lazy" srcSet="{% static '' %}images/imageHook/christmas_1024.jpg" alt="" />
+    <img loading="lazy" srcSet="{% static '' %}images/imageHook/snug-basement_1024.jpg" alt="" />
+</section> 
+
+
+<section class="panel" id="bio">
+  <h2>About The Band</h2>
+    <p>Gypsy Swing Revue is a group based in the Denver metro area of
+      Colorado. They perform music in the "Hot Club" style popularized
+      by Django Reinhardt and Stephane Grappelli in Paris during the 30's
+      and 40's. The focus is on tight arrangements with plenty of room for
+      jazz improvisation. With a mix of instrumental pieces and vocals,
+      this energetic music is fun for everyone.
+    </p>
+
+    <p>
+      Formed in the before times, by Elliot Reed, they have been a staple of the Denver music scene. Their acclaimed show "Under Paris Skies ft. Lannie Garret" sold out shows in the Clocktower Cabaret. They have performed live on KUVO radio, and at many Colorado music festivals. Their exceptionally long stint at The Irish Snug was dubbed the best place to go in Denver on Wednesdays by The Denver Post. Newly reformed after a Covid hiatus, they are still swingin'.
+    </p>
 </section> 
 
 <section class="panel">
-  <h2>Bio</h2>
+  <h2>Videos</h2>
+    <div class="media-kit__video-container">
+
+    {% for video in youtube_videos %}
+      {% include "core/partials/iframe.html" with filename=video.filename title=video.title %}
+    {% endfor %}
+  </div>
 </section> 
 
 <section class="panel">
-  <h2>1 or 2 videos or youtube channel</h2>
-</section> 
-
-<section class="panel">
-  <h2>Your link to your facebook page</h2>
+  <h2>Web Links</h2>
+  {% include 'core/partials/social-links.html' with social_links=social_links %}
 </section> 
 
 {% endblock content %}

@@ -68,10 +68,11 @@ body {
 
 .main {
   align-content: start;
-  @include mixins.content-grid;
+  @include mixins.content-grid();
   @include mixins.scroll-container(y);
   @include mixins.scrollbar-themed;
   position: relative;
+
 
   &>.panel:not(.panel ~ .panel) {
     margin-block-start: var(--space-md);
@@ -80,11 +81,15 @@ body {
       margin-block-start: unset;
     }
 
-    @include mixins.respond-to("lg") {
-      margin-block-start: var(--space-md);
-    }
   }
 
+  @include mixins.respond-to("lg") {
+    margin-block-start: var(--space-md);
+
+    &>* {
+      grid-column: wide-start / content;
+    }
+  }
 
   &> :last-child {
     margin-block-end: var(--space-md);

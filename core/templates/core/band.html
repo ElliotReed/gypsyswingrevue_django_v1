@@ -24,6 +24,10 @@
     </p>
       
     {% include 'core/partials/viewer.html' with image_prefixes=image_prefixes id="band-viewer" %}
+
+    <p>
+      Formed in the before times, by Elliot Reed, they have been a staple of the Denver music scene. Their acclaimed show "Under Paris Skies ft. Lannie Garret" sold out shows in the Clocktower Cabaret. They have performed live on KUVO radio, and at many Colorado music festivals. Their exceptionally long stint at The Irish Snug was dubbed the best place to go in Denver on Wednesdays by The Denver Post. Newly reformed after a Covid hiatus, they are still swingin'.
+    </p>
   </section>
 
   <section class="panel" id="musicians">
@@ -61,4 +65,14 @@
       </p>
     </div>
   </section>
+
+  <section class="panel" id="videos">
+  <h2>Videos</h2>
+    <div class="media-kit__video-container">
+
+    {% for video in youtube_videos %}
+      {% include "core/partials/iframe.html" with filename=video.filename title=video.title %}
+    {% endfor %}
+  </div>
+</section> 
 {% endblock content %}

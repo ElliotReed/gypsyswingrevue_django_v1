@@ -1,0 +1,19 @@
+@use "../../backtalk/mixins";
+
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-ui);
+    font-weight: 600;
+
+    i {
+      // font-size: var(--text-sm);
+    }
+  }
+}

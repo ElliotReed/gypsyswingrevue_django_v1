@@ -33,24 +33,7 @@ Gypsy Swing Revue | Find Us
       </ul> 
         
       <h2>Web Links</h2>
-        <ul class="find-us__web">
-        {% for link in social_links%}
-          <li>
-            <a class="" href={{link.url}}>
-              <i 
-                aria-hidden="true" 
-                class="fa-brands {{ link.icon }} fa-lg"
-            ></i>
-              {{link.content}}
-              <i 
-                aria-hidden="true" 
-                class="fa-solid fa-arrow-up-right-from-square fa-xs"
-              ></i>
-              <span class="visually-hidden">(opens in new tab)</span>
-            </a>
-          </li>
-        {% endfor %}
-      </ul> 
+      {% include 'core/partials/social-links.html' with social_links=social_links %}
   </section>
 
 {% endblock content %}

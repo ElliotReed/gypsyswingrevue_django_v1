@@ -2,7 +2,7 @@
 @use 'sass:math';
 
 .page-menu {
-  perspective: 800px;
+  // perspective: 800px;
   perspective-origin: 0% 0%;
 
   @include mixins.respond-to("lg") {
@@ -10,7 +10,9 @@
     @include mixins.content-grid;
 
     .marquee {
-      grid-column-end: full-width;
+      grid-column: content / wide-end;
+      max-width: 24rem;
+      justify-self: end;
     }
   }
 }
@@ -76,7 +78,7 @@
 
   .marquee__spine {
     display: flex;
-    // display: none;
+    display: none;
     border: $marquee-border;
     position: absolute;
     top: 0;

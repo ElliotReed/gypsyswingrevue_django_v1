@@ -37,6 +37,8 @@
           {% include 'core/partials/venue.html' with events=events %}
         </dl>
       </li>
+      {% empty %}
+        <p>Check back for new performances.</p>
       {% endfor %}
     </ul>
 

@@ -5,31 +5,14 @@ from .models import ILoveParisVideo, Event, ProjectSong, Testimonial
 from email_service.email import send_contact_form
 from datetime import datetime, date
 import json
+from .site_data import testimonials, social_links, youtube_videos
+
+
+def filter_videos_by_slug(youtube_videos, wanted_slugs):
+    return [v for v in youtube_videos if v["slug"] in wanted_slugs]
+
 
 # TODO: incorporate newsletter confirmation
-testimonials = [
-    {
-        "quote": "Gypsy Swing Revue is ABSOLUTELY the best django/gypsy jazz/parisian jazz/hot club band in Colorado…",
-        "citation": "Dazzle Jazz",
-        "order": 1,
-    },
-    {
-        "quote": "...the band is ridiculously talented... ",
-        "citation": "Denver Post",
-        "order": 2,
-    },
-    {"quote": "...sweet and brilliant...", "citation": "KUVO 89.3 FM", "order": 3},
-    {
-        "quote": "...favorite band...in the style of Django Reinhardt and Stéphane Grappelli...",
-        "citation": "Fox News",
-        "order": 4,
-    },
-    {
-        "quote": "Thank you so much for the beautiful and highly entertaining music you and the Gypsy Swing Revue ensemble played on Saturday night. We received multiple compliments on your performance...It truly capped off a memorable evening celebrating Opera Colorado’s 35th anniversary.",
-        "citation": "Ben Newman, Executive and Special Projects Coordinator, Opera Colorado",
-        "order": 5,
-    },
-]
 
 
 def band(request):
@@ -42,27 +25,18 @@ def band(request):
         "snug-basement",
     ]
 
-    # TODO: implement
+    wanted_videos = {"nuages", "oui"}
+    filtered_videos = filter_videos_by_slug(youtube_videos, wanted_videos)
+
     context = {
         "image_prefixes": image_prefixes,
+        "youtube_videos": filtered_videos,
     }
 
     return render(request, "core/band.html", context)
 
 
 def find_us(request):
-    social_links = [
-        {
-            "url": "https://www.facebook.com/gypsyswingrevue/",
-            "content": "Facebook",
-            "icon": "fa-facebook",
-        },
-        {
-            "url": "https://www.youtube.com/@GypsyswingrevueMusic",
-            "content": "Youtube",
-            "icon": "fa-youtube",
-        },
-    ]
     context = {"social_links": social_links}
     return render(request, "core/find-us.html", context)
 
@@ -114,7 +88,8 @@ def front_page(request):
 
 def i_love_paris(request):
     # video = ILoveParisVideo.objects.all()[1]
-    video = "Kpz3-UHoSVY?si=uvKoheYFGwi_XNg5"
+    wanted_videos = {"beyond-the-sea", "la-vie-en-rose"}
+    filtered_videos = filter_videos_by_slug(youtube_videos, wanted_videos)
 
     song_list = (
         ProjectSong.objects.select_related("song")
@@ -123,7 +98,7 @@ def i_love_paris(request):
     )
     context = {
         "song_list": song_list,
-        "vid": video,
+        "youtube_videos": filtered_videos,
     }
     return render(request, "core/i_love_paris.html", context)
 
@@ -176,6 +151,8 @@ def media_kit(request):
     context = {
         "stage_plots": stage_plots,
         "testimonials": testimonials,
+        "social_links": social_links,
+        "youtube_videos": youtube_videos,
     }
     return render(request, "core/media_kit.html", context)
 
@@ -212,7 +189,8 @@ def schedule(request):
     events = (
         Event.objects.select_related("event_type_relation")
         .prefetch_related("venues__state_relation")
-        .filter(project_id=6, event_date__gte=dev_start_date)
+        # .filter(project_id=6, event_date__gte=dev_start_date)
+        .filter(project_id=6, event_date__gte=datetime.today())
         .exclude(event_type_relation__id__in=[3, 7, 8])
         .exclude(event_status_relation__id__in=[1, 3, 6])
         .order_by("event_date", "event_start")

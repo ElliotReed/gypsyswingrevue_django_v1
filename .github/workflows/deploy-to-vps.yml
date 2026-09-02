@@ -1,7 +1,7 @@
-name: Deploy Django App to VPS Production
+name: Deploy Django App to VPS 
 on:
   # push:
-  #   branches: [main]
+    # branches: [main]
   workflow_dispatch:
 env:
   VPS_HOST: ${{ secrets.VPS_HOST }}
@@ -18,11 +18,14 @@ jobs:
           ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
       - name: Add SSH host to known_hosts
         run: ssh-keyscan ${{ env.VPS_HOST }} >> ~/.ssh/known_hosts
+
       - name: Deploy
         run: |
           ssh ${{ env.VPS_USER }}@${{ env.VPS_HOST }} << 'EOF'
             cd ~/apps/${{ env.SITE_NAME }}
             git pull origin main
+            npm ci
+            npm run build
             pipenv install --deploy
             pipenv run python manage.py migrate --noinput
             pipenv run python manage.py collectstatic --noinput

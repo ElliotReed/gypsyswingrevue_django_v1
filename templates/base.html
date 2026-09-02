@@ -60,14 +60,14 @@
   {% include 'header.html' %}
 
   {% include 'partials/page_menu.html' with id="page-menu" %}
-
+  
   <main class="main" data-main-scroll>
     {# duplicate menu for iPad sizes (md) #}
     {% include 'partials/page_menu.html' with id="main-menu" %}
 
     {% block content %}
     {% endblock content %}
-
+    
     {% include "core/partials/django-badge.html" %}
   </main>
 
