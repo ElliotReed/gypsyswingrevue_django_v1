@@ -68,7 +68,8 @@
 
   <section class="panel" id="videos">
     <h2>Videos</h2>
-    <div class="media-kit__video-container">
+    
+      <div class="media-kit__video-container">
     {% for video in youtube_videos %}
       {% include "core/partials/iframe.html" with filename=video.filename title=video.title %}
     {% endfor %}
