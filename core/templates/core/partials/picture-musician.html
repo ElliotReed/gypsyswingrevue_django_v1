@@ -1,7 +1,7 @@
 {% load static %}
 {# ratio 4:5 #}
 <picture class="picture__musician">
-  <source media="(min-width: 1024px)" srcSet="{% static '' %}images/musicians/{{ name }}-800w.jpg" />
-  <source media="(min-width: 768px)" srcSet="{% static '' %}images/musicians/{{ name }}-400w.jpg" />
-  <img srcSet="{% static '' %}images/musicians/{{ name }}-200w.jpg" alt="{{ description }}" />
+  <source media="(min-width: 1024px)" srcset="{% static '' %}images/musicians/{{ name }}-800w.jpg" />
+  <source media="(min-width: 768px)" srcset="{% static '' %}images/musicians/{{ name }}-400w.jpg" />
+  <img srcset="{% static '' %}images/musicians/{{ name }}-200w.jpg" alt="{{ description }}" />
 </picture>
