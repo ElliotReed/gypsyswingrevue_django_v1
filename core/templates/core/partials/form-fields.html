@@ -1,8 +1,14 @@
 {% for field in form %}
 <div class="form-group">
-  <label for='{{field.id_for_label}}'>{{field.label}}</label>
-  <p class="error">{{ field.errors }}</p>
-  <p class="helptext">{{field.help_text}}</p>
+  <label for="{{field.id_for_label}}">{{field.label}}
+    <span class="helptext">{{field.help_text}}</span>
+  </label>
+  
   {{ field }}
+  
+  {% for error in field.errors %}  
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  
 </div>
 {% endfor %}

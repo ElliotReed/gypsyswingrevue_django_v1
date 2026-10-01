@@ -17,26 +17,29 @@
   </hgroup>
 
   {% if messages %}
-  {% for message in messages %}
+    {% for message in messages %}
 
-  {% if message.tags == 'success' %}
-  <h2 class="heading-3">Thank you for contacting Gypsy Swing Revue!</h2>
-  {% endif %}
+    {% if message.tags == 'success' %}
+    <h2 class="heading-3">Thank you for contacting Gypsy Swing Revue!</h2>
+    {% endif %}
 
-  <p class="container-blue-600">
-    {{ message }}
-  </p>
-  {% endfor %}
+    <p class="container-blue-600">
+      {{ message }}
+    </p>
+    {% endfor %}
 
   {% else %}
-  <form class="form contact__form" action="" method="POST">
-    {% csrf_token %}
-    {% include 'core/partials/form-fields.html' with form=contact_form %}
-
-    <button class="contact__form-button" name="contact" type="submit">
-      Send Message
-    </button>
-  </form>
+    <form class="form contact__form" action="" method="POST" novalidate>
+      {% csrf_token %}
+    
+      {% include 'core/partials/form-fields.html' with form=contact_form %}
+    
+      <button class="contact__form-button" name="contact" type="submit">
+        Send Message
+      </button>
+    </form>
+    
+  {% endif %}
 </section>
 
 {% comment %} <div class="container">
@@ -44,7 +47,5 @@
     {% include 'core/partials/newsletter_subscribe.html' %}
   </div>
 </div> {% endcomment %}
-
-{% endif %}
 
 {% endblock content %}

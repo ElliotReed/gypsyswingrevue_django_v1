@@ -1,11 +1,22 @@
 @use "../../backtalk/mixins";
 
-.contact {
+.form-group:has([data-pooh]) {
+  display: none;
+}
 
-  .contact__form {
+.form-group>.error {
+  color: var(--color-error-700);
+  font-family: var(--font-ui);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-sm);
+  padding-block-end: var(--space-xs);
+}
 
-    &-button {
-      width: 100%;
-    }
-  }
+.form-group label>.helptext {
+  font-size: var(--text-xs);
+  font-style: italic;
+}
+
+.contact__form-button {
+  width: 100%;
 }

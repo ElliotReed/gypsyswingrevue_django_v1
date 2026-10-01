@@ -46,7 +46,9 @@ def contact(request):
 
     if request.method == "POST":
         if "contact" in request.POST:
-            send_contact_form(request)
+            contact_form = ContactForm(request.POST)
+            if contact_form.is_valid():
+                send_contact_form(request)
 
         if "newsletter" in request.POST:
             subscriber_email = request.POST.get("subscriber_email")
