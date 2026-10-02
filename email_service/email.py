@@ -1,10 +1,11 @@
 from decouple import config
 
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
 
+contact_from_email = config("CONTACT_FROM_EMAIL")
 contact_recieving_email = config("CONTACT_RECIEVING_EMAIL")
 
 
@@ -33,31 +34,24 @@ def add_subscriber(request, email):
     )
 
 
-def send_contact_form(request):
-    body = request.POST
-    name = body.get("name")
-    sender_message = body.get("message")
-    sender_email = body.get("email")
+def send_contact_form(data):
+    name = data["name"]
+    sender_message = data["message"]
+    sender_email = data["email"]
 
-    print("sent")
-
-    msg_html = render_to_string(
-        "email.html",
-        {"message": {"message": sender_message, "name": name, "sender": sender_email}},
+    body = (
+        "<div style='font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #222;'>"
+        f"<p><strong>{name}</strong> ({sender_email})</p>"
+        f"<p>{sender_message.replace(chr(10), '<br>')}</p>"
+        "</div>"
     )
 
-    try:
-        send_mail(
-            f"A new message from {name}",
-            sender_message,
-            sender_email,
-            [contact_recieving_email],
-            html_message=msg_html,
-        )
-    except Exception:
-        messages.error(request, "Sorry, something went wrong...")
-
-    return messages.success(
-        request,
-        "Your message has been sent. You will be contacted shortly.",
+    email = EmailMessage(
+        subject="Gypsy Swing Revue contact message",
+        body=body,
+        from_email=contact_from_email,
+        to=[contact_recieving_email],
+        reply_to=[sender_email],
     )
+    email.content_subtype = "html"
+    email.send()

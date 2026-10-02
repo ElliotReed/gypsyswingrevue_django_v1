@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404, render
+from django.contrib import messages
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from .forms import ContactForm
 from .models import ILoveParisVideo, Event, ProjectSong, Testimonial
@@ -48,7 +49,18 @@ def contact(request):
         if "contact" in request.POST:
             contact_form = ContactForm(request.POST)
             if contact_form.is_valid():
-                send_contact_form(request)
+                try:
+                    send_contact_form(contact_form.cleaned_data)
+                except Exception:
+                    contact_form.add_error(
+                        None, "Couldn't send your message. Please try again."
+                    )
+                else:
+                    messages.success(
+                        request,
+                        "Your message has been sent. You will be contacted shortly.",
+                    )
+                    return redirect("core:contact")
 
         if "newsletter" in request.POST:
             subscriber_email = request.POST.get("subscriber_email")
